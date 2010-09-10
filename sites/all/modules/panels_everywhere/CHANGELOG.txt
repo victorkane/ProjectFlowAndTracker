@@ -1,0 +1,21 @@
+Changelog for Panels Everywhere
+
+Panels Everywhere 1.1 (2010-Jul-26)
+  o Don't use so many tokens when rendering page elements.
+  o #784812: Don't override module page preprocesses so harshly.
+  o #805180: Allow pages to select their template directly rather than going through variant rules. Works only with CTools 1.5.
+  o Make sure the "Edit panel" tab says "Edit site template" for the site template. Works only with CTools 1.7.
+
+Panels Everywhere 1.0 (2010-Feb-01)
+  o #680834: theme.inc include gets lost in theme registry due to Drupal bug. Include theme.inc automatically to compensate.
+  o Add a checkbox to allow the admin theme to get Panels Everywhere applied separately.
+
+Panels Everywhere 1.0-beta1
+  o Initial commit to CVS
+  o #674222: README.txt missed "engine = phptemplate" line for the blank.info -- this is needed so the blank theme can have templates.
+  o Make sure that page manager edit screens are NOT run through layouts in case of catastrophic configuration of the site_template.
+  o #679206: Using the setting to hide Drupal blocks/regions would cause theme('page') to loop infinitely resulting in either bad HTML or whitescreens.
+  o Add some descriptive info text to the content types we offer to help introduce people to what will be IN the content and how they can theme them.
+  o Update the README to include instructions on setting the page title to set from the page content pane.
+  o Breadcrumb did not display properly in pane navigation due to error in theme.inc
+  o #679252: Create a sample variant and include it with Panels Everywhere, with an easy setting to make it go away after it is no longer needed.

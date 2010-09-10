@@ -1,0 +1,13 @@
+; $Id: panels_everywhere.info,v 1.1 2009/12/29 06:07:29 merlinofchaos Exp $
+name = Panels everywhere
+description = Allow your site to use Panels instead of Blocks to lay out your pages.
+package = "Panels"
+dependencies[] = panels
+dependencies[] = page_manager
+core = 6.x
+; Information added by drupal.org packaging script on 2010-07-27
+version = "6.x-1.1"
+core = "6.x"
+project = "panels_everywhere"
+datestamp = "1280189120"
+

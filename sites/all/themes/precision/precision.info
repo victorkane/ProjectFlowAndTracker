@@ -1,0 +1,19 @@
+; $Id: precision.info,v 1.1 2010/08/25 10:43:00 dixon Exp $
+name = Precision
+description = Base theme suitable for Panels Everywhere.
+core = 6.x
+engine = phptemplate
+
+stylesheets[all][] = css/reset.css
+stylesheets[all][] = css/precision.css
+
+plugins[panels][layouts] = plugins/layouts
+plugins[panels][styles] = plugins/styles
+
+api[panels][styles][version] = 2
+; Information added by drupal.org packaging script on 2010-08-25
+version = "6.x-1.0-alpha1"
+core = "6.x"
+project = "precision"
+datestamp = "1282733807"
+

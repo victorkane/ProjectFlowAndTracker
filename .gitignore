@@ -1,0 +1,10 @@
+*.ori
+.*.swp
+sites/*/settings.php
+sites/all/modules/log
+backup/
+backup/*
+!sites/default/backup/
+sites/default/files/
+sites/default/files/*
+sites/default/files/*/*
