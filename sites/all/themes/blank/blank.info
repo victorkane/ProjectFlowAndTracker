@@ -1,0 +1,5 @@
+name = Blank
+description = Blank
+core = 6.x
+stylesheets[all][] = blank.css
+engine = phptemplate
