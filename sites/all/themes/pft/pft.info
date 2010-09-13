@@ -1,0 +1,8 @@
+; $Id: stream.info,v 1.1 2010/08/29 22:16:23 dixon Exp $
+name = "PFT"
+description = "Based on Precision, Base theme for NodeStream."
+core = "6.x"
+engine = "phptemplate"
+base theme = "precision"
+
+stylesheets[all][] = "css/local.css"
