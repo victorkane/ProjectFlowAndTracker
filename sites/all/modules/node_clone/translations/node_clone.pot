@@ -1,0 +1,136 @@
+# $Id: node_clone.pot,v 1.3.4.1 2010/07/18 20:40:59 pwolanin Exp $
+#
+# LANGUAGE translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  clone.pages.inc,v 1.3 2008/05/07 02:28:58 pwolanin
+#  clone.module,v 1.23 2008/10/15 18:39:44 pwolanin
+#  clone.info,v 1.8 2008/04/09 01:14:24 pwolanin
+#  views_handler_field_node_link_clone.inc,v 1.1 2008/10/14 23:16:56 pwolanin
+#  clone.views.inc,v 1.1 2008/10/14 23:16:56 pwolanin
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2008-10-22 19:43+0200\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: clone.pages.inc:12
+msgid "General settings"
+msgstr ""
+
+#: clone.pages.inc:16
+msgid "Method to use when cloning a node"
+msgstr ""
+
+#: clone.pages.inc:17
+msgid "Pre-populate the node form fields"
+msgstr ""
+
+#: clone.pages.inc:17
+msgid "Save as a new node then edit"
+msgstr ""
+
+#: clone.pages.inc:22
+msgid "Confirmation mode when using the \"Save as a new node then edit\" method"
+msgstr ""
+
+#: clone.pages.inc:24
+msgid "Require confirmation (recommended)"
+msgstr ""
+
+#: clone.pages.inc:24
+msgid "Bypass confirmation"
+msgstr ""
+
+#: clone.pages.inc:25
+msgid "A new node may be saved immediately upon clicking the \"clone\" tab when viewing a node, bypassing the normal confirmation form."
+msgstr ""
+
+#: clone.pages.inc:30
+msgid "Should the publishing options ( e.g. published, promoted, etc) be reset to the defaults?"
+msgstr ""
+
+#: clone.pages.inc:37
+msgid "@s: reset publishing options when cloned"
+msgstr ""
+
+#: clone.pages.inc:44
+msgid "Content types that are not to be cloned - omitted due to incompatibility"
+msgstr ""
+
+#: clone.pages.inc:48
+msgid "Omitted content types"
+msgstr ""
+
+#: clone.pages.inc:51
+msgid "Select any node types which should <em>never</em> be cloned. Typically you should will want to select here all node types for which cloning fails (e.g. image nodes)."
+msgstr ""
+
+#: clone.pages.inc:89
+msgid "Are you sure you want to clone %title?"
+msgstr ""
+
+#: clone.pages.inc:90
+msgid "This action will create a new node. You will then be redirected to the edit page for the new node."
+msgstr ""
+
+#: clone.pages.inc:91 clone.module:46
+msgid "Clone"
+msgstr ""
+
+#: clone.pages.inc:91
+msgid "Cancel"
+msgstr ""
+
+#: clone.pages.inc:126;166
+msgid "Clone of !title"
+msgstr ""
+
+#: clone.module:11
+msgid "The clone module allows users to make a copy of an existing node and then edit that copy. The authorship is set to the current user, the menu and url aliases are reset, and the words \"Clone of\" are inserted into the title to remind you that you are not editing the original node."
+msgstr ""
+
+#: clone.module:12
+msgid "Users with the \"clone node\" permission can utilize this functionality. A new tab will appear on node pages with the word \"Clone\"."
+msgstr ""
+
+#: clone.module:17
+msgid "This clone will not be saved to the database until you submit."
+msgstr ""
+
+#: clone.module:26
+msgid "clone node"
+msgstr ""
+
+#: clone.module:26
+msgid "clone own nodes"
+msgstr ""
+
+#: clone.module:37 clone.info:0
+msgid "Clone module"
+msgstr ""
+
+#: clone.module:39 clone.info:0
+msgid "Allows users to clone (copy then edit) an existing node."
+msgstr ""
+
+#: clone.module:0 views/views_handler_field_node_link_clone.inc:29
+msgid "clone"
+msgstr ""
+
+#: views/clone.views.inc:26
+msgid "Clone link"
+msgstr ""
+
+#: views/clone.views.inc:27
+msgid "Provide a simple link to clone the node."
+msgstr ""
+

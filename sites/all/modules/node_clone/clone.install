@@ -1,0 +1,17 @@
+<?php
+// $Id: clone.install,v 1.2.4.1 2010/07/28 21:50:57 pwolanin Exp $
+
+/**
+ * Implementation of hook_uninstall.
+ */
+function clone_uninstall() {
+  variable_del('clone_method');
+  variable_del('clone_omitted');
+  variable_del('clone_nodes_without_confirm');
+  variable_del('clone_menu_links');
+  $types = node_get_types('names');
+  foreach ($types as $type => $name) {
+    variable_del('clone_reset_'. $type);
+  }
+}
+
