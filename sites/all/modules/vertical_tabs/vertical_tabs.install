@@ -1,5 +1,5 @@
 <?php
-// $Id: vertical_tabs.install,v 1.1.2.10 2009/12/04 05:01:53 davereid Exp $
+// $Id: vertical_tabs.install,v 1.1.2.11 2010/02/03 19:06:46 davereid Exp $
 
 /**
  * @file
@@ -27,6 +27,8 @@ function vertical_tabs_enable() {
  */
 function vertical_tabs_uninstall() {
   variable_del('vertical_tabs_forms');
+  variable_del('vertical_tabs_default');
+  variable_del('vertical_tabs_minimum');
 }
 
 /**
