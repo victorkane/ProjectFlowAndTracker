@@ -1,0 +1,7 @@
+.panel-3col-33 .panel-col {
+  width: 44%;
+  word-wrap: break-word;
+}
+.panel-3col-33 .panel-col-last {
+  width: 20%;
+}
