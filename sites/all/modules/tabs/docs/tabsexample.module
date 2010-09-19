@@ -1,0 +1,126 @@
+<?php
+
+/**
+ * Implementation of hook_menu().
+ */
+function tabsexample_menu() {
+  $items = array();
+
+  $items['tabsexample'] = array(
+    'title' => 'Tabs example, basic',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('tabsexample_form'),
+    'access arguments' => array('access content'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  $items['tabsexample-ajax'] = array(
+    'title' => 'Tabs example, AJAX',
+    'page callback' => 'tabsexample_ajax_tabset',
+    'access arguments' => array('access content'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  $items['tabsexample/ajax'] = array(
+    'title' => 'Tabs example ajax',
+    'page callback' => 'tabsexample_ajax',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+/**
+ * Generate an example set of tabs.
+ */
+function tabsexample_form() {
+  $form = array();
+
+  $form['example1'] = array(
+    '#type' => 'tabset',
+  );
+  $form['example1']['tab1'] = array(
+    // #type and #title are the minimum requirements.
+    '#type' => 'tabpage',
+    '#title' => t('One'),
+    // This will be the content of the tab.
+    '#content' => t('First tab content.') . theme('item_list', array(l(t('one'), 'node'), l(t('two'), 'node'), l(t('three'), 'node'))),
+  );
+  $form['example1']['tab2'] = array(
+    '#type' => 'tabpage',
+    '#title' => t('Two'),
+    '#content' => t('Second tab content.'),
+  );
+  // Nest a second tabset.
+  $form['example1']['tab2']['tabset2'] = array(
+    '#type' => 'tabset',
+  );
+  $form['example1']['tab2']['tabset2']['tab1'] = array(
+    '#type' => 'tabpage',
+    '#title' => t('One'),
+    '#content' => t('First tab content.'),
+  );
+  // #content not needed as we are adding child elements.
+  $form['example1']['tab2']['tabset2']['tab2'] = array(
+    '#type' => 'tabpage',
+    '#title' => t('Two'),
+  );
+  // Place a standard form element (in this case, a textfield) on a tab.
+  $form['example1']['tab2']['tabset2']['tab2']['name'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Name'),
+  );
+  $form['example1']['tab3'] = array(
+    '#type' => 'tabpage',
+    '#title' => t('Three'),
+    '#content' => t('Third tab content.'),
+    // Select this as the active tab at startup.
+    '#selected' => TRUE,
+  );
+  return $form;
+}
+
+/**
+ * Generate an example set of tabs with one loaded via AJAX.
+ *
+ * Shows how tabs can be explicitly rendered when not using forms.
+ */
+function tabsexample_ajax_tabset() {
+  $tabset = array();
+
+  $tabset['my_tabset'] = array(
+    '#type' => 'tabset',
+  );
+  $tabset['my_tabset']['first_tab'] = array(
+    // #type and #title are the minimum requirements.
+    '#type' => 'tabpage',
+    '#title' => t('One'),
+    // This will be the content of the tab.
+    '#content' => t('First tab content.'),
+  );
+
+  $tabset['my_tabset']['second_tab'] = array(
+    '#type' => 'tabpage',
+    '#title' => t('Two--Ajax loaded'),
+    // The #ajax_url is the url to the content to be loaded.
+    // Can be relative or absolute.
+    // No content is needed as the content will be dynamically loaded.
+    '#ajax_url' => url('tabsexample/ajax'),
+  );
+
+  $tabset['my_tabset']['third_tab'] = array(
+    '#type' => 'tabpage',
+    '#title' => t('Three'),
+    // No content, so this tab should not be rendered.
+  );
+  // Render the tabset.
+  return tabs_render($tabset);
+}
+
+/**
+ * Menu callback: return sample AJAX content.
+ */
+function tabsexample_ajax() {
+  echo t('Sample content loaded via AJAX.');
+}

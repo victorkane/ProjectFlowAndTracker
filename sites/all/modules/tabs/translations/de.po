@@ -1,0 +1,196 @@
+# $Id$
+#
+# LANGUAGE translation of Drupal (general)
+# Copyright 2009 NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  tabs.admin.inc,v 1.4 2009/09/26 17:52:29 nedjo
+#  tabs.module,v 1.22 2009/09/26 19:37:03 nedjo
+#  tabs.info,v 1.3 2009/08/26 15:12:08 nedjo
+#  tabs.js,v 1.9 2009/09/30 21:50:45 nedjo
+#  docs/tabsexample.module: n/a
+#  tabsexample.info,v 1.1 2008/03/26 23:05:50 nedjo
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2009-11-22 01:35+0100\n"
+"PO-Revision-Date: 2009-11-22 01:40+0100\n"
+"Last-Translator: Thomas Zahreddin <tz@it-arts.org>\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: tabs.admin.inc:16
+msgid "Slide effect"
+msgstr "Slide Effekt"
+
+#: tabs.admin.inc:17
+msgid "Apply slide effect when changing tabs."
+msgstr ""
+
+#: tabs.admin.inc:19;26;40;59
+#, fuzzy
+msgid "disabled"
+msgstr "deaktiviert"
+
+#: tabs.admin.inc:19;26;40;59
+#, fuzzy
+msgid "enabled"
+msgstr "aktiviert"
+
+#: tabs.admin.inc:23
+msgid "Fade effect"
+msgstr "Blendeffect"
+
+#: tabs.admin.inc:24
+msgid "Apply fade effect when changing tabs."
+msgstr ""
+
+#: tabs.admin.inc:30
+msgid "Effect speed"
+msgstr "Effect Geschwindigkeit"
+
+#: tabs.admin.inc:31
+msgid "Speed at which to apply effects."
+msgstr ""
+
+#: tabs.admin.inc:33
+#, fuzzy
+msgid "slow"
+msgstr "langsam"
+
+#: tabs.admin.inc:33
+#, fuzzy
+msgid "fast"
+msgstr "schnell"
+
+#: tabs.admin.inc:33
+msgid "immediate"
+msgstr ""
+
+#: tabs.admin.inc:37
+msgid "Navigation buttons"
+msgstr ""
+
+#: tabs.admin.inc:38
+msgid "Enable to add \"next\" and \"previous\" buttons to the bottom of all tab sets."
+msgstr ""
+
+#: tabs.admin.inc:44
+msgid "Next button caption"
+msgstr ""
+
+#: tabs.admin.inc:45
+msgid "The text to be displayed in the 'next' button."
+msgstr ""
+
+#: tabs.admin.inc:46
+#: tabs.module:139
+#, fuzzy
+msgid "next"
+msgstr "Weiter"
+
+#: tabs.admin.inc:50
+msgid "Previous button caption"
+msgstr ""
+
+#: tabs.admin.inc:51
+msgid "The text to be displayed in the 'previous' button."
+msgstr ""
+
+#: tabs.admin.inc:52
+#: tabs.module:139
+msgid "previous"
+msgstr "vorherige"
+
+#: tabs.admin.inc:56
+msgid "Descriptive tab URLs"
+msgstr ""
+
+#: tabs.admin.inc:57
+msgid "Construct a descriptive tab URL from the title of the tab. This can be useful for making URLs of tabs more readable. However, special characters in tab titles are stripped when constructing the URL, which can lead to meaningless URLs on sites using many special characters."
+msgstr ""
+
+#: tabs.module:18
+#: tabs.info:0
+#, fuzzy
+msgid "Tabs"
+msgstr "Reiter"
+
+#: tabs.module:19
+msgid "Configuration for tabs"
+msgstr ""
+
+#: tabs.info:0
+msgid "A helper module for creating tabbed pages."
+msgstr ""
+
+#: tabs.js:0
+#, fuzzy
+msgid "Loading..."
+msgstr "Laden..."
+
+#: docs/tabsexample.module:46;61;98
+msgid "One"
+msgstr "Eins"
+
+#: docs/tabsexample.module:48;62;100
+msgid "First tab content."
+msgstr ""
+
+#: docs/tabsexample.module:52;67
+msgid "Two"
+msgstr "Zwei"
+
+#: docs/tabsexample.module:53
+msgid "Second tab content."
+msgstr ""
+
+#: docs/tabsexample.module:72
+#, fuzzy
+msgid "Name"
+msgstr "Name"
+
+#: docs/tabsexample.module:76;114
+msgid "Three"
+msgstr "Drei"
+
+#: docs/tabsexample.module:77
+msgid "Third tab content."
+msgstr ""
+
+#: docs/tabsexample.module:105
+msgid "Two--Ajax loaded"
+msgstr ""
+
+#: docs/tabsexample.module:125
+msgid "Sample content loaded via AJAX."
+msgstr ""
+
+#: docs/tabsexample.module:10
+msgid "Tabs example, basic"
+msgstr ""
+
+#: docs/tabsexample.module:18
+msgid "Tabs example, AJAX"
+msgstr ""
+
+#: docs/tabsexample.module:25
+msgid "Tabs example ajax"
+msgstr ""
+
+#: docs/tabsexample.info:0
+msgid "Tabs Example"
+msgstr ""
+
+#: docs/tabsexample.info:0
+msgid "An example tabs implementation. Access the sample tabs at /tabsexample."
+msgstr ""
+
+#: docs/tabsexample.info:0
+#, fuzzy
+msgid "User Interface"
+msgstr "Benutzerschnittstelle"
+

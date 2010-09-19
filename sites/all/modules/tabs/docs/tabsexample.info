@@ -1,0 +1,13 @@
+; $Id: tabsexample.info,v 1.1 2008/03/26 23:05:50 nedjo Exp $
+name = Tabs Example
+description = An example tabs implementation. Access the sample tabs at /tabsexample.
+package = User Interface
+dependencies[] = tabs
+core = 6.x
+
+; Information added by drupal.org packaging script on 2010-07-11
+version = "6.x-1.x-dev"
+core = "6.x"
+project = "tabs"
+datestamp = "1278835869"
+
