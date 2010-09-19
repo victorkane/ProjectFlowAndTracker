@@ -5,3 +5,9 @@
 .panel-3col-33 .panel-col-last {
   width: 20%;
 }
+
+.field-field-us-confirmation .field-item,
+.field-field-us-conversation .field-item {
+  padding:5px;
+  border-bottom: dashed 1px #666;
+}
