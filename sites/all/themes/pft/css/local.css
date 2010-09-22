@@ -1,3 +1,13 @@
+body {
+ background-color:#d2ba82;
+ // background-color:#fff2e0;
+ // background-color:#b3cfdd;
+}
+
+#page-body {
+  background-color: #fff;
+}
+
 .panel-3col-33 .panel-col {
   width: 44%;
   word-wrap: break-word;
@@ -10,4 +20,103 @@
 .field-field-us-conversation .field-item {
   padding:5px;
   border-bottom: dashed 1px #666;
+}
+
+p {
+  font-family:Arial, sans-serif;
+  font-size:0.8em;
+  line-height:1.5em;
+  color:#555;
+}
+
+a:link, a:visited {color:#854c14; font-family:Arial, sans-serif; text-decoration:none;}
+
+a:hover {text-decoration:underline;}
+
+h2.pane-title {  
+  font-family:Arial, sans-serif;
+}
+
+/**
+ * Headings.
+ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+{
+  font-weight: bold;
+  color: #000;
+}
+h1
+{
+  font-size: 24px;
+  line-height: 32px;
+  margin-bottom: 10px;
+}
+h2
+{
+  font-size: 20px;
+  line-height: 26px;
+  margin-bottom: 5px;
+}
+h3
+{
+  font-size: 18px;
+  line-height: 25px;
+  margin-bottom: 5px;
+}
+h4
+{
+  font-size: 16px;
+  line-height: 23px;
+  margin-bottom: 3px;
+}
+h5
+{
+  font-size: 15px;
+  line-height: 22px;
+  margin-bottom: 3px;
+}
+h6
+{
+  font-size: 14px;
+  line-height: 21px;
+  margin-bottom: 3px;
+}
+h1 a:link,
+h1 a:hover,
+h1 a:visited,
+h1 a:focus,
+h1 a:active,
+h2 a:link,
+h2 a:hover,
+h2 a:visited,
+h2 a:focus,
+h2 a:active,
+h3 a:link,
+h3 a:hover,
+h3 a:visited,
+h3 a:focus,
+h3 a:active,
+h4 a:link,
+h4 a:hover,
+h4 a:visited,
+h4 a:focus,
+h4 a:active,
+h5 a:link,
+h5 a:hover,
+h5 a:visited,
+h5 a:focus,
+h5 a:active,
+h6 a:link,
+h6 a:hover,
+h6 a:visited,
+h6 a:focus,
+h6 a:active
+{
+  text-decoration: none;
 }
