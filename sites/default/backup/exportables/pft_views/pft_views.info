@@ -1,0 +1,6 @@
+; $Id: $
+
+name = pft_views Export Module
+description = Exports some views of pft_views
+dependencies[] = views
+core = 6.x

@@ -20,6 +20,8 @@ $content['type']  = array (
   'modified' => '1',
   'locked' => '1',
   'reset' => 'Reset to defaults',
+  'og_content_type_usage' => 'group_post_wiki',
+  'og_max_groups' => '',
   'comment' => '2',
   'comment_default_mode' => '4',
   'comment_default_order' => '1',
@@ -199,10 +201,11 @@ $content['fields']  = array (
     ),
     'display_settings' => 
     array (
+      'weight' => '-1',
+      'parent' => 'group_us_conversation',
       'label' => 
       array (
         'format' => 'above',
-        'exclude' => 0,
       ),
       'teaser' => 
       array (
@@ -283,19 +286,20 @@ $content['fields']  = array (
     ),
     'display_settings' => 
     array (
+      'weight' => '1',
+      'parent' => 'group_us_conversation',
       'label' => 
       array (
         'format' => 'above',
-        'exclude' => 0,
       ),
       'teaser' => 
       array (
-        'format' => 'image_plain',
+        'format' => 'diagram_thumbnail_linked',
         'exclude' => 0,
       ),
       'full' => 
       array (
-        'format' => 'image_plain',
+        'format' => 'diagram_thumbnail__colorbox',
         'exclude' => 0,
       ),
       4 => 
@@ -367,10 +371,11 @@ $content['fields']  = array (
     ),
     'display_settings' => 
     array (
+      'weight' => '-1',
+      'parent' => 'group_us_confirmation',
       'label' => 
       array (
         'format' => 'above',
-        'exclude' => 0,
       ),
       'teaser' => 
       array (
@@ -460,10 +465,11 @@ $content['fields']  = array (
     ),
     'display_settings' => 
     array (
+      'weight' => '4',
+      'parent' => 'group_us_metrics',
       'label' => 
       array (
         'format' => 'above',
-        'exclude' => 0,
       ),
       'teaser' => 
       array (
@@ -539,10 +545,11 @@ $content['fields']  = array (
     ),
     'display_settings' => 
     array (
+      'weight' => '5',
+      'parent' => 'group_us_metrics',
       'label' => 
       array (
         'format' => 'above',
-        'exclude' => 0,
       ),
       'teaser' => 
       array (
@@ -628,10 +635,11 @@ $content['fields']  = array (
     ),
     'display_settings' => 
     array (
+      'weight' => '6',
+      'parent' => 'group_us_metrics',
       'label' => 
       array (
         'format' => 'above',
-        'exclude' => 0,
       ),
       'teaser' => 
       array (
@@ -665,4 +673,3 @@ $content['extra']  = array (
   'comment_settings' => '5',
   'menu' => '1',
 );
-
