@@ -29,7 +29,7 @@ p {
   color:#555;
 }
 
-a:link, a:visited {color:#854c14; font-family:Arial, sans-serif; text-decoration:none;}
+a:link, a:visited {color:#7a3d00; font-family:Arial, sans-serif; text-decoration:none;}
 
 a:hover {text-decoration:underline;}
 
@@ -119,4 +119,23 @@ h6 a:focus,
 h6 a:active
 {
   text-decoration: none;
+}
+
+/******** TABS *********/
+
+#page-body-inner ul.primary { padding:0; }
+
+#page-body-inner ul.primary li.active a {
+  background-color:#c3a88c;
+  color:#7a3d00;
+}
+
+#page-body-inner ul.primary li a {
+  border:none;
+  background:none;
+  color:#85705b;
+}
+
+#page-body-inner ul.primary li a:hover {
+    color:#7a3d00;
 }
