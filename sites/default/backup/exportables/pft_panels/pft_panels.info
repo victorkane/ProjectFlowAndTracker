@@ -1,7 +1,0 @@
-; $Id: $
-name = pft_panels export module
-description = Export objects from CTools
-dependencies[] = panels
-dependencies[] = page_manager
-package = Chaos tool suite
-core = 6.x

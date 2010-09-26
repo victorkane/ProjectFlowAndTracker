@@ -1,0 +1,3 @@
+<?php
+
+include_once('manage_projects.features.inc');
