@@ -14,6 +14,30 @@ function manage_projects_ctools_plugin_api() {
 }
 
 /**
+ * Implementation of hook_imagecache_default_presets().
+ */
+function manage_projects_imagecache_default_presets() {
+  $items = array(
+    'diagram_thumbnail' => array(
+      'presetname' => 'diagram_thumbnail',
+      'actions' => array(
+        '0' => array(
+          'weight' => '0',
+          'module' => 'imagecache',
+          'action' => 'imagecache_scale',
+          'data' => array(
+            'width' => '150',
+            'height' => '',
+            'upscale' => 0,
+          ),
+        ),
+      ),
+    ),
+  );
+  return $items;
+}
+
+/**
  * Implementation of hook_node_info().
  */
 function manage_projects_node_info() {
@@ -26,6 +50,17 @@ function manage_projects_node_info() {
       'title_label' => t('Project name'),
       'has_body' => '1',
       'body_label' => t('Description'),
+      'min_word_count' => '0',
+      'help' => '',
+    ),
+    'user_story' => array(
+      'name' => t('User story'),
+      'module' => 'features',
+      'description' => t('Create a user story to specify functionality for the development of the site.'),
+      'has_title' => '1',
+      'title_label' => t('Name'),
+      'has_body' => '1',
+      'body_label' => t('Card'),
       'min_word_count' => '0',
       'help' => '',
     ),
