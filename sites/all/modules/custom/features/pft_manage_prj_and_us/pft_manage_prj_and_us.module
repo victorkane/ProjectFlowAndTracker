@@ -1,0 +1,3 @@
+<?php
+
+include_once('pft_manage_prj_and_us.features.inc');
