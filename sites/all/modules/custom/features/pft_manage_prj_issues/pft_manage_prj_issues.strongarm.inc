@@ -78,5 +78,12 @@ function pft_manage_prj_issues_strongarm() {
   );
 
   $export['node_options_issue'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'og_content_type_usage_issue';
+  $strongarm->value = 'group_post_wiki';
+
+  $export['og_content_type_usage_issue'] = $strongarm;
   return $export;
 }
