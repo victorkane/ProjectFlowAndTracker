@@ -1,11 +1,23 @@
 body {
- background-color:#d2ba82;
- // background-color:#fff2e0;
- // background-color:#b3cfdd;
+ background-color:#854C14;
+ //background-color:#795027;
+ //background-color:#d2ba82;
 }
 
-#page-body {
+#page-body,
+#page-footer {
   background-color: #fff;
+}
+
+#page-branding {
+  background-image: url("../images/header-background.gif");
+  background-repeat: repeat-x;
+}
+#page-branding-inner {
+  height: 123px;
+}
+.pane-pane-header img {
+  margin-top: 18px;
 }
 
 .panel-3col-33 .panel-col {
