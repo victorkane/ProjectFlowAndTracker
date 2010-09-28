@@ -96,8 +96,87 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
   );
   $display = new panels_display;
   $display->api_version = 1;
-  $display->layout = 'precision_column_three';
-  $display->layout_settings = array();
+  $display->layout = 'pft_column_two';
+  $display->layout_settings = array(
+    'items' => array(
+      'canvas' => array(
+        'type' => 'row',
+        'contains' => 'column',
+        'children' => array(
+          0 => 'main',
+          1 => 1,
+        ),
+        'parent' => NULL,
+      ),
+      'main' => array(
+        'type' => 'column',
+        'width' => '100',
+        'width_type' => '%',
+        'children' => array(
+          0 => 2,
+          1 => 'main-row',
+        ),
+        'parent' => 'canvas',
+      ),
+      'main-row' => array(
+        'type' => 'row',
+        'contains' => 'region',
+        'children' => array(
+          0 => 'center',
+        ),
+        'parent' => 'main',
+      ),
+      'center' => array(
+        'type' => 'region',
+        'title' => 'Center',
+        'width' => 100,
+        'width_type' => '%',
+        'parent' => 'main-row',
+      ),
+      1 => array(
+        'type' => 'column',
+        'width' => '100',
+        'width_type' => 'px',
+        'parent' => 'canvas',
+        'children' => array(
+          0 => 3,
+        ),
+      ),
+      2 => array(
+        'type' => 'row',
+        'contains' => 'region',
+        'children' => array(
+          0 => 'row_1',
+        ),
+        'parent' => 'main',
+        'class' => 'grid-36',
+      ),
+      'row_1' => array(
+        'type' => 'region',
+        'title' => 'Row 1',
+        'width' => '427',
+        'width_type' => 'px',
+        'parent' => '2',
+        'class' => 'grid-36',
+      ),
+      3 => array(
+        'type' => 'row',
+        'contains' => 'region',
+        'children' => array(
+          0 => 'aside',
+        ),
+        'parent' => '1',
+      ),
+      'aside' => array(
+        'type' => 'region',
+        'title' => 'Aside',
+        'width' => '86',
+        'width_type' => 'px',
+        'parent' => '3',
+        'class' => 'grid-14',
+      ),
+    ),
+  );
   $display->panel_settings = array(
     'style_settings' => array(
       'default' => NULL,
@@ -111,8 +190,43 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
       'header_beta' => NULL,
       'aside_alpha' => NULL,
       'aside_beta' => NULL,
+      'center' => array(
+        'title' => 'User Stories',
+        'filling_tabs' => 'disabled',
+      ),
+      'row_1' => array(
+        'title' => 'User Stories',
+        'filling_tabs' => 'disabled',
+      ),
+      'aside' => array(
+        'corner_location' => 'pane',
+      ),
+      'main1' => array(
+        'title' => 'Roles',
+        'filling_tabs' => 'disabled',
+      ),
+      'main2' => array(
+        'title' => 'User Stories',
+        'filling_tabs' => 'disabled',
+      ),
+      'main3' => NULL,
     ),
     'main' => array(
+      'style' => 'tabs',
+    ),
+    'center' => array(
+      'style' => 'tabs',
+    ),
+    'aside' => array(
+      'style' => 'rounded_corners',
+    ),
+    'row_1' => array(
+      'style' => 'tabs',
+    ),
+    'main1' => array(
+      'style' => 'tabs',
+    ),
+    'main2' => array(
       'style' => 'tabs',
     ),
   );
@@ -167,7 +281,7 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $pane = new stdClass;
     $pane->api_version = 1;
     $pane->pid = 'new-3';
-    $pane->panel = 'header_beta';
+    $pane->panel = 'header_alpha';
     $pane->type = 'node_content';
     $pane->subtype = 'node_content';
     $pane->shown = TRUE;
@@ -192,11 +306,35 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 0;
     $display->content['new-3'] = $pane;
-    $display->panels['header_beta'][0] = 'new-3';
+    $display->panels['header_alpha'][0] = 'new-3';
     $pane = new stdClass;
     $pane->api_version = 1;
     $pane->pid = 'new-4';
-    $pane->panel = 'main';
+    $pane->panel = 'main1';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => 'Placeholder',
+      'body' => 'for roles stuff',
+      'format' => '1',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-4'] = $pane;
+    $display->panels['main1'][0] = 'new-4';
+    $pane = new stdClass;
+    $pane->api_version = 1;
+    $pane->pid = 'new-5';
+    $pane->panel = 'main2';
     $pane->type = 'views';
     $pane->subtype = 'list_user_stories';
     $pane->shown = TRUE;
@@ -224,12 +362,12 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-4'] = $pane;
-    $display->panels['main'][0] = 'new-4';
+    $display->content['new-5'] = $pane;
+    $display->panels['main2'][0] = 'new-5';
     $pane = new stdClass;
     $pane->api_version = 1;
-    $pane->pid = 'new-5';
-    $pane->panel = 'main';
+    $pane->pid = 'new-6';
+    $pane->panel = 'main2';
     $pane->type = 'views';
     $pane->subtype = 'list_user_stories';
     $pane->shown = TRUE;
@@ -264,12 +402,12 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     );
     $pane->extras = array();
     $pane->position = 1;
-    $display->content['new-5'] = $pane;
-    $display->panels['main'][1] = 'new-5';
+    $display->content['new-6'] = $pane;
+    $display->panels['main2'][1] = 'new-6';
     $pane = new stdClass;
     $pane->api_version = 1;
-    $pane->pid = 'new-6';
-    $pane->panel = 'main';
+    $pane->pid = 'new-7';
+    $pane->panel = 'main2';
     $pane->type = 'views';
     $pane->subtype = 'list_user_stories';
     $pane->shown = TRUE;
@@ -303,12 +441,12 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     );
     $pane->extras = array();
     $pane->position = 2;
-    $display->content['new-6'] = $pane;
-    $display->panels['main'][2] = 'new-6';
+    $display->content['new-7'] = $pane;
+    $display->panels['main2'][2] = 'new-7';
     $pane = new stdClass;
     $pane->api_version = 1;
-    $pane->pid = 'new-7';
-    $pane->panel = 'main';
+    $pane->pid = 'new-8';
+    $pane->panel = 'main2';
     $pane->type = 'views';
     $pane->subtype = 'list_user_stories';
     $pane->shown = TRUE;
@@ -342,12 +480,12 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     );
     $pane->extras = array();
     $pane->position = 3;
-    $display->content['new-7'] = $pane;
-    $display->panels['main'][3] = 'new-7';
+    $display->content['new-8'] = $pane;
+    $display->panels['main2'][3] = 'new-8';
     $pane = new stdClass;
     $pane->api_version = 1;
-    $pane->pid = 'new-8';
-    $pane->panel = 'main';
+    $pane->pid = 'new-9';
+    $pane->panel = 'main2';
     $pane->type = 'views';
     $pane->subtype = 'list_user_stories';
     $pane->shown = TRUE;
@@ -381,8 +519,8 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     );
     $pane->extras = array();
     $pane->position = 4;
-    $display->content['new-8'] = $pane;
-    $display->panels['main'][4] = 'new-8';
+    $display->content['new-9'] = $pane;
+    $display->panels['main2'][4] = 'new-9';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-3';
   $handler->conf['display'] = $display;

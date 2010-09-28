@@ -5,4 +5,6 @@ core = "6.x"
 engine = "phptemplate"
 base theme = "precision"
 
-stylesheets[all][] = "css/local.css"
+stylesheets[all][] = css/local.css
+
+plugins[panels][layouts] = plugins/layouts
