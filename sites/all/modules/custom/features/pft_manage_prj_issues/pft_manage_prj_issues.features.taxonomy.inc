@@ -20,21 +20,5 @@ function pft_manage_prj_issues_taxonomy_default_vocabularies() {
         'issue' => 'issue',
       ),
     ),
-    'status' => array(
-      'name' => 'Status',
-      'description' => 'The status of a user story or issue.',
-      'help' => '',
-      'relations' => '1',
-      'hierarchy' => '0',
-      'multiple' => '0',
-      'required' => '1',
-      'tags' => '0',
-      'module' => 'features_status',
-      'weight' => '0',
-      'nodes' => array(
-        'user_story' => 'user_story',
-        'issue' => 'issue',
-      ),
-    ),
   );
 }
