@@ -398,7 +398,7 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'grid-36',
+      'css_class' => '',
     );
     $pane->extras = array();
     $pane->position = 1;
@@ -437,7 +437,7 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'grid-36',
+      'css_class' => '',
     );
     $pane->extras = array();
     $pane->position = 2;
@@ -476,7 +476,7 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'grid-36',
+      'css_class' => '',
     );
     $pane->extras = array();
     $pane->position = 3;
@@ -515,7 +515,7 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'grid-36',
+      'css_class' => '',
     );
     $pane->extras = array();
     $pane->position = 4;
