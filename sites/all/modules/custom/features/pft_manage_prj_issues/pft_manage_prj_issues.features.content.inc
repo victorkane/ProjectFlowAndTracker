@@ -114,11 +114,20 @@ function pft_manage_prj_issues_content_default_fields() {
         ),
       ),
       'default_value_php' => NULL,
+      'node_link' => array(
+        'teaser' => 1,
+        'full' => 1,
+        'title' => 'Raise an issue (task, defect, change request) for this user story',
+        'hover_title' => 'By clicking here you can raise an issue which will automatically be associated with this user story',
+        'destination' => 'node',
+      ),
+      'fallback' => 'select',
+      'edit_fallback' => 0,
       'label' => 'User story',
       'weight' => '18',
       'description' => '',
-      'type' => 'nodereference_select',
-      'module' => 'nodereference',
+      'type' => 'nodereference_url',
+      'module' => 'nodereference_url',
     ),
   );
 

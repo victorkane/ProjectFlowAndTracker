@@ -1,0 +1,12 @@
+; $Id: nodereference_url.info,v 1.1 2009/01/22 02:25:29 quicksketch Exp $
+name = Node Reference URL Widget
+description = Adds an additional widget to the CCK Node Reference field that prepopulates a reference by the URL.
+dependencies[] = nodereference
+package = CCK
+core = 6.x
+; Information added by drupal.org packaging script on 2010-04-07
+version = "6.x-1.6"
+core = "6.x"
+project = "nodereference_url"
+datestamp = "1270624508"
+

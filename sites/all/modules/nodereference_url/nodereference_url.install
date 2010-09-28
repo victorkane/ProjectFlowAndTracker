@@ -1,0 +1,75 @@
+<?php
+// $Id: nodereference_url.install,v 1.2 2009/07/25 23:40:04 quicksketch Exp $
+
+/**
+ * @file
+ * Implementation of hook_install().
+ */
+function nodereference_url_install() {
+  drupal_load('module', 'content');
+  content_notify('install', 'nodereference_url');
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function nodereference_url_uninstall() {
+  drupal_load('module', 'content');
+  content_notify('uninstall', 'nodereference_url');
+}
+
+/**
+ * Implementation of hook_enable().
+ *
+ * Notify content module when this module is enabled.
+ */
+function nodereference_url_enable() {
+  drupal_load('module', 'content');
+  content_notify('enable', 'nodereference_url');
+}
+
+/**
+ * Implementation of hook_disable().
+ *
+ * Notify content module when this module is disabled.
+ */
+function nodereference_url_disable() {
+  drupal_load('module', 'content');
+  content_notify('disable', 'nodereference_url');
+}
+
+/**
+ * Update 'enabled' widget setting to handle teaser and full views separately.
+ */
+function nodereference_url_update_6100() {
+  module_load_install('content');
+  module_load_include('inc', 'content', 'includes/content.admin');
+  module_load_include('inc', 'content', 'includes/content.crud');
+
+  $ret = array();
+
+  content_clear_type_cache(TRUE);
+
+  // Grab the list of fields to update.
+  foreach (content_types_install() as $type_name => $fields) {
+    foreach ($fields as $field) {
+      if ($field['type'] == 'nodereference' && $field['widget']['type'] == 'nodereference_url') {
+        // Widgets are each updated individually.
+        if (isset($field['widget']['node_link']['enabled'])) {
+          $field['widget']['node_link']['teaser'] = TRUE;
+          $field['widget']['node_link']['full'] = TRUE;
+          $field['widget']['node_link']['destination'] = 'default';
+          unset($field['widget']['node_link']['enabled']);
+
+          content_field_instance_update($field);
+          $ret[] = array('success' => TRUE, 'query' => t('Updated widget settings for @name.', array('@name' => $field['field_name'])));
+        }
+      }
+    }
+  }
+
+  content_clear_type_cache(TRUE);
+
+  return $ret;
+}
+
