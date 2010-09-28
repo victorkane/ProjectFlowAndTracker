@@ -588,19 +588,17 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
         'filling_tabs' => 'disabled',
       ),
       'aside_alpha' => NULL,
-      'header_alpha' => array(
-        'corner_location' => 'panel',
-      ),
       'main1' => array(
-        'title' => 'User Story',
+        'title' => '',
         'filling_tabs' => 'disabled',
       ),
       'main2' => NULL,
       'main3' => NULL,
+      'header_alpha' => NULL,
     ),
     'style' => 'rounded_corners',
     'header_alpha' => array(
-      'style' => 'rounded_corners',
+      'style' => 'default',
     ),
     'header_beta' => array(
       'style' => 'tabs',
@@ -610,7 +608,7 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     ),
   );
   $display->cache = array();
-  $display->title = '%node:title';
+  $display->title = 'User story: %node:title';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass;
@@ -669,11 +667,23 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
       'link' => 0,
       'context' => 'argument_nid_1',
       'override_title' => 1,
-      'override_title_text' => ' ',
+      'override_title_text' => ' User Story',
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'settings' => array(
+        'id' => '',
+        'class' => '',
+        'grid' => '24',
+        'prefix' => '',
+        'suffix' => '',
+        'pad' => '',
+        'push' => '',
+        'pull' => '',
+        'alpha' => 1,
+        'omega' => 1,
+      ),
+      'style' => 'precision_grid',
     );
     $pane->css = array(
       'css_id' => '',
@@ -702,7 +712,19 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'settings' => array(
+        'id' => '',
+        'class' => '',
+        'grid' => '10',
+        'prefix' => '',
+        'suffix' => '',
+        'pad' => '',
+        'push' => '',
+        'pull' => '',
+        'alpha' => 1,
+        'omega' => 1,
+      ),
+      'style' => 'precision_grid',
     );
     $pane->css = array();
     $pane->extras = array();
