@@ -71,6 +71,24 @@ function pft_manage_prj_issues_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'content_extra_weights_issue';
+  $strongarm->value = array(
+    'title' => '19',
+    'body_field' => '22',
+    'revision_information' => '28',
+    'author' => '27',
+    'options' => '29',
+    'comment_settings' => '31',
+    'menu' => '26',
+    'taxonomy' => '20',
+    'path' => '30',
+    'og_nodeapi' => '25',
+  );
+
+  $export['content_extra_weights_issue'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'node_options_issue';
   $strongarm->value = array(
     0 => 'status',

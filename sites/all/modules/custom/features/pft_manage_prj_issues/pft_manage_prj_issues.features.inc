@@ -20,12 +20,21 @@ function pft_manage_prj_issues_node_info() {
       'module' => 'features',
       'description' => t('An issue (task, defect, change request) to be tracked within the scope of a project.'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Name'),
       'has_body' => '1',
-      'body_label' => t('Body'),
+      'body_label' => t('Description'),
       'min_word_count' => '0',
       'help' => '',
     ),
   );
   return $items;
+}
+
+/**
+ * Implementation of hook_views_api().
+ */
+function pft_manage_prj_issues_views_api() {
+  return array(
+    'api' => '2',
+  );
 }
