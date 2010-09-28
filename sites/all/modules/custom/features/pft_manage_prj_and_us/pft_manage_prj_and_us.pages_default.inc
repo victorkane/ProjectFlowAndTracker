@@ -102,7 +102,7 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     'style_settings' => array(
       'default' => NULL,
       'main' => array(
-        'title' => '',
+        'title' => 'User Stories',
         'filling_tabs' => 'disabled',
       ),
       'aside_first' => NULL,
@@ -297,7 +297,10 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'grid-36',
+    );
     $pane->extras = array();
     $pane->position = 2;
     $display->content['new-6'] = $pane;
@@ -333,7 +336,10 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'grid-36',
+    );
     $pane->extras = array();
     $pane->position = 3;
     $display->content['new-7'] = $pane;
@@ -369,7 +375,10 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'grid-36',
+    );
     $pane->extras = array();
     $pane->position = 4;
     $display->content['new-8'] = $pane;
