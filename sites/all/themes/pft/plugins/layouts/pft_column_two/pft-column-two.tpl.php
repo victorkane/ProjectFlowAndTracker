@@ -13,17 +13,19 @@
   <div id="<?php print $css_id; ?>" class="clear-block">
 <?php endif; ?>
 
+<div id="page-main" class="grid-36 alpha omega">
+    
 <?php if (!empty($content['header_alpha'])): ?>
-  <div id="page-header-alpha" class="grid-50 alpha omega">
-    <div id="page-header-alpha-inner" class="pad-1 clear-block">
+  <div id="page-header-alpha" class="grid-36">
+    <div id="page-header-alpha-inner" class="pad-1">
       <?php print $content['header_alpha']; ?>
     </div>
   </div>
 <?php endif; ?>
 
 <?php if (!empty($content['main1'])): ?>
-  <div id="page-main" class="grid-36 alpha">
-    <div id="page-main1-inner" class="pad-1 clear-block">
+  <div id="page-main1 class="grid-36">
+    <div id="page-main1-inner" class="pad-1">
       <?php print $content['main1']; ?>
     </div>
   </div>
@@ -31,7 +33,7 @@
 
 <?php if (!empty($content['main2'])): ?>
   <div id="page-main2" class="grid-36 alpha">
-    <div id="page-main2-inner" class="pad-1 clear-block">
+    <div id="page-main2-inner" class="pad-1">
       <?php print $content['main2']; ?>
     </div>
   </div>
@@ -39,11 +41,13 @@
 
 <?php if (!empty($content['main3'])): ?>
   <div id="page-main3" class="grid-36 alpha">
-    <div id="page-main3-inner" class="pad-1 clear-block">
+    <div id="page-main3-inner" class="pad-1">
       <?php print $content['main3']; ?>
     </div>
   </div>
 <?php endif; ?>
+
+</div>
 
 <?php if (!empty($content['aside_beta'])): ?>
   <div id="page-aside-beta" class="grid-14 omega">

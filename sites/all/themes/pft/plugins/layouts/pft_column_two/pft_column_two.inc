@@ -18,5 +18,5 @@ $plugin = array(
  * Preprocess the two column layout.
  */
 function pft_preprocess_pft_column_two(&$vars) {
-  precision_check_layout_variables($vars);
+  pft_check_layout_variables($vars);
 }
