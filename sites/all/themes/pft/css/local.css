@@ -20,6 +20,13 @@ body {
   margin-top: 18px;
 }
 
+#page-header-alpha {
+  background-color: #e6ba8e;
+  padding-top:5px;
+  padding-bottom:5px;
+}
+
+/*
 .panel-3col-33 .panel-col {
   width: 44%;
   word-wrap: break-word;
@@ -27,6 +34,7 @@ body {
 .panel-3col-33 .panel-col-last {
   width: 20%;
 }
+*/
 
 .field-field-us-confirmation .field-item,
 .field-field-us-conversation .field-item {

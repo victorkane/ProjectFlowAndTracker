@@ -50,7 +50,7 @@ function pft_manage_prj_issues_default_page_manager_handlers() {
   );
   $display = new panels_display;
   $display->api_version = 1;
-  $display->layout = 'precision_column_three';
+  $display->layout = 'pft_column_two';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -67,15 +67,22 @@ function pft_manage_prj_issues_default_page_manager_handlers() {
         'filling_tabs' => 'disabled',
       ),
       'aside_alpha' => NULL,
-      'header_alpha' => array(
-        'corner_location' => 'panel',
+      'main1' => array(
+        'title' => '',
+        'filling_tabs' => 'disabled',
       ),
+      'header_alpha' => NULL,
+      'main2' => NULL,
+      'main3' => NULL,
     ),
     'style' => 'rounded_corners',
     'header_alpha' => array(
-      'style' => 'rounded_corners',
+      'style' => 'default',
     ),
     'header_beta' => array(
+      'style' => 'tabs',
+    ),
+    'main1' => array(
       'style' => 'tabs',
     ),
   );
@@ -139,11 +146,23 @@ function pft_manage_prj_issues_default_page_manager_handlers() {
       'link' => 0,
       'context' => 'argument_nid_1',
       'override_title' => 1,
-      'override_title_text' => ' ',
+      'override_title_text' => ' Issue',
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'settings' => array(
+        'id' => '',
+        'class' => '',
+        'grid' => '24',
+        'prefix' => '',
+        'suffix' => '',
+        'pad' => '',
+        'push' => '',
+        'pull' => '',
+        'alpha' => 1,
+        'omega' => 1,
+      ),
+      'style' => 'precision_grid',
     );
     $pane->css = array(
       'css_id' => '',
@@ -172,7 +191,19 @@ function pft_manage_prj_issues_default_page_manager_handlers() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'settings' => array(
+        'id' => '',
+        'class' => '',
+        'grid' => '10',
+        'prefix' => '',
+        'suffix' => '',
+        'pad' => '',
+        'push' => '',
+        'pull' => '',
+        'alpha' => 1,
+        'omega' => 1,
+      ),
+      'style' => 'precision_grid',
     );
     $pane->css = array();
     $pane->extras = array();
@@ -182,7 +213,7 @@ function pft_manage_prj_issues_default_page_manager_handlers() {
     $pane = new stdClass;
     $pane->api_version = 1;
     $pane->pid = 'new-5';
-    $pane->panel = 'header_beta';
+    $pane->panel = 'main1';
     $pane->type = 'node_body';
     $pane->subtype = 'node_body';
     $pane->shown = TRUE;
@@ -200,11 +231,11 @@ function pft_manage_prj_issues_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 0;
     $display->content['new-5'] = $pane;
-    $display->panels['header_beta'][0] = 'new-5';
+    $display->panels['main1'][0] = 'new-5';
     $pane = new stdClass;
     $pane->api_version = 1;
     $pane->pid = 'new-6';
-    $pane->panel = 'header_beta';
+    $pane->panel = 'main1';
     $pane->type = 'content_fieldgroup';
     $pane->subtype = 'issue:group_issue_metrics';
     $pane->shown = TRUE;
@@ -225,11 +256,11 @@ function pft_manage_prj_issues_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 1;
     $display->content['new-6'] = $pane;
-    $display->panels['header_beta'][1] = 'new-6';
+    $display->panels['main1'][1] = 'new-6';
     $pane = new stdClass;
     $pane->api_version = 1;
     $pane->pid = 'new-7';
-    $pane->panel = 'main';
+    $pane->panel = 'main2';
     $pane->type = 'node_created';
     $pane->subtype = 'node_created';
     $pane->shown = TRUE;
@@ -248,11 +279,11 @@ function pft_manage_prj_issues_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 0;
     $display->content['new-7'] = $pane;
-    $display->panels['main'][0] = 'new-7';
+    $display->panels['main2'][0] = 'new-7';
     $pane = new stdClass;
     $pane->api_version = 1;
     $pane->pid = 'new-8';
-    $pane->panel = 'main';
+    $pane->panel = 'main2';
     $pane->type = 'node_updated';
     $pane->subtype = 'node_updated';
     $pane->shown = TRUE;
@@ -271,11 +302,11 @@ function pft_manage_prj_issues_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 1;
     $display->content['new-8'] = $pane;
-    $display->panels['main'][1] = 'new-8';
+    $display->panels['main2'][1] = 'new-8';
     $pane = new stdClass;
     $pane->api_version = 1;
     $pane->pid = 'new-9';
-    $pane->panel = 'main';
+    $pane->panel = 'main2';
     $pane->type = 'node_links';
     $pane->subtype = 'node_links';
     $pane->shown = TRUE;
@@ -296,7 +327,7 @@ function pft_manage_prj_issues_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 2;
     $display->content['new-9'] = $pane;
-    $display->panels['main'][2] = 'new-9';
+    $display->panels['main2'][2] = 'new-9';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

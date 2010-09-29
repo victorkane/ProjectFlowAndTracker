@@ -671,6 +671,7 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     );
     $pane->cache = array();
     $pane->style = array(
+      'style' => 'precision_grid',
       'settings' => array(
         'id' => '',
         'class' => '',
@@ -683,7 +684,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
         'alpha' => 1,
         'omega' => 1,
       ),
-      'style' => 'precision_grid',
     );
     $pane->css = array(
       'css_id' => '',
@@ -712,6 +712,7 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     );
     $pane->cache = array();
     $pane->style = array(
+      'style' => 'precision_grid',
       'settings' => array(
         'id' => '',
         'class' => '',
@@ -724,7 +725,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
         'alpha' => 1,
         'omega' => 1,
       ),
-      'style' => 'precision_grid',
     );
     $pane->css = array();
     $pane->extras = array();

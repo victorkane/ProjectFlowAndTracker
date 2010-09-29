@@ -24,7 +24,7 @@
 <?php endif; ?>
 
 <?php if (!empty($content['main1'])): ?>
-  <div id="page-main1 class="grid-36">
+  <div id="page-main1" class="grid-36">
     <div id="page-main1-inner" class="pad-1">
       <?php print $content['main1']; ?>
     </div>
