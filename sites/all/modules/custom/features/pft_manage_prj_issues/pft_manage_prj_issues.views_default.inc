@@ -49,7 +49,7 @@ function pft_manage_prj_issues_views_default_views() {
       'relationship' => 'none',
     ),
     'field_issue_assigned_to_uid' => array(
-      'label' => 'Assigned to',
+      'label' => 'Who',
       'alter' => array(
         'alter_text' => 0,
         'text' => '',
@@ -72,7 +72,7 @@ function pft_manage_prj_issues_views_default_views() {
       'hide_empty' => 0,
       'empty_zero' => 0,
       'link_to_node' => 0,
-      'label_type' => 'widget',
+      'label_type' => 'custom',
       'format' => 'default',
       'multiple' => array(
         'group' => TRUE,
@@ -86,8 +86,46 @@ function pft_manage_prj_issues_views_default_views() {
       'field' => 'field_issue_assigned_to_uid',
       'relationship' => 'none',
     ),
+    'tid' => array(
+      'label' => 'Status',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'type' => 'separator',
+      'separator' => ', ',
+      'link_to_taxonomy' => 1,
+      'limit' => 1,
+      'vids' => array(
+        '1' => 1,
+        '3' => 0,
+        '2' => 0,
+      ),
+      'exclude' => 0,
+      'id' => 'tid',
+      'table' => 'term_node',
+      'field' => 'tid',
+      'relationship' => 'none',
+    ),
     'field_project_start_value' => array(
-      'label' => 'Scheduled for',
+      'label' => 'Start',
       'alter' => array(
         'alter_text' => 0,
         'text' => '',
@@ -110,7 +148,7 @@ function pft_manage_prj_issues_views_default_views() {
       'hide_empty' => 0,
       'empty_zero' => 0,
       'link_to_node' => 0,
-      'label_type' => 'widget',
+      'label_type' => 'custom',
       'format' => 'default',
       'multiple' => array(
         'multiple_number' => '',
@@ -131,7 +169,7 @@ function pft_manage_prj_issues_views_default_views() {
       'relationship' => 'none',
     ),
     'field_project_end_value' => array(
-      'label' => 'Due date',
+      'label' => 'Due',
       'alter' => array(
         'alter_text' => 0,
         'text' => '',
@@ -154,7 +192,7 @@ function pft_manage_prj_issues_views_default_views() {
       'hide_empty' => 0,
       'empty_zero' => 0,
       'link_to_node' => 0,
-      'label_type' => 'widget',
+      'label_type' => 'custom',
       'format' => 'default',
       'multiple' => array(
         'multiple_number' => '',
