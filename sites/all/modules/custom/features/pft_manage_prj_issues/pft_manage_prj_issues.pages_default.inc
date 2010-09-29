@@ -87,7 +87,7 @@ function pft_manage_prj_issues_default_page_manager_handlers() {
     ),
   );
   $display->cache = array();
-  $display->title = '%node:title';
+  $display->title = 'Issue: %node:title';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass;

@@ -231,7 +231,7 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = 'Project: %node:title';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass;
