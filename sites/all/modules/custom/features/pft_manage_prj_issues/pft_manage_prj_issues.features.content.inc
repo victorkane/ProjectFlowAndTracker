@@ -11,9 +11,10 @@ function pft_manage_prj_issues_content_default_fields() {
     'field_name' => 'field_issue_assigned_to',
     'type_name' => 'issue',
     'display_settings' => array(
+      'weight' => '21',
+      'parent' => '',
       'label' => array(
-        'format' => 'above',
-        'exclude' => 0,
+        'format' => 'inline',
       ),
       'teaser' => array(
         'format' => 'default',
@@ -69,9 +70,10 @@ function pft_manage_prj_issues_content_default_fields() {
     'field_name' => 'field_issue_user_story',
     'type_name' => 'issue',
     'display_settings' => array(
+      'weight' => '18',
+      'parent' => '',
       'label' => array(
         'format' => 'above',
-        'exclude' => 0,
       ),
       'teaser' => array(
         'format' => 'default',
@@ -136,9 +138,10 @@ function pft_manage_prj_issues_content_default_fields() {
     'field_name' => 'field_project_end',
     'type_name' => 'issue',
     'display_settings' => array(
+      'weight' => '10',
+      'parent' => 'group_issue_dates',
       'label' => array(
-        'format' => 'above',
-        'exclude' => 0,
+        'format' => 'inline',
       ),
       'teaser' => array(
         'format' => 'default',
@@ -200,9 +203,10 @@ function pft_manage_prj_issues_content_default_fields() {
     'field_name' => 'field_project_start',
     'type_name' => 'issue',
     'display_settings' => array(
+      'weight' => '9',
+      'parent' => 'group_issue_dates',
       'label' => array(
-        'format' => 'above',
-        'exclude' => 0,
+        'format' => 'inline',
       ),
       'teaser' => array(
         'format' => 'default',
@@ -264,10 +268,10 @@ function pft_manage_prj_issues_content_default_fields() {
     'field_name' => 'field_us_burned_points',
     'type_name' => 'issue',
     'display_settings' => array(
-      'weight' => '6',
-      'parent' => 'group_us_metrics',
+      'weight' => '17',
+      'parent' => 'group_issue_metrics',
       'label' => array(
-        'format' => 'above',
+        'format' => 'inline',
       ),
       'teaser' => array(
         'format' => 'default',
@@ -337,10 +341,10 @@ function pft_manage_prj_issues_content_default_fields() {
     'field_name' => 'field_us_points',
     'type_name' => 'issue',
     'display_settings' => array(
-      'weight' => '5',
-      'parent' => 'group_us_metrics',
+      'weight' => '16',
+      'parent' => 'group_issue_metrics',
       'label' => array(
-        'format' => 'above',
+        'format' => 'inline',
       ),
       'teaser' => array(
         'format' => 'default',
@@ -392,10 +396,10 @@ function pft_manage_prj_issues_content_default_fields() {
     'field_name' => 'field_us_priority',
     'type_name' => 'issue',
     'display_settings' => array(
-      'weight' => '4',
-      'parent' => 'group_us_metrics',
+      'weight' => '15',
+      'parent' => 'group_issue_metrics',
       'label' => array(
-        'format' => 'above',
+        'format' => 'inline',
       ),
       'teaser' => array(
         'format' => 'default',

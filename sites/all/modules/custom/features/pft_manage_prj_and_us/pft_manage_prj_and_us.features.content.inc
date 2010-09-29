@@ -11,9 +11,10 @@ function pft_manage_prj_and_us_content_default_fields() {
     'field_name' => 'field_project_end',
     'type_name' => 'project',
     'display_settings' => array(
+      'weight' => '10',
+      'parent' => 'group_project_dates',
       'label' => array(
-        'format' => 'above',
-        'exclude' => 0,
+        'format' => 'inline',
       ),
       'teaser' => array(
         'format' => 'default',
@@ -75,9 +76,10 @@ function pft_manage_prj_and_us_content_default_fields() {
     'field_name' => 'field_project_short_name',
     'type_name' => 'project',
     'display_settings' => array(
+      'weight' => '-3',
+      'parent' => '',
       'label' => array(
-        'format' => 'above',
-        'exclude' => 0,
+        'format' => 'inline',
       ),
       'teaser' => array(
         'format' => 'default',
@@ -129,9 +131,10 @@ function pft_manage_prj_and_us_content_default_fields() {
     'field_name' => 'field_project_start',
     'type_name' => 'project',
     'display_settings' => array(
+      'weight' => '9',
+      'parent' => 'group_project_dates',
       'label' => array(
-        'format' => 'above',
-        'exclude' => 0,
+        'format' => 'inline',
       ),
       'teaser' => array(
         'format' => 'default',
@@ -196,7 +199,7 @@ function pft_manage_prj_and_us_content_default_fields() {
       'weight' => '6',
       'parent' => 'group_us_metrics',
       'label' => array(
-        'format' => 'above',
+        'format' => 'inline',
       ),
       'teaser' => array(
         'format' => 'default',
@@ -265,7 +268,7 @@ function pft_manage_prj_and_us_content_default_fields() {
       'weight' => '-1',
       'parent' => 'group_us_confirmation',
       'label' => array(
-        'format' => 'above',
+        'format' => 'hidden',
       ),
       'teaser' => array(
         'format' => 'default',
@@ -315,7 +318,7 @@ function pft_manage_prj_and_us_content_default_fields() {
       'weight' => '-1',
       'parent' => 'group_us_conversation',
       'label' => array(
-        'format' => 'above',
+        'format' => 'hidden',
       ),
       'teaser' => array(
         'format' => 'default',
@@ -365,7 +368,7 @@ function pft_manage_prj_and_us_content_default_fields() {
       'weight' => '1',
       'parent' => 'group_us_conversation',
       'label' => array(
-        'format' => 'above',
+        'format' => 'hidden',
       ),
       'teaser' => array(
         'format' => 'diagram_thumbnail_linked',
@@ -433,7 +436,7 @@ function pft_manage_prj_and_us_content_default_fields() {
       'weight' => '5',
       'parent' => 'group_us_metrics',
       'label' => array(
-        'format' => 'above',
+        'format' => 'inline',
       ),
       'teaser' => array(
         'format' => 'default',
@@ -488,7 +491,7 @@ function pft_manage_prj_and_us_content_default_fields() {
       'weight' => '4',
       'parent' => 'group_us_metrics',
       'label' => array(
-        'format' => 'above',
+        'format' => 'inline',
       ),
       'teaser' => array(
         'format' => 'default',
