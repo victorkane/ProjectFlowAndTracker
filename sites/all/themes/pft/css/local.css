@@ -26,16 +26,6 @@ body {
   padding-bottom:5px;
 }
 
-/*
-.panel-3col-33 .panel-col {
-  width: 44%;
-  word-wrap: break-word;
-}
-.panel-3col-33 .panel-col-last {
-  width: 20%;
-}
-*/
-
 .field-field-us-confirmation .field-item,
 .field-field-us-conversation .field-item {
   padding:5px;
@@ -158,4 +148,11 @@ h6 a:active
 
 #page-body-inner ul.primary li a:hover {
     color:#7a3d00;
+}
+
+.view-list-issues table {
+  font-size: 86%;
+}
+td {
+  padding-right:2px;
 }
