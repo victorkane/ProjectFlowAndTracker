@@ -358,11 +358,11 @@ function pft_manage_prj_issues_views_default_views() {
     ),
   ));
   $handler->override_option('sorts', array(
-    'name' => array(
+    'weight' => array(
       'order' => 'ASC',
-      'id' => 'name',
+      'id' => 'weight',
       'table' => 'term_data',
-      'field' => 'name',
+      'field' => 'weight',
       'override' => array(
         'button' => 'Override',
       ),
@@ -460,6 +460,7 @@ function pft_manage_prj_issues_views_default_views() {
     'type' => 'none',
   ));
   $handler->override_option('items_per_page', 0);
+  $handler->override_option('distinct', 1);
   $handler->override_option('style_plugin', 'table');
   $handler->override_option('style_options', array(
     'grouping' => 'tid',
