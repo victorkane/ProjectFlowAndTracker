@@ -26,6 +26,18 @@ body {
   padding-bottom:5px;
 }
 
+.links-primary a:link,
+.links-primary a:visited {
+  color: #e6aa6f;
+}
+
+.links-primary a:active,
+.links-primary a:hover {
+  text-decoration: none;
+  color: #7a3d00;
+  background-color: #e6aa6f;
+}
+
 .field-field-us-confirmation .field-item,
 .field-field-us-conversation .field-item {
   padding:5px;
