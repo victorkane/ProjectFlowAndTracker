@@ -563,7 +563,7 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -28;
+  $handler->weight = -29;
   $handler->conf = array(
     'title' => 'User Story variant',
     'no_blocks' => 0,
@@ -896,13 +896,13 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $pane->configuration = array(
       'override_pager_settings' => 0,
       'use_pager' => 0,
-      'nodes_per_page' => '10',
+      'nodes_per_page' => '0',
       'pager_id' => '',
       'offset' => '0',
       'more_link' => 0,
       'feed_icons' => 0,
       'panel_args' => 0,
-      'link_to_view' => 1,
+      'link_to_view' => 0,
       'args' => '',
       'url' => '',
       'display' => 'node_content_1',

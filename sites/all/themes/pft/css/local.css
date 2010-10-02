@@ -21,7 +21,7 @@ body {
 }
 
 #page-header-alpha {
-  background-color: #e6ba8e;
+  background-color:#f3e3bf;
   padding-top:5px;
   padding-bottom:5px;
 }
@@ -161,6 +161,40 @@ h6 a:active
 #page-body-inner ul.primary li a:hover {
     color:#7a3d00;
 }
+
+/******** Pane Titles *********/
+#page-header-alpha h2.pane-title {
+  background:none repeat scroll 0 0 #9a724a;
+}
+.pane-title {
+  margin-top:5px;
+  background:none repeat scroll 0 0 #cd863f;
+  color:#f3e3bf;
+  padding-left:10px;
+}
+.pane-title a:link,
+.pane-title a:visited {
+  color:#f3e3bf;
+}
+
+/******** Views Tables *********/
+.views-table thead th {
+  border-bottom:3px solid #e6aa6f;
+}
+.views-table td.views-field {
+  background-color: transparent;
+}
+.views-table tr.odd {
+  background-color:#e6cb8e;
+  border-bottom:1px solid #e6aa6f;
+}
+.views-table tr.even {
+  background-color:#f3e3bf;
+  border-bottom:1px solid #e6aa6f;
+}
+
+
+/******** VBO *********/
 
 #views-bulk-operations-select fieldset legend {
   float:left
