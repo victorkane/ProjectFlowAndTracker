@@ -36,7 +36,7 @@ function pft_manage_prj_issues_content_default_fields() {
     'widget_active' => '1',
     'type' => 'userreference',
     'required' => '0',
-    'multiple' => '0',
+    'multiple' => '1',
     'module' => 'userreference',
     'active' => '1',
     'referenceable_roles' => array(
@@ -44,7 +44,7 @@ function pft_manage_prj_issues_content_default_fields() {
       '3' => 0,
     ),
     'referenceable_status' => '1',
-    'advanced_view' => 'team_members',
+    'advanced_view' => '--',
     'advanced_view_args' => '',
     'widget' => array(
       'autocomplete_match' => 'contains',

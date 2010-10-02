@@ -79,7 +79,7 @@ function pft_manage_prj_and_us_fieldgroup_default_groups() {
         ),
       ),
     ),
-    'weight' => '-1',
+    'weight' => '0',
     'fields' => array(
       '0' => 'field_us_confirmation',
     ),
@@ -118,7 +118,7 @@ function pft_manage_prj_and_us_fieldgroup_default_groups() {
         ),
       ),
     ),
-    'weight' => '-2',
+    'weight' => '-1',
     'fields' => array(
       '0' => 'field_us_conversation',
       '1' => 'field_us_conversation_image',
@@ -158,7 +158,7 @@ function pft_manage_prj_and_us_fieldgroup_default_groups() {
         ),
       ),
     ),
-    'weight' => '1',
+    'weight' => '2',
     'fields' => array(
       '0' => 'field_us_priority',
       '1' => 'field_us_points',
