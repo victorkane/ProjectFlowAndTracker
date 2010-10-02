@@ -162,6 +162,19 @@ h6 a:active
     color:#7a3d00;
 }
 
+#views-bulk-operations-select fieldset legend {
+  float:left
+}
+#views-bulk-operations-dropdown {
+  padding:0;
+}
+#views-bulk-operations-dropdown .form-item {
+  margin: 0 5px;
+}
+#views-bulk-operations-submit {
+  padding:0;
+}
+
 .view-list-issues table {
   font-size: 86%;
 }
