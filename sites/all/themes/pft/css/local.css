@@ -172,6 +172,9 @@ h6 a:active
   color:#f3e3bf;
   padding-left:10px;
 }
+div.panels-ipe-display-container .panel-pane .pane-title {
+  padding-left:10px;
+}
 .pane-title a:link,
 .pane-title a:visited {
   color:#f3e3bf;
