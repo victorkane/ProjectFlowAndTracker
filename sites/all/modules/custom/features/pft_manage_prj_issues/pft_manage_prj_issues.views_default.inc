@@ -357,6 +357,18 @@ function pft_manage_prj_issues_views_default_views() {
       'relationship' => 'none',
     ),
   ));
+  $handler->override_option('sorts', array(
+    'name' => array(
+      'order' => 'ASC',
+      'id' => 'name',
+      'table' => 'term_data',
+      'field' => 'name',
+      'override' => array(
+        'button' => 'Override',
+      ),
+      'relationship' => 'none',
+    ),
+  ));
   $handler->override_option('arguments', array(
     'field_issue_user_story_nid' => array(
       'default_action' => 'default',
@@ -447,18 +459,56 @@ function pft_manage_prj_issues_views_default_views() {
   $handler->override_option('cache', array(
     'type' => 'none',
   ));
+  $handler->override_option('items_per_page', 0);
   $handler->override_option('style_plugin', 'table');
   $handler->override_option('style_options', array(
-    'grouping' => '',
+    'grouping' => 'tid',
     'override' => 1,
-    'sticky' => 0,
+    'sticky' => 1,
     'order' => 'asc',
     'columns' => array(
       'title' => 'title',
+      'field_issue_assigned_to_uid' => 'field_issue_assigned_to_uid',
+      'tid' => 'tid',
+      'field_project_start_value' => 'field_project_start_value',
+      'field_project_end_value' => 'field_project_end_value',
+      'field_us_priority_value' => 'field_us_priority_value',
+      'field_us_points_value' => 'field_us_points_value',
+      'field_us_burned_points_value' => 'field_us_burned_points_value',
+      'edit_node' => 'edit_node',
     ),
     'info' => array(
       'title' => array(
+        'sortable' => 1,
+        'separator' => '',
+      ),
+      'field_issue_assigned_to_uid' => array(
+        'separator' => '',
+      ),
+      'tid' => array(
+        'separator' => '',
+      ),
+      'field_project_start_value' => array(
+        'sortable' => 1,
+        'separator' => '',
+      ),
+      'field_project_end_value' => array(
+        'sortable' => 1,
+        'separator' => '',
+      ),
+      'field_us_priority_value' => array(
+        'sortable' => 1,
+        'separator' => '',
+      ),
+      'field_us_points_value' => array(
+        'sortable' => 1,
+        'separator' => '',
+      ),
+      'field_us_burned_points_value' => array(
         'sortable' => 0,
+        'separator' => '',
+      ),
+      'edit_node' => array(
         'separator' => '',
       ),
     ),
