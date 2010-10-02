@@ -1,6 +1,7 @@
 core = "6.x"
 dependencies[] = "features"
 dependencies[] = "nodereference"
+dependencies[] = "nodereference_url"
 dependencies[] = "og_views"
 dependencies[] = "page_manager"
 dependencies[] = "strongarm"

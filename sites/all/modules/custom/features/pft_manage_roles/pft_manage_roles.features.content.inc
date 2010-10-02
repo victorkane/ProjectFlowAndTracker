@@ -57,11 +57,20 @@ function pft_manage_roles_content_default_fields() {
         ),
       ),
       'default_value_php' => NULL,
+      'node_link' => array(
+        'teaser' => 1,
+        'full' => 1,
+        'title' => 'Add a User Story having this role',
+        'hover_title' => 'By clicking here you can add a User Story which will automatically be associated with this Role',
+        'destination' => 'node',
+      ),
+      'fallback' => 'select',
+      'edit_fallback' => 1,
       'label' => 'Role',
       'weight' => '-3',
       'description' => '',
-      'type' => 'nodereference_select',
-      'module' => 'nodereference',
+      'type' => 'nodereference_url',
+      'module' => 'nodereference_url',
     ),
   );
 

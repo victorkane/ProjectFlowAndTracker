@@ -293,6 +293,34 @@ function pft_manage_roles_default_page_manager_handlers() {
     $pane->api_version = 1;
     $pane->pid = 'new-8';
     $pane->panel = 'main2';
+    $pane->type = 'node_links';
+    $pane->subtype = 'node_links';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'teaser' => 1,
+      'identifier' => '',
+      'link' => 1,
+      'context' => 'argument_nid_1',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'clear-block',
+    );
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-8'] = $pane;
+    $display->panels['main2'][0] = 'new-8';
+    $pane = new stdClass;
+    $pane->api_version = 1;
+    $pane->pid = 'new-9';
+    $pane->panel = 'main2';
     $pane->type = 'block';
     $pane->subtype = 'views-list_user_stories-block_4';
     $pane->shown = TRUE;
@@ -307,12 +335,12 @@ function pft_manage_roles_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
-    $display->content['new-8'] = $pane;
-    $display->panels['main2'][0] = 'new-8';
+    $pane->position = 1;
+    $display->content['new-9'] = $pane;
+    $display->panels['main2'][1] = 'new-9';
     $pane = new stdClass;
     $pane->api_version = 1;
-    $pane->pid = 'new-9';
+    $pane->pid = 'new-10';
     $pane->panel = 'main3';
     $pane->type = 'node_created';
     $pane->subtype = 'node_created';
@@ -331,11 +359,11 @@ function pft_manage_roles_default_page_manager_handlers() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-9'] = $pane;
-    $display->panels['main3'][0] = 'new-9';
+    $display->content['new-10'] = $pane;
+    $display->panels['main3'][0] = 'new-10';
     $pane = new stdClass;
     $pane->api_version = 1;
-    $pane->pid = 'new-10';
+    $pane->pid = 'new-11';
     $pane->panel = 'main3';
     $pane->type = 'node_updated';
     $pane->subtype = 'node_updated';
@@ -354,33 +382,8 @@ function pft_manage_roles_default_page_manager_handlers() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 1;
-    $display->content['new-10'] = $pane;
-    $display->panels['main3'][1] = 'new-10';
-    $pane = new stdClass;
-    $pane->api_version = 1;
-    $pane->pid = 'new-11';
-    $pane->panel = 'main3';
-    $pane->type = 'node_links';
-    $pane->subtype = 'node_links';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-      'teaser' => 1,
-      'identifier' => '',
-      'link' => 1,
-      'context' => 'argument_nid_1',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 2;
     $display->content['new-11'] = $pane;
-    $display->panels['main3'][2] = 'new-11';
+    $display->panels['main3'][1] = 'new-11';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
