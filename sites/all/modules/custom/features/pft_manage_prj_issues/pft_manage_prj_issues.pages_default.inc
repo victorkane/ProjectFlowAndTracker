@@ -12,7 +12,7 @@ function pft_manage_prj_issues_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -27;
+  $handler->weight = -28;
   $handler->conf = array(
     'title' => 'Issue variant',
     'no_blocks' => 0,
@@ -110,7 +110,7 @@ function pft_manage_prj_issues_default_page_manager_handlers() {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'label' => 'inline',
+      'label' => 'normal',
       'formatter' => 'default',
       'context' => 'argument_nid_1',
       'override_title' => 0,
