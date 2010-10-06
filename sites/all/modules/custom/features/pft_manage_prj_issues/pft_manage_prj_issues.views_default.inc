@@ -368,6 +368,17 @@ function pft_manage_prj_issues_views_default_views() {
       ),
       'relationship' => 'none',
     ),
+    'created' => array(
+      'order' => 'ASC',
+      'granularity' => 'second',
+      'id' => 'created',
+      'table' => 'node',
+      'field' => 'created',
+      'override' => array(
+        'button' => 'Override',
+      ),
+      'relationship' => 'none',
+    ),
   ));
   $handler->override_option('arguments', array(
     'field_issue_user_story_nid' => array(

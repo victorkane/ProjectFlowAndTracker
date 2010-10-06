@@ -10,7 +10,7 @@ function pft_manage_roles_views_default_views() {
   $view = new view;
   $view->name = 'list_roles';
   $view->description = 'List roles by project (og)';
-  $view->tag = '';
+  $view->tag = 'PFT';
   $view->view_php = '';
   $view->base_table = 'node';
   $view->is_cacheable = FALSE;

@@ -202,7 +202,7 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
         'corner_location' => 'pane',
       ),
       'main1' => array(
-        'title' => 'Roles',
+        'title' => '',
         'filling_tabs' => 'disabled',
       ),
       'main2' => array(
@@ -343,6 +343,28 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $pane = new stdClass;
     $pane->api_version = 1;
     $pane->pid = 'new-5';
+    $pane->panel = 'main1';
+    $pane->type = 'block';
+    $pane->subtype = 'views-list_biz_stories-block_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+      'style' => 'default',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $display->content['new-5'] = $pane;
+    $display->panels['main1'][1] = 'new-5';
+    $pane = new stdClass;
+    $pane->api_version = 1;
+    $pane->pid = 'new-6';
     $pane->panel = 'main2';
     $pane->type = 'views';
     $pane->subtype = 'list_user_stories';
@@ -371,11 +393,11 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-5'] = $pane;
-    $display->panels['main2'][0] = 'new-5';
+    $display->content['new-6'] = $pane;
+    $display->panels['main2'][0] = 'new-6';
     $pane = new stdClass;
     $pane->api_version = 1;
-    $pane->pid = 'new-6';
+    $pane->pid = 'new-7';
     $pane->panel = 'main2';
     $pane->type = 'views';
     $pane->subtype = 'list_user_stories';
@@ -411,11 +433,11 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     );
     $pane->extras = array();
     $pane->position = 1;
-    $display->content['new-6'] = $pane;
-    $display->panels['main2'][1] = 'new-6';
+    $display->content['new-7'] = $pane;
+    $display->panels['main2'][1] = 'new-7';
     $pane = new stdClass;
     $pane->api_version = 1;
-    $pane->pid = 'new-7';
+    $pane->pid = 'new-8';
     $pane->panel = 'main2';
     $pane->type = 'views';
     $pane->subtype = 'list_user_stories';
@@ -450,11 +472,11 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     );
     $pane->extras = array();
     $pane->position = 2;
-    $display->content['new-7'] = $pane;
-    $display->panels['main2'][2] = 'new-7';
+    $display->content['new-8'] = $pane;
+    $display->panels['main2'][2] = 'new-8';
     $pane = new stdClass;
     $pane->api_version = 1;
-    $pane->pid = 'new-8';
+    $pane->pid = 'new-9';
     $pane->panel = 'main2';
     $pane->type = 'views';
     $pane->subtype = 'list_user_stories';
@@ -489,11 +511,11 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     );
     $pane->extras = array();
     $pane->position = 3;
-    $display->content['new-8'] = $pane;
-    $display->panels['main2'][3] = 'new-8';
+    $display->content['new-9'] = $pane;
+    $display->panels['main2'][3] = 'new-9';
     $pane = new stdClass;
     $pane->api_version = 1;
-    $pane->pid = 'new-9';
+    $pane->pid = 'new-10';
     $pane->panel = 'main2';
     $pane->type = 'views';
     $pane->subtype = 'list_user_stories';
@@ -528,11 +550,11 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     );
     $pane->extras = array();
     $pane->position = 4;
-    $display->content['new-9'] = $pane;
-    $display->panels['main2'][4] = 'new-9';
+    $display->content['new-10'] = $pane;
+    $display->panels['main2'][4] = 'new-10';
     $pane = new stdClass;
     $pane->api_version = 1;
-    $pane->pid = 'new-10';
+    $pane->pid = 'new-11';
     $pane->panel = 'main2';
     $pane->type = 'block';
     $pane->subtype = 'views-list_user_stories-block_3';
@@ -549,8 +571,8 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 5;
-    $display->content['new-10'] = $pane;
-    $display->panels['main2'][5] = 'new-10';
+    $display->content['new-11'] = $pane;
+    $display->panels['main2'][5] = 'new-11';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-3';
   $handler->conf['display'] = $display;
