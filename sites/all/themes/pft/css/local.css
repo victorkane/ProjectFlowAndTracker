@@ -181,6 +181,9 @@ div.panels-ipe-display-container .panel-pane .pane-title {
 }
 
 /******** Views Tables *********/
+.views-table {
+  width:100%;
+}
 .views-table thead th {
   border-bottom:3px solid #e6aa6f;
 }
