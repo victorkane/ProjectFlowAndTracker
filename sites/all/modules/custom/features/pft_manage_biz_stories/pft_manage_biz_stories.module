@@ -1,0 +1,3 @@
+<?php
+
+include_once('pft_manage_biz_stories.features.inc');
