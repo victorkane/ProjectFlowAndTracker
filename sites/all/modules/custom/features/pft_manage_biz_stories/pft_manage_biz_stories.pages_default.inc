@@ -247,15 +247,17 @@ function pft_manage_biz_stories_default_page_manager_handlers() {
     $pane->api_version = 1;
     $pane->pid = 'new-6';
     $pane->panel = 'main2';
-    $pane->type = 'node_created';
-    $pane->subtype = 'node_created';
+    $pane->type = 'node_links';
+    $pane->subtype = 'node_links';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'format' => 'large',
-      'context' => 'argument_nid_1',
       'override_title' => 0,
       'override_title_text' => '',
+      'teaser' => 1,
+      'identifier' => '',
+      'link' => 1,
+      'context' => 'argument_nid_1',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -270,8 +272,8 @@ function pft_manage_biz_stories_default_page_manager_handlers() {
     $pane->api_version = 1;
     $pane->pid = 'new-7';
     $pane->panel = 'main2';
-    $pane->type = 'node_updated';
-    $pane->subtype = 'node_updated';
+    $pane->type = 'node_created';
+    $pane->subtype = 'node_created';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -293,17 +295,15 @@ function pft_manage_biz_stories_default_page_manager_handlers() {
     $pane->api_version = 1;
     $pane->pid = 'new-8';
     $pane->panel = 'main2';
-    $pane->type = 'node_links';
-    $pane->subtype = 'node_links';
+    $pane->type = 'node_updated';
+    $pane->subtype = 'node_updated';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
+      'format' => 'large',
+      'context' => 'argument_nid_1',
       'override_title' => 0,
       'override_title_text' => '',
-      'teaser' => 1,
-      'identifier' => '',
-      'link' => 1,
-      'context' => 'argument_nid_1',
     );
     $pane->cache = array();
     $pane->style = array(

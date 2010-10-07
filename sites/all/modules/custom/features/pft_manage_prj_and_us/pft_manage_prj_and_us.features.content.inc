@@ -191,6 +191,67 @@ function pft_manage_prj_and_us_content_default_fields() {
     ),
   );
 
+  // Exported field: field_us_biz_story
+  $fields['user_story-field_us_biz_story'] = array(
+    'field_name' => 'field_us_biz_story',
+    'type_name' => 'user_story',
+    'display_settings' => array(
+      'label' => array(
+        'format' => 'above',
+        'exclude' => 0,
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'nodereference',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'nodereference',
+    'active' => '1',
+    'referenceable_types' => array(
+      'biz_story' => 'biz_story',
+      'issue' => 0,
+      'page' => 0,
+      'project' => 0,
+      'role' => 0,
+      'story' => 0,
+      'user_story' => 0,
+    ),
+    'advanced_view' => '--',
+    'advanced_view_args' => '',
+    'widget' => array(
+      'node_link' => array(
+        'teaser' => 1,
+        'full' => 1,
+        'title' => 'Add a User Story implementing this Biz Story',
+        'hover_title' => 'By clicking here you can add a User Story which will automatically be associated with this Biz Story',
+        'destination' => 'node',
+      ),
+      'fallback' => 'select',
+      'edit_fallback' => 0,
+      'label' => 'Biz story',
+      'weight' => '-3',
+      'description' => 'Specify the biz story this user story\'s implementation will support.',
+      'type' => 'nodereference_url',
+      'module' => 'nodereference_url',
+    ),
+  );
+
   // Exported field: field_us_burned_points
   $fields['user_story-field_us_burned_points'] = array(
     'field_name' => 'field_us_burned_points',
@@ -558,6 +619,7 @@ function pft_manage_prj_and_us_content_default_fields() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Biz story');
   t('Burned points');
   t('Confirmation');
   t('Conversation');

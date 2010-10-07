@@ -157,16 +157,16 @@ function pft_manage_prj_and_us_strongarm() {
   $strongarm->name = 'content_extra_weights_user_story';
   $strongarm->value = array(
     'title' => '-5',
-    'body_field' => '-2',
-    'revision_information' => '5',
-    'author' => '4',
-    'options' => '6',
-    'comment_settings' => '7',
-    'menu' => '3',
+    'body_field' => '-1',
+    'revision_information' => '6',
+    'author' => '5',
+    'options' => '7',
+    'comment_settings' => '8',
+    'menu' => '4',
     'taxonomy' => '-4',
-    'path' => '9',
-    'og_nodeapi' => '1',
-    'list_issues_node_content_1' => '8',
+    'path' => '10',
+    'og_nodeapi' => '2',
+    'list_issues_node_content_1' => '9',
   );
 
   $export['content_extra_weights_user_story'] = $strongarm;

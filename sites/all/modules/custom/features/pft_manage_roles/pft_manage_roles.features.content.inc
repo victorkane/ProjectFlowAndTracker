@@ -67,7 +67,7 @@ function pft_manage_roles_content_default_fields() {
       'fallback' => 'select',
       'edit_fallback' => 1,
       'label' => 'Role',
-      'weight' => '-3',
+      'weight' => '-2',
       'description' => '',
       'type' => 'nodereference_url',
       'module' => 'nodereference_url',
