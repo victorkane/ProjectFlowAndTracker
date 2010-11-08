@@ -842,6 +842,12 @@ function pft_manage_prj_and_us_views_default_views() {
       'relationship' => 'none',
     ),
   ));
+  $handler->override_option('access', array(
+    'type' => 'role',
+    'role' => array(
+      '2' => 2,
+    ),
+  ));
   $handler->override_option('style_plugin', 'bulk');
   $handler->override_option('style_options', array(
     'grouping' => 'tid',
