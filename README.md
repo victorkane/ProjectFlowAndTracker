@@ -5,6 +5,9 @@ You need to be logged in as teammember1 to see anything, since there are no publ
 Once it is, even minimally, it will be online as a service. There will always be a usable version free as in beer, speech and the workplace (should be). Source always under GPL. Aan installation profile on drupal.org is planned.
 If you are one of the more than one hundred good folks been exploring http://projectflowandtracker.com up till now, you will already have an account when this happens.
 Follow on http://awebfactory.com.ar/taxonomy/term/118
+
+(leave comments with your questions and concerns there)
+
 <h3>Installation instructions</h3>
 
 * Click on download and chose the download tar.gz option.

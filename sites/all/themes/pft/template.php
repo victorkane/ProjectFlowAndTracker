@@ -1,6 +1,8 @@
 <?php
 // $Id: template.php,v 1.2 2010/08/25 10:51:07 dixon Exp $
 
+// re-used by Victor Kane for Project Flow & Tracker
+
 /**
  * Override default region style.
  */
