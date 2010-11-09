@@ -202,14 +202,16 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
         'corner_location' => 'pane',
       ),
       'main1' => array(
-        'title' => '',
-        'filling_tabs' => 'disabled',
+        'corner_location' => 'pane',
       ),
       'main2' => array(
         'title' => 'User Stories',
         'filling_tabs' => 'disabled',
       ),
-      'main3' => NULL,
+      'main3' => array(
+        'title' => 'Issues',
+        'filling_tabs' => 'disabled',
+      ),
     ),
     'main' => array(
       'style' => 'tabs',
@@ -224,9 +226,12 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
       'style' => 'tabs',
     ),
     'main1' => array(
-      'style' => 'tabs',
+      'style' => 'rounded_corners',
     ),
     'main2' => array(
+      'style' => 'tabs',
+    ),
+    'main3' => array(
       'style' => 'tabs',
     ),
   );
@@ -311,6 +316,28 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $pane->api_version = 1;
     $pane->pid = 'new-4';
     $pane->panel = 'main1';
+    $pane->type = 'block';
+    $pane->subtype = 'views-list_biz_stories-block_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+      'style' => 'default',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-4'] = $pane;
+    $display->panels['main1'][0] = 'new-4';
+    $pane = new stdClass;
+    $pane->api_version = 1;
+    $pane->pid = 'new-5';
+    $pane->panel = 'main1';
     $pane->type = 'views';
     $pane->subtype = 'list_roles';
     $pane->shown = TRUE;
@@ -334,28 +361,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $display->content['new-4'] = $pane;
-    $display->panels['main1'][0] = 'new-4';
-    $pane = new stdClass;
-    $pane->api_version = 1;
-    $pane->pid = 'new-5';
-    $pane->panel = 'main1';
-    $pane->type = 'block';
-    $pane->subtype = 'views-list_biz_stories-block_1';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-      'style' => 'default',
     );
     $pane->css = array();
     $pane->extras = array();
@@ -573,6 +578,138 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $pane->position = 5;
     $display->content['new-11'] = $pane;
     $display->panels['main2'][5] = 'new-11';
+    $pane = new stdClass;
+    $pane->api_version = 1;
+    $pane->pid = 'new-12';
+    $pane->panel = 'main3';
+    $pane->type = 'views';
+    $pane->subtype = 'list_issues_by_project';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '0',
+      'pager_id' => '',
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '',
+      'url' => '',
+      'display' => 'default',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-12'] = $pane;
+    $display->panels['main3'][0] = 'new-12';
+    $pane = new stdClass;
+    $pane->api_version = 1;
+    $pane->pid = 'new-13';
+    $pane->panel = 'main3';
+    $pane->type = 'views';
+    $pane->subtype = 'list_issues_by_project';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '0',
+      'pager_id' => '',
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '',
+      'url' => '',
+      'display' => 'block_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $display->content['new-13'] = $pane;
+    $display->panels['main3'][1] = 'new-13';
+    $pane = new stdClass;
+    $pane->api_version = 1;
+    $pane->pid = 'new-14';
+    $pane->panel = 'main3';
+    $pane->type = 'views';
+    $pane->subtype = 'list_issues_by_project';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '0',
+      'pager_id' => '',
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '',
+      'url' => '',
+      'display' => 'block_2',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $display->content['new-14'] = $pane;
+    $display->panels['main3'][2] = 'new-14';
+    $pane = new stdClass;
+    $pane->api_version = 1;
+    $pane->pid = 'new-15';
+    $pane->panel = 'main3';
+    $pane->type = 'views';
+    $pane->subtype = 'list_issues_by_project';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '0',
+      'pager_id' => '',
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '',
+      'url' => '',
+      'display' => 'block_3',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $display->content['new-15'] = $pane;
+    $display->panels['main3'][3] = 'new-15';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-3';
   $handler->conf['display'] = $display;

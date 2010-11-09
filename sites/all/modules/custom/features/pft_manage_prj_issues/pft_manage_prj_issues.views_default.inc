@@ -1233,14 +1233,144 @@ function pft_manage_prj_issues_views_default_views() {
       '_error_element_base' => 'style_options][views_bulk_operations_fields_action][',
     ),
   ));
-  $handler = $view->new_display('block', 'Block', 'block_1');
+  $handler = $view->new_display('block', 'Block issues by user story', 'block_1');
   $handler->override_option('access', array(
     'type' => 'none',
   ));
-  $handler->override_option('title', 'Issues by User Story');
+  $handler->override_option('title', 'Issues by user story');
   $handler->override_option('style_plugin', 'table');
   $handler->override_option('style_options', array(
     'grouping' => 'field_issue_user_story_nid',
+    'override' => 1,
+    'sticky' => 0,
+    'order' => 'asc',
+    'columns' => array(
+      'title' => 'title',
+      'field_issue_assigned_to_uid' => 'field_issue_assigned_to_uid',
+      'tid' => 'tid',
+      'field_project_start_value' => 'field_project_start_value',
+      'field_project_end_value' => 'field_project_end_value',
+      'field_us_priority_value' => 'field_us_priority_value',
+      'field_us_points_value' => 'field_us_points_value',
+      'field_us_burned_points_value' => 'field_us_burned_points_value',
+      'edit_node' => 'edit_node',
+      'field_issue_user_story_nid' => 'field_issue_user_story_nid',
+    ),
+    'info' => array(
+      'title' => array(
+        'sortable' => 0,
+        'separator' => '',
+      ),
+      'field_issue_assigned_to_uid' => array(
+        'separator' => '',
+      ),
+      'tid' => array(
+        'separator' => '',
+      ),
+      'field_project_start_value' => array(
+        'sortable' => 0,
+        'separator' => '',
+      ),
+      'field_project_end_value' => array(
+        'sortable' => 0,
+        'separator' => '',
+      ),
+      'field_us_priority_value' => array(
+        'sortable' => 0,
+        'separator' => '',
+      ),
+      'field_us_points_value' => array(
+        'sortable' => 0,
+        'separator' => '',
+      ),
+      'field_us_burned_points_value' => array(
+        'sortable' => 0,
+        'separator' => '',
+      ),
+      'edit_node' => array(
+        'separator' => '',
+      ),
+      'field_issue_user_story_nid' => array(
+        'separator' => '',
+      ),
+    ),
+    'default' => '-1',
+  ));
+  $handler->override_option('block_description', '');
+  $handler->override_option('block_caching', -1);
+  $handler = $view->new_display('block', 'Block issues by who', 'block_2');
+  $handler->override_option('access', array(
+    'type' => 'none',
+  ));
+  $handler->override_option('title', 'Issues by assigned team member');
+  $handler->override_option('style_plugin', 'table');
+  $handler->override_option('style_options', array(
+    'grouping' => 'field_issue_assigned_to_uid',
+    'override' => 1,
+    'sticky' => 0,
+    'order' => 'asc',
+    'columns' => array(
+      'title' => 'title',
+      'field_issue_assigned_to_uid' => 'field_issue_assigned_to_uid',
+      'tid' => 'tid',
+      'field_project_start_value' => 'field_project_start_value',
+      'field_project_end_value' => 'field_project_end_value',
+      'field_us_priority_value' => 'field_us_priority_value',
+      'field_us_points_value' => 'field_us_points_value',
+      'field_us_burned_points_value' => 'field_us_burned_points_value',
+      'edit_node' => 'edit_node',
+      'field_issue_user_story_nid' => 'field_issue_user_story_nid',
+    ),
+    'info' => array(
+      'title' => array(
+        'sortable' => 0,
+        'separator' => '',
+      ),
+      'field_issue_assigned_to_uid' => array(
+        'separator' => '',
+      ),
+      'tid' => array(
+        'separator' => '',
+      ),
+      'field_project_start_value' => array(
+        'sortable' => 0,
+        'separator' => '',
+      ),
+      'field_project_end_value' => array(
+        'sortable' => 0,
+        'separator' => '',
+      ),
+      'field_us_priority_value' => array(
+        'sortable' => 0,
+        'separator' => '',
+      ),
+      'field_us_points_value' => array(
+        'sortable' => 0,
+        'separator' => '',
+      ),
+      'field_us_burned_points_value' => array(
+        'sortable' => 0,
+        'separator' => '',
+      ),
+      'edit_node' => array(
+        'separator' => '',
+      ),
+      'field_issue_user_story_nid' => array(
+        'separator' => '',
+      ),
+    ),
+    'default' => '-1',
+  ));
+  $handler->override_option('block_description', '');
+  $handler->override_option('block_caching', -1);
+  $handler = $view->new_display('block', 'Block issues by status', 'block_3');
+  $handler->override_option('access', array(
+    'type' => 'none',
+  ));
+  $handler->override_option('title', 'Issues by status');
+  $handler->override_option('style_plugin', 'table');
+  $handler->override_option('style_options', array(
+    'grouping' => 'tid',
     'override' => 1,
     'sticky' => 0,
     'order' => 'asc',
