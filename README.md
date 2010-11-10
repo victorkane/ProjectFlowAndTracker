@@ -10,14 +10,11 @@ Follow on <a href="http://awebfactory.com.ar/taxonomy/term/118">http://awebfacto
 
 <h3>Installation instructions</h3>
 
-* Click on download and chose the download tar.gz option.
-* Click on that button and downloaded the 14 MB file.
-* Click it into a directory
-* Click a database and database user
-* Copy ./sites/default/default.settings.php to ./sites/defalt/settings.php and entered the MySql info
-* Make sure ./sites/default/files was writeable for the browser.
+* Click on that button and download the 14 MB file.
+* Unpack it into a directory
+* Create a database and database user
+* Copy ./sites/default/default.settings.php to ./sites/defalt/settings.php and enter the MySql db and db user info
+* Make sure ./sites/default/files is writeable for the browser.
 * Restore ./sites/default/backup/db/db.sql into that database
 * Create a virtual host, or similar, and point your browser there and it should be basically working.
-
-Admin password: admin/admin
-
+* Admin password: admin/admin
