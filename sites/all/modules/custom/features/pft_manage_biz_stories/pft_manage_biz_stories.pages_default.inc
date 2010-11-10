@@ -42,6 +42,16 @@ function pft_manage_biz_stories_default_page_manager_handlers() {
           'field_name' => 'field_issue_user_story',
         ),
       ),
+      1 => array(
+        'context' => 'argument_nid_1',
+        'name' => 'node_from_noderef',
+        'id' => 2,
+        'identifier' => 'Biz story from reference in user story',
+        'keyword' => 'biz-story-referenced-in-user-story',
+        'relationship_settings' => array(
+          'field_name' => 'field_us_biz_story',
+        ),
+      ),
     ),
     'access' => array(
       'plugins' => array(
@@ -247,6 +257,42 @@ function pft_manage_biz_stories_default_page_manager_handlers() {
     $pane->api_version = 1;
     $pane->pid = 'new-6';
     $pane->panel = 'main2';
+    $pane->type = 'views';
+    $pane->subtype = 'list_user_stories';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '0',
+      'pager_id' => '',
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '%1',
+      'url' => '',
+      'display' => 'block_5',
+      'context' => array(
+        0 => '',
+      ),
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-6'] = $pane;
+    $display->panels['main2'][0] = 'new-6';
+    $pane = new stdClass;
+    $pane->api_version = 1;
+    $pane->pid = 'new-7';
+    $pane->panel = 'main3';
     $pane->type = 'node_links';
     $pane->subtype = 'node_links';
     $pane->shown = TRUE;
@@ -266,12 +312,12 @@ function pft_manage_biz_stories_default_page_manager_handlers() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-6'] = $pane;
-    $display->panels['main2'][0] = 'new-6';
+    $display->content['new-7'] = $pane;
+    $display->panels['main3'][0] = 'new-7';
     $pane = new stdClass;
     $pane->api_version = 1;
-    $pane->pid = 'new-7';
-    $pane->panel = 'main2';
+    $pane->pid = 'new-8';
+    $pane->panel = 'main3';
     $pane->type = 'node_created';
     $pane->subtype = 'node_created';
     $pane->shown = TRUE;
@@ -289,12 +335,12 @@ function pft_manage_biz_stories_default_page_manager_handlers() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 1;
-    $display->content['new-7'] = $pane;
-    $display->panels['main2'][1] = 'new-7';
+    $display->content['new-8'] = $pane;
+    $display->panels['main3'][1] = 'new-8';
     $pane = new stdClass;
     $pane->api_version = 1;
-    $pane->pid = 'new-8';
-    $pane->panel = 'main2';
+    $pane->pid = 'new-9';
+    $pane->panel = 'main3';
     $pane->type = 'node_updated';
     $pane->subtype = 'node_updated';
     $pane->shown = TRUE;
@@ -312,8 +358,8 @@ function pft_manage_biz_stories_default_page_manager_handlers() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 2;
-    $display->content['new-8'] = $pane;
-    $display->panels['main2'][2] = 'new-8';
+    $display->content['new-9'] = $pane;
+    $display->panels['main3'][2] = 'new-9';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
