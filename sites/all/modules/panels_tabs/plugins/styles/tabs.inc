@@ -1,5 +1,5 @@
 <?php
-// $Id: tabs.inc,v 1.1.2.5 2010/07/30 23:05:44 smoothify Exp $
+// $Id: tabs.inc,v 1.1.2.7 2010/09/10 12:25:34 smoothify Exp $
 
 /**
  * @file
@@ -29,9 +29,13 @@ function theme_panels_tabs_style_render_region($display, $owner_id, $panes, $set
 
   // Generate a unique id based on the CSS ID and the name of the panel in the
   // layout.
+  $id = '';
+  //If CSS ID is set.
+  if($display->css_id) {
+    $id = "$display->css_id-";
+  }
   $pane_id = reset(array_keys($panes));
-  $panel = $display->content[$pane_id]->panel;
-  $id = "$display->css_id-$panel";
+  $id .= $display->content[$pane_id]->panel;
 
   // Add the Javascript to the page, and save the settings for this panel.
   _panels_tabs_add_js($id, $settings['filling_tabs']);
@@ -39,6 +43,7 @@ function theme_panels_tabs_style_render_region($display, $owner_id, $panes, $set
   $tabs = array();
   $tabs[$id] = array(
     '#type' => 'tabset',
+    '#tabset_name' => $id,
   );
   $index = 0;
   foreach ($panes as $pane_id => $pane_content) {
@@ -76,9 +81,13 @@ function theme_panels_tabs_style_render_panel($display, $owner_id, $panes, $sett
 
   // Generate a unique id based on the CSS ID and the name of the panel in the
   // layout.
+  $id = '';
+  //If CSS ID is set.
+  if($display->css_id) {
+    $id = "$display->css_id-";
+  }
   $pane_id = reset(array_keys($panes));
-  $panel = $display->content[$pane_id]->panel;  
-  $id = "$display->css_id-$panel";
+  $id .= $display->content[$pane_id]->panel;
 
   // Add the Javascript to the page, and save the settings for this panel.
   _panels_tabs_add_js($id, $settings['filling_tabs']);
@@ -86,6 +95,7 @@ function theme_panels_tabs_style_render_panel($display, $owner_id, $panes, $sett
   $tabs = array();
   $tabs[$id] = array(
     '#type' => 'tabset',
+    '#tabset_name' => $id,
   );
   $index = 0;
   foreach ($panes as $pane_id => $content) {

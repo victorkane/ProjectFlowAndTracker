@@ -1,5 +1,5 @@
 <?php
-// $Id: colorbox.module,v 1.19.2.2 2010/07/11 12:34:24 frjo Exp $
+// $Id: colorbox.module,v 1.19.2.6 2010/09/21 13:05:45 frjo Exp $
 
 /**
  * @file
@@ -10,6 +10,7 @@
  * The default path to the Colorbox directory.
  */
 define('COLORBOX_PATH', 'sites/all/libraries/colorbox');
+define('COLORBOX_MIN_PLUGIN_VERSION', '1.3.6');
 define('COLORBOX_MIN_JQUERY_VERSION', '1.3.1');
 define('COLORBOX_MAX_JQUERY_VERSION', '1.4+');
 
@@ -127,12 +128,12 @@ function _colorbox_status() {
   $status['colorbox_plugin'] = FALSE;
 
   if (function_exists('jquery_update_get_version')) {
-    if (jquery_update_get_version() >= COLORBOX_MIN_JQUERY_VERSION) {
+    if (version_compare(jquery_update_get_version(), COLORBOX_MIN_JQUERY_VERSION, '>=')) {
       $status['jquery_version'] = TRUE;
     }
   }
 
-  if (is_dir(variable_get('colorbox_path', COLORBOX_PATH))) {
+  if (version_compare(colorbox_get_version(), COLORBOX_MIN_PLUGIN_VERSION, '>=')) {
     $status['colorbox_plugin'] = TRUE;
   }
 
@@ -168,18 +169,6 @@ function _colorbox_doheader() {
   }
   if (!_colorbox_active()) {
     return; // Don't add the JavaScript and CSS on specified paths.
-  }
-
-  $path = drupal_get_path('module', 'colorbox');
-  $style = variable_get('colorbox_style', 'default');
-  switch ($style) {
-    case 'default':
-      drupal_add_css($path .'/styles/default/colorbox_default_style.css');
-      break;
-    case 'none':
-      break;
-    default:
-      drupal_add_css($style .'/colorbox.css');
   }
 
   // Insert options and translated strings as javascript settings.
@@ -221,6 +210,27 @@ function _colorbox_doheader() {
       'maxHeight' => '100%',
     );
   }
+
+  $path = drupal_get_path('module', 'colorbox');
+  $style = variable_get('colorbox_style', 'default');
+
+  // Give other modules the possibility to override Colorbox settings and
+  // style.
+  $data = &$js_settings;
+  $data['__drupal_alter_by_ref'] = array(&$style);
+  drupal_alter('colorbox_settings', $data);
+
+  // Add CSS based on selected style.
+  switch ($style) {
+    case 'none':
+      break;
+    case 'default':
+      drupal_add_css($path .'/styles/default/colorbox_default_style.css');
+      break;
+    default:
+      drupal_add_css($style .'/colorbox.css');
+  }
+
   drupal_add_js(array('colorbox' => $js_settings), 'setting');
 
   if (module_exists('image') && variable_get('colorbox_auto_image_nodes', 0)) {
@@ -233,8 +243,17 @@ function _colorbox_doheader() {
     }
   }
 
-  $colorbox_file = array('none' => 'jquery.colorbox.js', 'min' => 'jquery.colorbox-min.js');
-  drupal_add_js(variable_get('colorbox_path', COLORBOX_PATH) .'/colorbox/'. $colorbox_file[variable_get('colorbox_compression_type', 'min')]);
+  if (module_exists('img_assist') && variable_get('colorbox_auto_img_assist_custom', 0)) {
+    $img_assist_derivative = variable_get('colorbox_img_assist_derivative', 'preview');
+    // If the image derivative is set to IMAGE_ORIGINAL check if the
+    // user has access before activating Colorbox.
+    if (!($img_assist_derivative == IMAGE_ORIGINAL && !user_access('view original images'))) {
+      drupal_add_js(array('colorbox' => array('img_assist_derivative' => $img_assist_derivative)), 'setting');
+      drupal_add_js($path .'/js/colorbox_img_assist_module.js');
+    }
+  }
+
+  drupal_add_js(colorbox_get_path());
   drupal_add_js($path .'/js/colorbox.js');
 
   if ($style == 'default') {
@@ -250,6 +269,40 @@ function _colorbox_doheader() {
   }
 
   $already_added = TRUE;
+}
+
+/**
+ * Return the version of Colorbox plugin that is installed.
+ *
+ * This can be used by other modules' hook_requirements() to ensure that the
+ * proper version of Colorbox plugin is installed.
+ *
+ * @see version_compare
+ */
+function colorbox_get_version($colorbox_path = NULL) {
+  $version = 0;
+  $pattern = '#ColorBox v([0-9\.a-z]+)#';
+
+  // No file is passed in so use the default location.
+  if (is_null($colorbox_path)) {
+    $colorbox_path = colorbox_get_path();
+  }
+
+  // Return the version of Colorbox plugin.
+  $colorbox_plugin = file_get_contents($colorbox_path, NULL, NULL, 0, 32);
+  if (preg_match($pattern, $colorbox_plugin, $matches)) {
+    $version = $matches[1];
+  }
+
+  return $version;
+}
+
+/**
+ * Return the path to the Colorbox plugin.
+ */
+function colorbox_get_path() {
+  $colorbox_file = array('none' => 'jquery.colorbox.js', 'min' => 'jquery.colorbox-min.js');
+  return variable_get('colorbox_path', COLORBOX_PATH) .'/colorbox/'. $colorbox_file[variable_get('colorbox_compression_type', 'min')];
 }
 
 /**

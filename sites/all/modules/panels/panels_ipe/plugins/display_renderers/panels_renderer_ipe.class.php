@@ -1,5 +1,5 @@
 <?php
-// $Id: panels_renderer_ipe.class.php,v 1.1.2.19 2010/07/26 21:24:22 merlinofchaos Exp $
+// $Id: panels_renderer_ipe.class.php,v 1.1.2.21 2010/10/22 19:12:12 merlinofchaos Exp $
 
 /**
  * Renderer class for all In-Place Editor (IPE) behavior.
@@ -53,7 +53,7 @@ class panels_renderer_ipe extends panels_renderer_editor {
    *
    * @param $pane
    */
-  function render_pane($pane) {
+  function render_pane(&$pane) {
     $output = parent::render_pane($pane);
     if (empty($output)) {
       return;
@@ -248,6 +248,7 @@ function panels_ipe_edit_control_form(&$form_state) {
   $form['buttons']['cancel'] = array(
     '#type' => 'submit',
     '#value' => t('Cancel'),
+    '#id' => 'panels-ipe-cancel',
   );
   return $form;
 }

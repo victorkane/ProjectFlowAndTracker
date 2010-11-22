@@ -1,4 +1,4 @@
-// $Id: colorbox_inline.js,v 1.1.2.1 2010/07/11 12:34:24 frjo Exp $
+// $Id: colorbox_inline.js,v 1.1.2.2 2010/09/21 12:43:29 frjo Exp $
 (function ($) {
 
 Drupal.behaviors.initColorboxInline = function (context) {
@@ -26,6 +26,9 @@ Drupal.behaviors.initColorboxInline = function (context) {
     },
     innerHeight:function(){
       return $.urlParam('height', $(this).attr('href'));
+    },
+    title:function(){
+      return $.urlParam('title', $(this).attr('href'));
     },
     iframe:function(){
       return $.urlParam('iframe', $(this).attr('href'));

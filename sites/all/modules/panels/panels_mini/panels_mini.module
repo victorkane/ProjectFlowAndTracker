@@ -1,5 +1,5 @@
 <?php
-// $Id: panels_mini.module,v 1.5.2.24 2010/07/23 21:49:03 merlinofchaos Exp $
+// $Id: panels_mini.module,v 1.5.2.30 2010/10/19 21:43:25 merlinofchaos Exp $
 
 /**
  * @file panels_mini.module
@@ -48,7 +48,7 @@ function panels_mini_block($op = 'list', $delta = 0, $edit = array()) {
     foreach ($minis as $panel_mini) {
       if (empty($mini->disabled) && empty($mini->requiredcontext)) {
         $blocks[$panel_mini->name] = array(
-          'info' => t('Mini panel: "@title"', array('@title' => $panel_mini->title)),
+          'info' => t('Mini panel: "@title"', array('@title' => $panel_mini->admin_title)),
           'cache' => BLOCK_NO_CACHE,
         );
       }
@@ -78,10 +78,6 @@ function panels_mini_block($op = 'list', $delta = 0, $edit = array()) {
 
     $block['content'] = panels_render_display($panel_mini->display);
     $block['subject'] = $panel_mini->display->get_title();
-    // If NULL, fall back to this title:
-    if (!isset($block['subject'])) {
-      $block['subject'] = $panel_mini->title;
-    }
 
     unset($viewing[$delta]);
     return $block;
@@ -89,7 +85,7 @@ function panels_mini_block($op = 'list', $delta = 0, $edit = array()) {
   elseif ($op = 'configure') {
     return array(
       'admin-shortcut' => array(
-        '#value' => l(t('Manage this mini-panel'), 'admin/build/panel-mini/' . $delta . '/edit-general')
+        '#value' => l(t('Manage this mini-panel'), "admin/build/mini-panels/list/$delta/edit")
       ),
     );
   }
@@ -137,8 +133,14 @@ function panels_mini_load($name) {
     if (isset($result[$name])) {
       if (empty($result[$name]->display)) {
         $result[$name]->display = panels_load_display($result[$name]->did);
+        if (!empty($result[$name]->title) && empty($result[$name]->display->title)) {
+          $result[$name]->display->title = $result[$name]->title;
+        }
       }
       $cache[$name] = $result[$name];
+      if (!empty($result[$name]->title) && empty($result[$name]->admin_title)) {
+        $cache[$name]->admin_title = $result[$name]->title;
+      }
     }
     else {
       $cache[$name] = NULL;
@@ -169,14 +171,29 @@ function panels_mini_load_all($reset = FALSE) {
     $minis = ctools_export_load_object('panels_mini');
     $dids = array();
     foreach ($minis as $mini) {
-      if (!empty($mini->did) && empty($cache[$mini->name])) {
-        $dids[$mini->did] = $mini->name;
+      if (empty($cache[$mini->name])) {
+        if (!empty($mini->did)) {
+          $dids[$mini->did] = $mini->name;
+        }
+        else {
+        // Translate old style titles into new titles.
+          if (!empty($mini->title) && empty($mini->display->title)) {
+            $mini->display->title = $mini->title;
+          }
+        }
+        // Translate old style titles into new titles.
+        if (isset($mini->title) && empty($mini->admin_title)) {
+          $mini->admin_title = $mini->title;
+        }
+        $cache[$mini->name] = $mini;
       }
-      $cache[$mini->name] = $mini;
     }
 
     $displays = panels_load_displays(array_keys($dids));
     foreach ($displays as $did => $display) {
+      if (!empty($cache[$dids[$did]]->title) && empty($display->title)) {
+        $display->title = $cache[$dids[$did]]->title;
+      }
       $cache[$dids[$did]]->display = $display;
     }
   }
@@ -241,7 +258,7 @@ function panels_mini_ctools_plugin_directory($module, $plugin) {
 }
 
 /**
- * Get the Page Manager cache for the panels_mini plugin.
+ * Get the display cache for the panels_mini plugin.
  */
 function _panels_mini_panels_cache_get($key) {
   ctools_include('export-ui');
@@ -268,13 +285,16 @@ function _panels_mini_panels_cache_get($key) {
 function panels_mini_panels_cache_get($key) {
   ctools_include('common', 'panels');
   list($handler, $item) = _panels_mini_panels_cache_get($key);
+  if (isset($item->mini_panels_display_cache)) {
+    return $item->mini_panels_display_cache;
+  }
 
   $cache = new stdClass();
   $cache->display = $item->display;
   $cache->display->context = ctools_context_load_contexts($item);
   $cache->display->cache_key = 'panels_mini:' . $key;
   $cache->content_types = panels_common_get_allowed_types('panels_mini', $cache->display->context);
-  $cache->display_title = FALSE;
+  $cache->display_title = TRUE;
 
   // @TODO support locking
   $cache->locked = FALSE;
@@ -287,12 +307,12 @@ function panels_mini_panels_cache_get($key) {
  */
 function panels_mini_panels_cache_set($key, $cache) {
   list($handler, $item) = _panels_mini_panels_cache_get($key);
-  $item->display = $cache->display;
+  $item->mini_panels_display_cache = $cache;
   $handler->edit_cache_set_key($item, $key);
 }
 
 /**
- * Save all changes made to a display using the Page Manager page cache.
+ * Save all changes made to a display using the panels mini UI cache.
  */
 function panels_mini_panels_cache_clear($key, $cache) {
   list($handler, $item) = _panels_mini_panels_cache_get($key);
@@ -300,7 +320,7 @@ function panels_mini_panels_cache_clear($key, $cache) {
 }
 
 /**
- * Save all changes made to a display using the Page Manager page cache.
+ * Save all changes made to a display using the panels mini UI cache.
  */
 function panels_mini_panels_cache_save($key, $cache) {
   list($handler, $item) = _panels_mini_panels_cache_get($key);
@@ -311,7 +331,7 @@ function panels_mini_panels_cache_save($key, $cache) {
 }
 
 /**
- * Break the lock on a page manager page.
+ * Break the lock on a panels mini page.
  */
 function panels_mini_panels_cache_break_lock($key, $cache) {
 }
@@ -346,7 +366,7 @@ function panels_mini_panels_dashboard_blocks(&$vars) {
 
   foreach ($panel_minis as $panel_mini) {
     $rows[] = array(
-      check_plain($panel_mini->title),
+      check_plain($panel_mini->admin_title),
       array(
         'data' => l(t('Edit'), "admin/build/mini-panels/list/$panel_mini->name/edit"),
         'class' => 'links',

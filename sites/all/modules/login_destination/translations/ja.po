@@ -1,9 +1,9 @@
-﻿# $Id: ja.po,v 1.1.2.3 2010/03/19 22:16:55 setfree Exp $ 
-# -----------------------------------------------------------------------------
+﻿# $Id: ja.po,v 1.1.2.4 2010/03/19 22:21:20 setfree Exp $   
+# ----------------------------------------------------------------------------- 
 # Japanese translation of Drupal (login_destination.module)
 #
 # Copyright (c) 2006-2007  Drupal Japan  ( http://drupal.jp/ )  /
-#                          Drupal Nippon ( http://drupon.org/ ) /
+#                          Drupal Nippon ( http://drupon.org/ ) / 
 #                          Takafumi      ( jp.drupal@imagine **reverse order**)
 #
 # Generated from file:
@@ -11,7 +11,7 @@
 #
 # -----------------------------------------------------------------------------
 msgid ""
-msgstr ""
+msgstr ""  
 "POT-Creation-Date: 2007-04-20 20:36+0900\n"
 "Last-Translator: Takafumi <jp.drupal@imagine **reverse order**>\n"
 "Language-Team: Drupal Japan / Drupal Nippon\n"

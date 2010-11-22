@@ -4,7 +4,7 @@
 /**
  * Override default region style.
  */
-function pft_panels_default_style_render_region($display, $region_id, $panes, $settings) {
+function precision_panels_default_style_render_region($display, $region_id, $panes, $settings) {
   $output = '';
   foreach ($panes as $pane_id => $pane_output) {
     $output .= $pane_output;
@@ -15,6 +15,6 @@ function pft_panels_default_style_render_region($display, $region_id, $panes, $s
 /**
  * Generic function that modifies some variables in all Precision layouts.
  */
-function pft_check_layout_variables(&$vars) {
+function precision_check_layout_variables(&$vars) {
   $vars['css_id'] = strtr($vars['css_id'], '_', '-');
 }

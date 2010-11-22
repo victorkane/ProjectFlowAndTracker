@@ -1,4 +1,4 @@
-// $Id: colorbox_load.js,v 1.1.2.2 2010/07/11 12:45:59 frjo Exp $
+// $Id: colorbox_load.js,v 1.1.2.3 2010/10/02 17:17:10 frjo Exp $
 (function ($) {
 
 Drupal.behaviors.initColorboxLoad = function (context) {
@@ -24,6 +24,9 @@ Drupal.behaviors.initColorboxLoad = function (context) {
     },
     iframe:function(){
       return $.urlParam('iframe', $(this).attr('href'));
+    },
+    slideshow:function(){
+      return $.urlParam('slideshow', $(this).attr('href'));
     }
   });
 };

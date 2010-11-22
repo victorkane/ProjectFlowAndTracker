@@ -1,9 +1,9 @@
 <?php
-// $Id: colorbox.install,v 1.3.2.1 2010/07/07 05:06:04 frjo Exp $
+// $Id: colorbox.install,v 1.3.2.3 2010/09/21 13:05:45 frjo Exp $
 
 /**
  * @file
- * Installation functions for colorbox.
+ * Install, update and uninstall functions for the colorbox module.
  */
 
 /**
@@ -28,8 +28,16 @@ function colorbox_requirements($phase) {
     if (!$status['colorbox_plugin']) {
       $requirements['colorbox_plugin'] = array(
         'title' => $t('Colorbox plugin'),
+        'value' => $t('At least @a', array('@a' => COLORBOX_MIN_PLUGIN_VERSION)),
         'severity' => REQUIREMENT_ERROR,
         'description' => $t('You need to download the !colorbox and extract the entire contents of the archive into the %path folder of your server.', array('!colorbox' => l(t('Colorbox plugin'), 'http://colorpowered.com/colorbox/'), '%path' => 'sites/all/libraries')),
+      );
+    }
+    else {
+      $requirements['colorbox_plugin'] = array(
+        'title' => $t('Colorbox plugin'),
+        'severity' => REQUIREMENT_OK,
+        'value' => colorbox_get_version(),
       );
     }
   }

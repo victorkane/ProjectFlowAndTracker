@@ -72,7 +72,7 @@ function theme_panels_ipe_pane_wrapper($output, $pane, $display, $renderer) {
   $subtype = ctools_content_get_subtype($content_type, $pane->subtype);
   $links = array();
 
-  if (!empty($content_type['edit form']) || !empty($subtype['edit form'])) {
+  if (ctools_content_editable($content_type, $subtype, $pane->configuration)) {
     $links['edit'] = array(
       'title' => isset($content_type['edit text']) ? $content_type['edit text'] : t('Settings'),
       'href' => $renderer->get_url('edit-pane', $pane->pid),

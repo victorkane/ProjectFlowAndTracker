@@ -1,5 +1,5 @@
 <?php
-// $Id: flexible.inc,v 1.1.2.30 2010/07/26 22:38:35 merlinofchaos Exp $
+// $Id: flexible.inc,v 1.1.2.36 2010/10/22 18:20:50 merlinofchaos Exp $
 
 /**
  * Implementation of hook_panels_layouts()
@@ -48,6 +48,8 @@ function panels_flexible_merge_plugin($plugin, $layout) {
   $plugin['title'] = check_plain($layout->admin_title);
   $plugin['description'] = check_plain($layout->admin_description);
   $plugin['layout'] = $layout;
+  $plugin['builder'] = FALSE;
+  $plugin['builder tab title'] = NULL;
   return $plugin;
 }
 
@@ -354,7 +356,14 @@ function theme_panels_flexible($id, $content, $settings, $display, $layout, $han
     if (!$filename) {
       $filename = ctools_css_store($renderer->css_cache_name, $css, FALSE);
     }
-    ctools_css_add_css($filename, 'module', 'all', FALSE);
+
+    // Give the CSS to the renderer to put where it wants.
+    if ($handler) {
+      $handler->add_css($filename, 'module', 'all', FALSE);
+    }
+    else {
+      ctools_css_add_css($filename, 'module', 'all', FALSE);
+    }
   }
   else {
     // If the id is 'new' we can't reliably cache the CSS in the filesystem
@@ -860,24 +869,27 @@ function panels_flexible_get_css_group(&$css, $renderer, $list, $owner_id, $type
     // If there is any total remaining, we need to offset the splitter
     // by this much too.
     if ($left_total) {
+      // Add this even if it's 0 so we can handle removals.
+      $css["$owner_id-inside"]['padding-left'] = '0px';
       if ($renderer->admin || count($middle)) {
-        $css["$owner_id-left"]['margin-left'] = '-' . $left_total . 'px';
+        $css["$owner_id-middle"]['margin-left'] = $left_total . 'px';
         // IE hack
         $css["* html $owner_id-left"]['left'] = $left_total . "px";
+        // Make this one very specific to the admin CSS so that preview
+        // does not stomp it.
+        $css[".panel-flexible-admin $owner_id-inside"]['padding-left'] = '0px';
       }
       else {
         $css["$owner_id-inside"]['margin-left'] = '-' . $left_total . 'px';
+        $css["$owner_id-inside"]['padding-left'] = $left_total . 'px';
         // IE hack
         $css["* html $owner_id-inside"]['left'] = $left_total . "px";
       }
     }
-    // Add this even if it's 0 so we can handle removals.
-    $css["$owner_id-inside"]['padding-left'] = $left_total . 'px';
     if ($right_total) {
-      $css["$owner_id-right"]['margin-right'] = '-' . $right_total . 'px';
+      $css["$owner_id-middle"]['margin-right'] = $right_total . 'px';
     }
-    $css["$owner_id-inside"]['padding-right'] = $right_total . 'px';
-
+    $css["$owner_id-inside"]['padding-right'] = '0px';
   }
 
   // If the canvas has a fixed width set, and this is the canvas, fix the
@@ -1468,6 +1480,8 @@ function panels_flexible_add_item_form_submit(&$form, &$form_state) {
   $location = &$form_state['location'];
   $settings = &$form_state['settings'];
 
+  $item['class'] = $form_state['values']['class'];
+
   if ($item['type'] == 'region') {
     $item['title'] = $form_state['values']['title'];
   }
@@ -1738,6 +1752,7 @@ function panels_flexible_reuse_form_validate(&$form, &$form_state) {
     form_error($form['name'], t('You must choose a machine name.'));
   }
 
+  ctools_include('export');
   $test = ctools_export_crud_load('panels_layout', $form_state['values']['name']);
   if ($test) {
     form_error($form['name'], t('That name is used by another layout: @layout', array('@layout' => $test->admin_title)));

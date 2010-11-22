@@ -1,7 +1,7 @@
 <h2>Getting Started:</h2>
-<p>Layout plugins are one of the simplest and most powerful sections of the panels api. There are two different ways that a layout can be implemented via panels.  Panels supports both module and theme implementations of panels.  The module implementation requires that hook_ctools_plugin_directory define the directory in which your layout plugins exist. (This same hook defines the directory for all panels plugins) Alternately, if you intend on implementing a layout in a theme this can be done primary through the theme's info file. The Ctools help does a great job of actually explaining this portion of the API <a href="topic:ctools/plugins-implementing">ctools: plugins</a>.</p>
+<p>Layout plugins are one of the simplest and most powerful sections of the panels api. There are two different ways that a layout can be implemented via panels.  Panels supports both module and theme implementations of panels.  The module implementation requires that hook_ctools_plugin_directory define the directory in which your layout plugins exist. (This same hook defines the directory for all panels plugins) Alternately, if you intend on implementing a layout in a theme this can be done primary through the theme's info file. The CTools help does a great job of actually explaining this portion of the API <a href="topic:ctools/plugins-implementing">ctools: plugins</a>.</p>
 
-<p>Ctools explains even the layout hooks a little in its example, but we'll recap quickly and expand on this information. As ctools explains, the actual plugin file must be named with care as it will directly affect your naming scheme for the hook within it. This is really no different from any other hook within drupal except that we'll be using multiple replacements in this case. The function we're looking to implement is an instance of:
+<p>CTools explains even the layout hooks a little in its example, but we'll recap quickly and expand on this information. As ctools explains, the actual plugin file must be named with care as it will directly affect your naming scheme for the hook within it. This is really no different from any other hook within drupal except that we'll be using multiple replacements in this case. The function we're looking to implement is an instance of:
 <code>function YOURMODULE_PLUGINNAME_OWNERMODULE_PLUGINTYPE()</code>
 In our case we already know that the function will be:
 <code>function YOURMODULE_PLUGINNAME_panels_layouts()</code>
@@ -23,8 +23,8 @@ The name of our .inc file is going to be the key to the entire layout plugin.</p
 
 <h2>The .inc File:</h2>
 <p>We will start with the first_layout.inc file as it's the most important file we're dealing with here. First_layout.inc will look similar to the following:
-<pre>function layout_sample_first_layout_panels_layouts() {
-  $items['first_layout'] = array(
+<pre>
+  $plugin  = array(
     'title' => t('First Layout'),
     'icon' => 'first_layout.png',
     'theme' => 'layout_sample_first_layout',
@@ -34,8 +34,7 @@ The name of our .inc file is going to be the key to the entire layout plugin.</p
       'right' => t('Right region'),
     ),
   );
-  return $items;
-}</pre>
+</pre>
 The include file defines all the other files that our layout will utilize in order to be truly useful.  The array is fairly self explanitory but for the sake of specificity:
 <ol>
 <li><strong>Title:</strong><br />The title of our layout. (Utilized within the panels administration screens)</li>
@@ -45,8 +44,8 @@ The include file defines all the other files that our layout will utilize in ord
 <li><strong>Panels:</strong><br />Defines all the various regions within your panel.  This will be further utilized within our tpl.php file.</li>
 </ol>
 There are many additional properties that can be added to the include file. For purposes of this document we'll also make mention of the 'admin css' property. 'Admin css' is especially useful when utilizing a fixed width layout with fixed with panel regions.  This can break under most administrative circumstances, and panels provides you with the ability to give an additional css layout for the administrative section. It's a simple nicety and looks like this:
-<pre>function layout_sample_first_layout_panels_layouts() {
-  $items['first_layout'] = array(
+<pre>
+  $plugin = array(
     'title' => t('First Layout'),
     'icon' => 'first_layout.png',
     'theme' => 'layout_sample_first_layout',
@@ -57,7 +56,6 @@ There are many additional properties that can be added to the include file. For 
       'right' => t('Right region'),
     ),
   );
-  return $items;
 </pre>
 </p>
 

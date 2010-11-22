@@ -1,5 +1,5 @@
 <?php
-// $Id: panels.module,v 1.28.2.99 2010/07/25 18:59:12 merlinofchaos Exp $
+// $Id: panels.module,v 1.28.2.105 2010/08/30 22:08:57 merlinofchaos Exp $
 
 /**
  * @file panels.module
@@ -7,7 +7,7 @@
  * Core functionality for the Panels engine.
  */
 
-define('PANELS_REQUIRED_CTOOLS_API', '1.7.2');
+define('PANELS_REQUIRED_CTOOLS_API', '1.8');
 
 define('PANELS_TITLE_FIXED', 0); // Hide title use to be true/false. So false remains old behavior.
 define('PANELS_TITLE_NONE', 1); // And true meant no title.
@@ -361,6 +361,16 @@ function panels_ctools_plugin_api($owner, $api) {
 }
 
 /**
+ * Implementation of hook_views_api().
+ */
+function panels_views_api() {
+  return array(
+    'api' => 2,
+    'path' => drupal_get_path('module', 'panels') . '/plugins/views',
+  );
+}
+
+/**
  * Perform additional processing on a style plugin.
  *
  * Currently this is only being used to apply versioning information to style
@@ -682,7 +692,7 @@ class panels_display {
     // Let modules act just prior to render.
     foreach (module_implements('panels_pre_render') as $module) {
       $function = $module . '_panels_pre_render';
-      $output .= $function($display, $renderer);
+      $output .= $function($this, $renderer);
     }
 
     $output .= $renderer->render();
@@ -690,7 +700,7 @@ class panels_display {
     // Let modules act just after render.
     foreach (module_implements('panels_post_render') as $module) {
       $function = $module . '_panels_post_render';
-      $output .= $function($display, $renderer);
+      $output .= $function($this, $renderer);
     }
     return $output;
   }
@@ -1469,6 +1479,53 @@ function panel_context_panels_cache_break_lock($key, $cache) {
 }
 
 // --------------------------------------------------------------------------
+// Callbacks on behalf of the panels page wizards
+//
+// The page wizards are a pluggable set of 'wizards' to make it easy to create
+// specific types of pages based upon whatever someone felt like putting
+// together. Since they will very often have content editing, we provide
+// a generic mechanism to allow them to store their editing cache in the
+// wizard cache.
+//
+// For them to use this mechanism, they just need to use:
+//   $cache = panels_edit_cache_get('panels_page_wizard:' . $plugin['name']);
+
+/**
+ * Get display edit cache for the panels mini export UI
+ *
+ * The key is the second half of the key in this form:
+ * panels_page_wizard:TASK_NAME:HANDLER_NAME;
+ */
+function panels_page_wizard_panels_cache_get($key) {
+  ctools_include('page-wizard');
+  ctools_include('context');
+  $wizard_cache = page_manager_get_wizard_cache($key);
+  if (isset($wizard_cache->display_cache)) {
+    return $wizard_cache->display_cache;
+  }
+
+  ctools_include('common', 'panels');
+  $cache = new stdClass();
+  $cache->display = $wizard_cache->display;
+  $cache->display->context = !empty($wizard_cache->context) ? $wizard_cache->context : array();
+  $cache->display->cache_key = 'panels_page_wizard:' . $key;
+  $cache->content_types = panels_common_get_allowed_types('panels_page', $cache->display->context);
+  $cache->display_title = TRUE;
+
+  return $cache;
+}
+
+/**
+ * Store a display edit in progress in the page cache.
+ */
+function panels_page_wizard_panels_cache_set($key, $cache) {
+  ctools_include('page-wizard');
+  $wizard_cache = page_manager_get_wizard_cache($key);
+  $wizard_cache->display_cache = $cache;
+  page_manager_set_wizard_cache($wizard_cache);
+}
+
+// --------------------------------------------------------------------------
 // General utility functions
 
 /**
@@ -1488,6 +1545,47 @@ function panels_goto($destination) {
 
     return drupal_goto($destination['path'], $destination['query'], $destination['fragment'], $destination['http_response_code']);
   }
+}
+
+
+/**
+ * For external use: Given a layout ID and a $content array, return the
+ * panel display.
+ *
+ * The content array is filled in based upon the content available in the
+ * layout. If it's a two column with a content array defined like
+ * @code
+ *   array(
+ *    'left' => t('Left side'),
+ *    'right' => t('Right side')
+ *  ),
+ * @endcode
+ *
+ * Then the $content array should be
+ * @code
+ * array(
+ *   'left' => $output_left,
+ *   'right' => $output_right,
+ * )
+ * @endcode
+ *
+ * The output within each panel region can be either a single rendered
+ * HTML string or an array of rendered HTML strings as though they were
+ * panes. They will simply be concatenated together without separators.
+ */
+function panels_print_layout($layout, $content, $meta = 'standard') {
+  ctools_include('plugins', 'panels');
+
+  // Create a temporary display for this.
+  $display = panels_new_display();
+  $display->layout = is_array($layout) ? $layout['name'] : $layout;
+  $display->content = $content;
+
+  // Get our simple renderer
+  $renderer = panels_get_renderer_handler('simple', $display);
+  $renderer->meta_location = $meta;
+
+  return $renderer->render();
 }
 
 // --------------------------------------------------------------------------
@@ -1517,28 +1615,45 @@ function panels_get_path($file, $base_path = FALSE, $module = 'panels') {
   return $output . drupal_get_path('module', $module) . '/' . $file;
 }
 
-
 /**
- * For external use: Given a layout ID and a $content array, return the
- * panel display. The content array is filled in based upon the content
- * available in the layout. If it's a two column with a content
- * array defined like array('left' => t('Left side'), 'right' =>
- * t('Right side')), then the $content array should be array('left' =>
- * $output_left, 'right' => $output_right)
+ * Given a full layout structure and a content array, render a panel display.
  *
  * @deprecated This function represents an old approach to rendering, and is
  * retained only as a temporary support for other modules still using that
  * approach. It will be removed in the next major version of Panels.
  */
-function panels_print_layout($id, $content) {
-  ctools_include('display-render', 'panels');
-  ctools_include('plugins', 'panels');
-  $layout = panels_get_layout($id);
-  if (!$layout) {
-    return;
+function panels_render_layout($layout, $content, $css_id = NULL, $settings = array(), $display = NULL) {
+  if (!empty($layout['css'])) {
+    if (file_exists(path_to_theme() . '/' . $layout['css'])) {
+      drupal_add_css(path_to_theme() . '/' . $layout['css']);
+    }
+    else {
+      drupal_add_css($layout['path'] . '/' . $layout['css']);
+    }
+  }
+  // This now comes after the CSS is added, because panels-within-panels must
+  // have their CSS added in the right order; inner content before outer content.
+
+  // If $content is an object, it's a $display and we have to render its panes.
+  if (is_object($content)) {
+    $display = $content;
+    if (empty($display->cache['method'])) {
+      $content = panels_render_panes($display);
+    }
+    else {
+      $cache = panels_get_cached_content($display, $display->args, $display->context);
+      if ($cache === FALSE) {
+        $cache = new panels_cache_object();
+        $cache->set_content(panels_render_panes($display));
+        panels_set_cached_content($cache, $display, $display->args, $display->context);
+      }
+      $content = $cache->content;
+    }
   }
 
-  return panels_render_layout($layout, $content);
+  $output = theme($layout['theme'], check_plain($css_id), $content, $settings, $display);
+
+  return $output;
 }
 
 /**
@@ -1549,7 +1664,6 @@ function panels_print_layout($id, $content) {
 function panels_get_panels($layout, $display) {
   return panels_get_regions($layout, $display);
 }
-
 
 /**
  * Select a context for a pane.
@@ -1568,3 +1682,4 @@ function panels_get_panels($layout, $display) {
 function panels_pane_select_context($pane, $contexts) {
   return ctools_content_select_context($pane->type, $pane->subtype, $pane->configuration, $contexts);
 }
+

@@ -1,4 +1,4 @@
-// $Id: display_editor.js,v 1.4.4.8 2010/07/22 18:59:02 merlinofchaos Exp $
+// $Id: display_editor.js,v 1.4.4.9 2010/08/20 16:20:44 merlinofchaos Exp $
 /**
  * @file display_editor.js
  *
@@ -411,9 +411,9 @@
       }
       draggable.timeCount = draggable.timeCount + 1;
       var left = $(window).scrollLeft();
-      var right = left + $(window).innerWidth();
+      var right = left + $(window).width();
       var top = $(window).scrollTop();
-      var bottom = top + $(window).innerHeight();
+      var bottom = top + $(window).height();
 
       if (draggable.mousePos.x < left + scrollBuffer && left > 0) {
         window.scrollTo(left - scrollDistance, top);

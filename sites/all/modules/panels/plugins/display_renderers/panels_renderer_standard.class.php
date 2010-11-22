@@ -1,5 +1,5 @@
 <?php
-// $Id: panels_renderer_standard.class.php,v 1.1.2.24 2010/07/26 21:24:22 merlinofchaos Exp $
+// $Id: panels_renderer_standard.class.php,v 1.1.2.31 2010/10/19 19:17:29 merlinofchaos Exp $
 
 /**
  * The standard render pipeline for a Panels display object.
@@ -38,8 +38,8 @@
  *     datastructure data is rendered, it should use the render phase.
  *
  * In the vast majority of use cases, this standard renderer will be sufficient
- * and need not be switched out/subclassed; style plugins and/or layout plugins
- * accomplish everything needed. If you think you might need a custom
+ * and need not be switched out/subclassed; style and/or layout plugins can
+ * accommodate nearly every use case. If you think you might need a custom
  * renderer, consider the following criteria/examples:
  *   - Some additional markup needs to be added to EVERY SINGLE panel.
  *   - Given a full display object, just render one pane.
@@ -47,11 +47,18 @@
  *
  * The system is almost functionally identical to the old procedural approach,
  * with some exceptions (@see panels_renderer_legacy for details). The approach
- * here differs primarily in its friendliness to tweaking via inheritance.
+ * here differs primarily in its friendliness to tweaking in subclasses.
  */
 class panels_renderer_standard {
   /**
-   * The Panels display object that is to be rendered.
+   * The fully-loaded Panels display object that is to be rendered. "Fully
+   * loaded" is defined as:
+   *   1. Having been produced by panels_load_displays(), whether or this page
+   *      request or at some time in the past and the object was exported.
+   *   2. Having had some external code attach context data ($display->context),
+   *      in the exact form expected by panes. Context matching is delicate,
+   *      typically relying on exact string matches, so special attention must
+   *      be taken.
    *
    * @var panels_display
    */
@@ -103,6 +110,7 @@ class panels_renderer_standard {
    *
    * This state is checked in panels_renderer_standard::render_layout() to
    * determine whether the prepare method should be automatically triggered.
+   *
    * @var bool
    */
   var $prep_run = FALSE;
@@ -115,8 +123,34 @@ class panels_renderer_standard {
   /**
    * TRUE if this renderer is rendering in administrative mode
    * which will allow layouts to have extra functionality.
+   *
+   * @var bool
    */
   var $admin = FALSE;
+
+  /**
+   * Where to add standard meta information. There are three possibilities:
+   * - standard: Put the meta information in the normal location. Default.
+   * - inline: Put the meta information directly inline. This will
+   *   not work for javascript.
+   *
+   * @var string
+   */
+  var $meta_location = 'standard';
+
+  /**
+   * Include rendered HTML prior to the layout.
+   *
+   * @var string
+   */
+  var $prefix = '';
+
+  /**
+   * Include rendered HTML after the layout.
+   *
+   * @var string
+   */
+  var $suffix = '';
 
   /**
    * Receive and store the display object to be rendered.
@@ -177,7 +211,7 @@ class panels_renderer_standard {
    * regularly make additions to the set of panes that will be rendered.
    *
    * @param array $panes
-   *  An associative array of panes, keyed on pane id.
+   *  An associative array of pane data (stdClass objects), keyed on pane id.
    * @return array
    *  An associative array of panes to be rendered, keyed on pane id and sorted
    *  into proper rendering order.
@@ -185,7 +219,7 @@ class panels_renderer_standard {
   function prepare_panes($panes) {
     ctools_include('content');
     // Use local variables as writing to them is very slightly faster
-    $normal = $last = array();
+    $first = $normal = $last = array();
 
     // Prepare the list of panes to be rendered
     foreach ($panes as $pid => $pane) {
@@ -198,30 +232,65 @@ class panels_renderer_standard {
         }
       }
 
-      $ct_plugin_def = ctools_get_content_type($pane->type);
+      $content_type = ctools_get_content_type($pane->type);
 
       // If this pane wants to render last, add it to the $last array. We allow
       // this because some panes need to be rendered after other panes,
       // primarily so they can do things like the leftovers of forms.
-      if (!empty($ct_plugin_def['render last'])) {
+      if (!empty($content_type['render last'])) {
         $last[$pid] = $pane;
+      }
+      // If it wants to render first, add it to the $first array. This is used
+      // by panes that need to do some processing before other panes are
+      // rendered.
+      else if (!empty($content_type['render first'])) {
+        $first[$pid] = $pane;
       }
       // Otherwise, render it in the normal order.
       else {
         $normal[$pid] = $pane;
       }
     }
-    $this->prepared['panes'] = $normal + $last;
+    $this->prepared['panes'] = $first + $normal + $last;
     return $this->prepared['panes'];
   }
 
   /**
-   * @param array $regions
+   * Prepare the list of regions to be rendered.
+   *
+   * This method is primarily about properly initializing the style plugin that
+   * will be used to render the region. This is crucial as regions cannot be
+   * rendered without a style plugin (in keeping with Panels' philosophy of
+   * hardcoding none of its output), but for most regions no style has been
+   * explicitly set. The logic here is what accommodates that situation:
+   *  - If a region has had its style explicitly set, then we fetch that plugin
+   *    and continue.
+   *  - If the region has no explicit style, but a style was set at the display
+   *    level, then inherit the style from the display.
+   *  - If neither the region nor the dispay have explicitly set styles, then
+   *    fall back to the hardcoded 'default' style, a very minimal style.
+   *
+   * The other important task accomplished by this method is ensuring that even
+   * regions without any panes are still properly prepared for the rendering
+   * process. This is essential because the way Panels loads display objects
+   * (@see panels_load_displays) results only in a list of regions that
+   * contain panes - not necessarily all the regions defined by the layout
+   * plugin, which can only be determined by asking the plugin at runtime. This
+   * method consults that retrieved list of regions and prepares all of those,
+   * ensuring none are inadvertently skipped.
+   *
+   * @param array $region_pane_list
+   *   An associative array of pane ids, keyed on the region to which those pids
+   *   are assigned. In the default case, this is $display->panels.
    * @param array $settings
+   *   All known region style settings, including both the top-level display's
+   *   settings (if any) and all region-specific settings (if any).
+   * @return array
+   *   An array of regions prepared for rendering.
    */
-  function prepare_regions($region_list, $settings) {
+  function prepare_regions($region_pane_list, $settings) {
     // Initialize defaults to be used for regions without their own explicit
-    // settings. Use display settings if they exist, else hardcoded defaults
+    // settings. Use display settings if they exist, else hardcoded defaults.
     $default = array(
       'style' => panels_get_style(!empty($settings['style']) ? $settings['style'] : 'default'),
       'style settings' => isset($settings['style_settings']['default']) ? $settings['style_settings']['default'] : array(),
@@ -231,16 +300,18 @@ class panels_renderer_standard {
     if (empty($settings)) {
       // No display/panel region settings exist, init all with the defaults.
       foreach ($this->plugins['layout']['panels'] as $region_id => $title) {
-        $panes = !empty($region_list[$region_id]) ? $region_list[$region_id] : array();
+        // Ensure this region has at least an empty panes array.
+        $panes = !empty($region_pane_list[$region_id]) ? $region_pane_list[$region_id] : array();
 
         $regions[$region_id] = $default;
         $regions[$region_id]['pids'] = $panes;
       }
     }
     else {
-      // Some settings exist; iterate through each region and set individually
+      // Some settings exist; iterate through each region and set individually.
       foreach ($this->plugins['layout']['panels'] as $region_id => $title) {
-        $panes = !empty($region_list[$region_id]) ? $region_list[$region_id] : array();
+        // Ensure this region has at least an empty panes array.
+        $panes = !empty($region_pane_list[$region_id]) ? $region_pane_list[$region_id] : array();
 
         if (empty($settings[$region_id]['style']) || $settings[$region_id]['style'] == -1) {
           $regions[$region_id] = $default;
@@ -294,6 +365,9 @@ class panels_renderer_standard {
    *
    * If display-level caching is enabled and that cache is warm, this method
    * will not be called.
+   *
+   * @return string
+   *   The HTML string representing the entire rendered, themed panel.
    */
   function render_layout() {
     if (empty($this->prep_run)) {
@@ -309,7 +383,7 @@ class panels_renderer_standard {
       $theme = $this->plugins['layout']['theme'];
     }
     $this->rendered['layout'] = theme($theme, check_plain($this->display->css_id), $this->rendered['regions'], $this->display->layout_settings, $this->display, $this->plugins['layout'], $this);
-    return $this->rendered['layout'];
+    return $this->prefix . $this->rendered['layout'] . $this->suffix;
   }
 
   /**
@@ -321,19 +395,64 @@ class panels_renderer_standard {
   function add_meta() {
     if (!empty($this->plugins['layout']['css'])) {
       if (file_exists(path_to_theme() . '/' . $this->plugins['layout']['css'])) {
-        drupal_add_css(path_to_theme() . '/' . $this->plugins['layout']['css']);
+        $this->add_css(path_to_theme() . '/' . $this->plugins['layout']['css']);
       }
       else {
-        drupal_add_css($this->plugins['layout']['path'] . '/' . $this->plugins['layout']['css']);
+        $this->add_css($this->plugins['layout']['path'] . '/' . $this->plugins['layout']['css']);
       }
     }
 
     if ($this->admin && isset($this->plugins['layout']['admin css'])) {
-      drupal_add_css($this->plugins['layout']['path'] . '/' . $this->plugins['layout']['admin css']);
+      $this->add_css($this->plugins['layout']['path'] . '/' . $this->plugins['layout']['admin css']);
     }
-
   }
 
+  /**
+   * Add CSS information to the renderer.
+   *
+   * To facilitate previews over Views, CSS can now be added in a manner
+   * that does not necessarily mean just using drupal_add_css. Therefore,
+   * during the panel rendering process, this method can be used to add
+   * css and make certain that ti gets to the proper location.
+   *
+   * The arguments should exactly match drupal_add_css().
+   *
+   * @see drupal_add_css
+   */
+  function add_css($filename, $type = 'module', $media = 'all', $preprocess = TRUE) {
+    $path = file_create_path($filename);
+    switch ($this->meta_location) {
+      case 'standard':
+        if ($path) {
+          // Use CTools CSS add because it can handle temporary CSS in private
+          // filesystem.
+          ctools_include('css');
+          ctools_css_add_css($filename, $type, $media, $preprocess);
+        }
+        else {
+          drupal_add_css($filename, $type, $media, $preprocess);
+        }
+        break;
+      case 'inline':
+        if ($path) {
+          $url = file_create_url($filename);
+        }
+        else {
+          $url = base_path() . $filename;
+        }
+
+        $this->prefix .= '<link type="text/css" rel="stylesheet" media="' . $media . '" href="' . $url . '" />'."\n";
+        break;
+    }
+  }
+
+  /**
+   * Render all prepared panes, first by dispatching to their plugin's render
+   * callback, then handing that output off to the pane's style plugin.
+   *
+   * @return array
+   *   The array of rendered panes, keyed on pane pid.
+   */
   function render_panes() {
     ctools_include('content');
 
@@ -345,13 +464,18 @@ class panels_renderer_standard {
         $this->rendered['panes'][$pid] = $content;
       }
     }
+    return $this->rendered['panes'];
   }
 
   /**
-   * Render a pane using the appropriate style.
+   * Render a pane using its designated style.
    *
-   * @param object $pane
-   *  The $pane information from the display
+   * This method also manages 'title pane' functionality, where the title from
+   * an individual pane can be bubbled up to take over the title for the entire
+   * display.
+   *
+   * @param stdClass $pane
+   *  A Panels pane object, as loaded from the database.
    */
   function render_pane(&$pane) {
     $content = $this->render_pane_content($pane);
@@ -388,19 +512,22 @@ class panels_renderer_standard {
   }
 
   /**
-   * Render the contents of a single pane.
+   * Render the interior contents of a single pane.
    *
    * This method retrieves pane content and produces a ready-to-render content
    * object. It also manages pane-specific caching.
    *
    * @param stdClass $pane
-   *  A Panels pane object, as loaded from the database.
+   *   A Panels pane object, as loaded from the database.
+   * @return stdClass $content
+   *   A renderable object, containing a subject, content, etc. Based on the
+   *   renderable objects used by the block system.
    */
-  function render_pane_content(&$pane) { // TODO remove this method by collapsing it into $this->render_panes()
+  function render_pane_content(&$pane) {
     ctools_include('context');
     // TODO finally safe to remove this check?
     if (!is_array($this->display->context)) {
-      watchdog('panels', 'renderer:render_pane_content() hit with a non-array for the context', $this->display, WATCHDOG_DEBUG);
+      watchdog('panels', 'renderer::render_pane_content() hit with a non-array for the context', $this->display, WATCHDOG_DEBUG);
       $this->display->context = array();
     }
 
@@ -437,8 +564,8 @@ class panels_renderer_standard {
   }
 
   /**
-   * Render all panes in the attached display into their panel regions, then
-   * render those regions.
+   * Render all prepared regions, placing already-rendered panes into their
+   * appropriate positions therein.
    *
    * @return array
    *   An array of rendered panel regions, keyed on the region name.

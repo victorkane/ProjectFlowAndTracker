@@ -1,5 +1,5 @@
 <?php
-// $Id: colorbox_handler_field_colorbox.inc,v 1.1.2.1 2010/06/01 08:20:34 frjo Exp $
+// $Id: colorbox_handler_field_colorbox.inc,v 1.1.2.2 2010/09/21 12:43:29 frjo Exp $
 
 /**
  * @file
@@ -147,7 +147,7 @@ class colorbox_handler_field_colorbox extends views_handler_field {
 
     $i++;
 
-    $link_tag = l($link_text, '', array('html' => TRUE, 'fragment' => 'colorbox-inline-'. $i, 'query' => 'width='. $width .'&height='. $height .'&inline=true', 'attributes' => array('title' => $caption, 'class' => 'colorbox-inline', 'rel' => $gallery_id)));
+    $link_tag = l($link_text, '', array('html' => TRUE, 'fragment' => 'colorbox-inline-'. $i, 'query' => 'width='. $width .'&height='. $height .'&title='. $caption .'&inline=true', 'attributes' => array('class' => 'colorbox-inline', 'rel' => $gallery_id)));
 
     // The outside div is there to hide all of the divs because if the specific Colorbox
     // div is hidden it won't show up as a Colorbox.

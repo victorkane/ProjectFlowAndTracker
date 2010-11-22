@@ -1,5 +1,5 @@
 <?php
-// $Id: panels_node.module,v 1.5.2.25 2010/07/26 21:55:22 merlinofchaos Exp $
+// $Id: panels_node.module,v 1.5.2.28 2010/10/29 21:50:22 merlinofchaos Exp $
 
 
 /**
@@ -166,7 +166,9 @@ function panels_node_form(&$node, &$param) {
   );
 
   if (!empty($type->body_label)) {
-    $form['body'] = array(
+    $form['body_field']['#prefix'] = '<div class="body-field-wrapper">';
+    $form['body_field']['#suffix'] = '</div>';
+    $form['body_field']['body'] = array(
       '#type' => 'textarea',
       '#title' => check_plain($type->body_label),
       '#rows' => 10,
@@ -174,7 +176,7 @@ function panels_node_form(&$node, &$param) {
       '#description' => t('The teaser is a piece of text to describe when the panel is listed (such as when promoted to front page); the actual content will only be displayed on the full node view.'),
       '#default_value' => $node->body,
     );
-    $form['format'] = filter_form($node->format); // Now we can set the format!
+    $form['body_field']['format'] = filter_form($node->format); // Now we can set the format!
   }
 
 //  drupal_set_message('<pre>' . check_plain(var_export($node, true)) . '</pre>');
@@ -215,7 +217,7 @@ function panels_node_form(&$node, &$param) {
       '#type' => 'radios',
       '#options' => $options,
       '#title' => t('Renderer'),
-      '#default_value' => $node->panels_node['pipeline'] ? $node->panels_node['pipeline'] : 'standard',
+      '#default_value' => !empty($node->panels_node['pipeline']) ? $node->panels_node['pipeline'] : 'standard',
     );
   }
 
@@ -311,8 +313,9 @@ function panels_node_view($node, $teaser = FALSE, $page = FALSE) {
       $display->css_id = $node->panels_node['css_id'];
       // TODO: Find a way to make sure this can't node_view.
       $display->context = panels_node_get_context($node);
+      $renderer = panels_get_renderer($node->panels_node['pipeline'], $display);
       $node->content['body'] = array(
-        '#value' => panels_render_display($display, $node->panels_node['pipeline']),
+        '#value' => panels_render_display($display, $renderer),
         '#weight' => 0,
       );
     }

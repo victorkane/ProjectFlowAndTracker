@@ -95,7 +95,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     ),
   );
   $display = new panels_display;
-  $display->api_version = 1;
   $display->layout = 'pft_column_two';
   $display->layout_settings = array(
     'items' => array(
@@ -240,7 +239,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-1';
     $pane->panel = 'aside_beta';
     $pane->type = 'block';
@@ -262,7 +260,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $display->content['new-1'] = $pane;
     $display->panels['aside_beta'][0] = 'new-1';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-2';
     $pane->panel = 'aside_beta';
     $pane->type = 'block';
@@ -284,7 +281,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $display->content['new-2'] = $pane;
     $display->panels['aside_beta'][1] = 'new-2';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-3';
     $pane->panel = 'header_alpha';
     $pane->type = 'node_content';
@@ -313,7 +309,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $display->content['new-3'] = $pane;
     $display->panels['header_alpha'][0] = 'new-3';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-4';
     $pane->panel = 'main1';
     $pane->type = 'block';
@@ -335,7 +330,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $display->content['new-4'] = $pane;
     $display->panels['main1'][0] = 'new-4';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-5';
     $pane->panel = 'main1';
     $pane->type = 'views';
@@ -368,7 +362,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $display->content['new-5'] = $pane;
     $display->panels['main1'][1] = 'new-5';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-6';
     $pane->panel = 'main2';
     $pane->type = 'views';
@@ -401,7 +394,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $display->content['new-6'] = $pane;
     $display->panels['main2'][0] = 'new-6';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-7';
     $pane->panel = 'main2';
     $pane->type = 'views';
@@ -441,7 +433,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $display->content['new-7'] = $pane;
     $display->panels['main2'][1] = 'new-7';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-8';
     $pane->panel = 'main2';
     $pane->type = 'views';
@@ -480,7 +471,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $display->content['new-8'] = $pane;
     $display->panels['main2'][2] = 'new-8';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-9';
     $pane->panel = 'main2';
     $pane->type = 'views';
@@ -519,7 +509,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $display->content['new-9'] = $pane;
     $display->panels['main2'][3] = 'new-9';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-10';
     $pane->panel = 'main2';
     $pane->type = 'views';
@@ -558,7 +547,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $display->content['new-10'] = $pane;
     $display->panels['main2'][4] = 'new-10';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-11';
     $pane->panel = 'main2';
     $pane->type = 'block';
@@ -579,7 +567,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $display->content['new-11'] = $pane;
     $display->panels['main2'][5] = 'new-11';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-12';
     $pane->panel = 'main3';
     $pane->type = 'views';
@@ -612,7 +599,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $display->content['new-12'] = $pane;
     $display->panels['main3'][0] = 'new-12';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-13';
     $pane->panel = 'main3';
     $pane->type = 'views';
@@ -645,7 +631,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $display->content['new-13'] = $pane;
     $display->panels['main3'][1] = 'new-13';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-14';
     $pane->panel = 'main3';
     $pane->type = 'views';
@@ -678,7 +663,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $display->content['new-14'] = $pane;
     $display->panels['main3'][2] = 'new-14';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-15';
     $pane->panel = 'main3';
     $pane->type = 'views';
@@ -759,7 +743,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     ),
   );
   $display = new panels_display;
-  $display->api_version = 1;
   $display->layout = 'pft_column_two';
   $display->layout_settings = array();
   $display->panel_settings = array(
@@ -801,7 +784,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-1';
     $pane->panel = 'aside_beta';
     $pane->type = 'content_field';
@@ -825,7 +807,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $display->content['new-1'] = $pane;
     $display->panels['aside_beta'][0] = 'new-1';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-2';
     $pane->panel = 'aside_beta';
     $pane->type = 'content_field';
@@ -849,7 +830,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $display->content['new-2'] = $pane;
     $display->panels['aside_beta'][1] = 'new-2';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-3';
     $pane->panel = 'aside_beta';
     $pane->type = 'block';
@@ -870,7 +850,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $display->content['new-3'] = $pane;
     $display->panels['aside_beta'][2] = 'new-3';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-4';
     $pane->panel = 'aside_beta';
     $pane->type = 'node_author';
@@ -893,7 +872,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $display->content['new-4'] = $pane;
     $display->panels['aside_beta'][3] = 'new-4';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-5';
     $pane->panel = 'header_alpha';
     $pane->type = 'node_title';
@@ -931,7 +909,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $display->content['new-5'] = $pane;
     $display->panels['header_alpha'][0] = 'new-5';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-6';
     $pane->panel = 'header_alpha';
     $pane->type = 'node_terms';
@@ -969,7 +946,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $display->content['new-6'] = $pane;
     $display->panels['header_alpha'][1] = 'new-6';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-7';
     $pane->panel = 'main1';
     $pane->type = 'node_body';
@@ -991,7 +967,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $display->content['new-7'] = $pane;
     $display->panels['main1'][0] = 'new-7';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-8';
     $pane->panel = 'main1';
     $pane->type = 'content_fieldgroup';
@@ -1017,7 +992,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $display->content['new-8'] = $pane;
     $display->panels['main1'][1] = 'new-8';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-9';
     $pane->panel = 'main1';
     $pane->type = 'content_fieldgroup';
@@ -1043,7 +1017,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $display->content['new-9'] = $pane;
     $display->panels['main1'][2] = 'new-9';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-10';
     $pane->panel = 'main1';
     $pane->type = 'content_fieldgroup';
@@ -1068,7 +1041,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $display->content['new-10'] = $pane;
     $display->panels['main1'][3] = 'new-10';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-11';
     $pane->panel = 'main2';
     $pane->type = 'node_links';
@@ -1093,7 +1065,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $display->content['new-11'] = $pane;
     $display->panels['main2'][0] = 'new-11';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-12';
     $pane->panel = 'main2';
     $pane->type = 'views';
@@ -1129,7 +1100,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $display->content['new-12'] = $pane;
     $display->panels['main2'][1] = 'new-12';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-13';
     $pane->panel = 'main3';
     $pane->type = 'node_created';
@@ -1152,7 +1122,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $display->content['new-13'] = $pane;
     $display->panels['main3'][0] = 'new-13';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-14';
     $pane->panel = 'main3';
     $pane->type = 'node_updated';

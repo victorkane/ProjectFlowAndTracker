@@ -1,5 +1,5 @@
 <?php
-// $Id: colorbox.admin.inc,v 1.16.2.1 2010/07/07 05:06:04 frjo Exp $
+// $Id: colorbox.admin.inc,v 1.16.2.2 2010/09/07 10:55:40 frjo Exp $
 
 /**
  * @file
@@ -63,6 +63,32 @@ function colorbox_admin_settings() {
       '#title' => t('Image derivative'),
       '#options' => $derivative_options,
       '#default_value' => variable_get('colorbox_image_derivative', 'preview'),
+      '#description' => t('Select which image derivative to load in the Colorbox.'),
+    );
+  }
+
+  if (module_exists('img_assist')) {
+    $form['colorbox_img_assist_module'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Image assist module settings'),
+    );
+    $form['colorbox_img_assist_module']['colorbox_auto_img_assist_custom'] = array(
+      '#type' => 'radios',
+      '#title' => t('Image Assist custom size image integration'),
+      '#options' => array(0 => t('Disabled'), 1 => t('Enabled')),
+      '#default_value' => variable_get('colorbox_auto_img_assist_custom', 0),
+      '#description' => t('Select if Colorbox should be activated for the Image Assist custom size image.'),
+    );
+    $derivative_options = array();
+    $sizes = image_get_sizes();
+    foreach ($sizes as $label => $size) {
+      $derivative_options[$label] = $size['label'];
+    }
+    $form['colorbox_img_assist_module']['colorbox_img_assist_derivative'] = array(
+      '#type' => 'select',
+      '#title' => t('Image derivative'),
+      '#options' => $derivative_options,
+      '#default_value' => variable_get('colorbox_img_assist_derivative', 'preview'),
       '#description' => t('Select which image derivative to load in the Colorbox.'),
     );
   }

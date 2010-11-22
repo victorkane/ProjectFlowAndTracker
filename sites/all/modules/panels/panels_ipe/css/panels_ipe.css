@@ -58,7 +58,7 @@ div.panels-ipe-handlebar-wrapper li {
   margin: 0;
   padding: 0;
   float: left;
-  font: 12px/170% Verdana,sans-serif; !important;
+  font: 12px/170% Verdana,sans-serif !important;
 }
 
 div.panels-ipe-handlebar-wrapper li {
@@ -71,7 +71,7 @@ div.panels-ipe-handlebar-wrapper li.first {
 }
 
 div.panels-ipe-draghandle {
-  background: #898AAB url(images/dragger.png) top right no-repeat;
+  background: #898AAB url(../images/dragger.png) top right no-repeat;
   cursor: move;
   height: 24px;
 }
@@ -83,7 +83,11 @@ div.panels-ipe-placeholder {
   background-color: #f6f6f6;
   color: black;
   background-color: white;
-  font: 12px/170% Verdana,sans-serif; !important;
+  font: 12px/170% Verdana,sans-serif !important;
+  text-transform: none;
+  letter-spacing: 0;
+  text-align: left;
+  word-spacing: 0;
 }
 
 div.panels-ipe-placeholder h3 {
@@ -111,7 +115,7 @@ div.panels-ipe-newblock a {
   color: blue;
   display: block;
   padding: 0.1em 0.5em;
-  font: 12px/170% Verdana,sans-serif; !important;
+  font: 12px/170% Verdana,sans-serif !important;
   text-transform: none;
   letter-spacing: 0;
 }
@@ -139,8 +143,15 @@ div.panels-ipe-draghandle {
   border: none;
 }
 
-.ui-sortable-placeholder { margin: 1em; border: 1px dotted black; visibility: visible !important; height: 50px !important; }
-.ui-sortable-placeholder * { visibility: hidden; }
+.ui-sortable-placeholder {
+  margin: 1em;
+  border: 1px dotted black;
+  visibility: visible !important;
+  height: 50px !important;
+}
+.ui-sortable-placeholder * {
+  visibility: hidden;
+}
 
 /* counteract panels_dnd.css - temporary */
 div.panels-ipe-display-container .panel-pane .pane-title {

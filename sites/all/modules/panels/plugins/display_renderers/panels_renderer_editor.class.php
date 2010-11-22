@@ -1,5 +1,5 @@
 <?php
-// $Id: panels_renderer_editor.class.php,v 1.1.2.9 2010/07/26 23:08:21 merlinofchaos Exp $
+// $Id: panels_renderer_editor.class.php,v 1.1.2.12 2010/10/29 19:05:21 merlinofchaos Exp $
 
 /**
  * @file
@@ -98,7 +98,7 @@ class panels_renderer_editor extends panels_renderer_standard {
     return $output;
   }
 
-  function render_pane($pane) {
+  function render_pane(&$pane) {
     // Pass through to normal rendering if not in admin mode.
     if (!$this->admin) {
       return parent::render_pane($pane);
@@ -314,7 +314,8 @@ class panels_renderer_editor extends panels_renderer_standard {
     }
 
     $subtype = ctools_content_get_subtype($content_type, $pane->subtype);
-    if (!empty($content_type['edit form']) || !empty($subtype['edit form'])) {
+
+    if (ctools_content_editable($content_type, $subtype, $pane->configuration)) {
       $links[] = array(
         'title' => isset($content_type['edit text']) ? $content_type['edit text'] : t('Settings'),
         'href' => $this->get_url('edit-pane', $pane->pid),
@@ -578,7 +579,7 @@ class panels_renderer_editor extends panels_renderer_standard {
         $content_title = filter_xss_admin($content_type['title']);
 
         // Ensure content with the same title doesn't overwrite each other.
-        while (isset($categories['content'][$content_title])) {
+        while (isset($categories[$category_key]['content'][$content_title])) {
           $content_title .= '-';
         }
 
@@ -654,31 +655,34 @@ class panels_renderer_editor extends panels_renderer_standard {
       $output = '<div class="panels-categories-description">';
       $output .= t('Content options are divided by category. Please select a category from the left to proceed.');
       $output .= '</div>';
-      return $output;
+    }
+    else {
+      $titles = array_keys($content);
+      natcasesort($titles);
+
+      // Fill out the info for our current category.
+      $columns = 2;
+      $col[1] = '';
+      $col[2] = '';
+
+      $col_size = count($titles) / $columns;
+      $count = 0;
+      foreach ($titles as $title) {
+        $which = floor($count++ / $col_size) + 1; // we leave 0 for the categories.
+        $col[$which] .= $this->render_add_content_link($region, $content[$title]);
+      }
+
+      $output = '<div class="panels-section-columns">';
+      foreach ($col as $id => $column) {
+        $output .= '<div class="panels-section-column panels-section-column-' . $id . '">'
+        . '<div class="inside">' . $column . '</div></div>';
+      }
+      $output .= '</div>'; // columns
     }
 
-    $titles = array_keys($content);
-    natcasesort($titles);
-
-    // Fill out the info for our current category.
-    $columns = 2;
-    $col[1] = '';
-    $col[2] = '';
-
-    $col_size = count($titles) / $columns;
-    $count = 0;
-    foreach ($titles as $title) {
-      $which = floor($count++ / $col_size) + 1; // we leave 0 for the categories.
-      $col[$which] .= $this->render_add_content_link($region, $content[$title]);
+    if ($messages = theme('status_messages')) {
+      $output = '<div class="messages">' . $messages . '</div>' . $output;
     }
-
-    $output = '<div class="panels-section-columns">';
-    foreach ($col as $id => $column) {
-      $output .= '<div class="panels-section-column panels-section-column-' . $id . '">'
-      . '<div class="inside">' . $column . '</div></div>';
-    }
-    $output .= '</div>'; // columns
-
     return $output;
   }
 

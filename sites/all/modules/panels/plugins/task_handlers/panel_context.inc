@@ -1,5 +1,5 @@
 <?php
-// $Id: panel_context.inc,v 1.1.2.59 2010/07/26 19:44:29 merlinofchaos Exp $
+// $Id: panel_context.inc,v 1.1.2.60 2010/08/10 19:31:38 merlinofchaos Exp $
 
 /**
  * @file
@@ -464,9 +464,9 @@ function panels_panel_context_admin_summary($handler, $task, $subtask, $page, $s
   $content_link = ' [' . l(t('Edit'), page_manager_edit_url($task_name, array('handlers', $handler->name, 'content'))) . ']';
   $context_link = ' [' . l(t('Edit'), page_manager_edit_url($task_name, array('handlers', $handler->name, 'context'))) . ']';
 
-
   $info = theme('table', array(), $rows, array('class' => 'page-manager-handler-summary'));
 
+/*
   $content = theme('panels_common_content_list', $display);
   if (empty($contents)) {
     $contents = t('This panel has no content.');
@@ -475,6 +475,7 @@ function panels_panel_context_admin_summary($handler, $task, $subtask, $page, $s
   if (empty($contexts)) {
     $contexts = t('This panel has no contexts.');
   }
+*/
 
   $title = $handler->conf['title'];
   if ($title != t('Panel')) {

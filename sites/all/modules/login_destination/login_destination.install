@@ -1,5 +1,5 @@
 <?php
-// $Id: login_destination.install,v 1.1.2.2 2010/03/19 22:16:55 setfree Exp $
+// $Id: login_destination.install,v 1.1.2.3 2010/03/19 22:21:20 setfree Exp $
 
 /**
  * Implementation of hook_uninstall().
@@ -12,5 +12,3 @@ function login_destination_uninstall() {
   variable_del('ld_url_type');
   variable_del('ld_url_destination');
 }
-
-

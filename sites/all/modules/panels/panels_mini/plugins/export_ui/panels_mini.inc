@@ -1,14 +1,10 @@
 <?php
-// $Id: panels_mini.inc,v 1.1.2.1 2010/07/21 23:12:45 merlinofchaos Exp $
+// $Id: panels_mini.inc,v 1.1.2.2 2010/08/21 20:46:36 merlinofchaos Exp $
 
 $plugin = array(
   'schema' => 'panels_mini',
   'access' => 'administer mini panels',
   'create access' => 'create mini panels',
-  // The usual administrative title is just 'title' for us.
-  'export' => array(
-    'admin_title' => 'title',
-  ),
 
   'menu' => array(
     'menu item' => 'mini-panels',

@@ -1,6 +1,5 @@
 <?php
-// $Id: login_destination.module,v 1.10.2.12 2010/03/19 22:16:55 setfree Exp $
-
+// $Id: login_destination.module,v 1.10.2.23 2010/10/27 22:12:46 setfree Exp $
 
 /**
  * @file
@@ -66,7 +65,7 @@ function login_destination_admin_settings() {
   $form['condition']['ld_condition_snippet'] = array(
     '#type' => 'textarea',
     '#default_value' => variable_get('ld_condition_snippet', ''),
-    '#title' => t('Redirect condition: <b>IMPORTANT! If using a WYSWYG editor - ensure that you use its plain text mode! There is a link below the text box.</b>'),
+    '#title' => t('Redirect condition: <b>IMPORTANT! If using a WYSIWYG editor - ensure that you use its plain text mode! There is a link below the text box.</b>'),
     '#rows' => 4,
     '#description' =>
       t('<b>Always:</b> Redirection happens always. Redirect condition field is ignored.'). '<br/>' .
@@ -158,8 +157,12 @@ function login_destination_admin_settings_validate($form_id, $form){
  */
 
 function login_destination_user($op, &$edit, &$account, $category = NULL) {
+  static $login_destination;
+  
   // If login and not during an installation profile
-  if ($op == 'login' && MAINTENANCE_MODE != "install") {
+ if ( $op == 'login' && !isset($login_destination)) {
+    $login_destination = true;
+    // module_invoke_all('user', $op, $edit, $account, $category); // Removed: causing other hook_user calls in other modules to be called twice. Doesn't look like this implementation is doing anything useful anyway
     
     $arr = login_destination_calculate_redirection_path_and_query($edit);
     $path  = $arr[0];
@@ -168,7 +171,7 @@ function login_destination_user($op, &$edit, &$account, $category = NULL) {
     // if condition is ok and this is not the user_login form - redirect. (on the user_login form we set $form['#redirect'] which
     // takes care of the redirection there.)
     //if (login_destination_apply_redirect() && $edit['form_id'] != "user_login") {      
-    if (login_destination_apply_redirect()) {
+    if (login_destination_apply_redirect($account)) {
       login_destination_redirect_to_path_and_query($path, $query);
     }
   }
@@ -186,7 +189,7 @@ function login_destination_redirect_to_path_and_query($path, $query) {
     
     // redirect
     $_REQUEST['destination'] = $path .  $add_to_path;
-    drupal_goto($path, urlencode($query), NULL, 301);
+    // drupal_goto($path, urlencode($query), NULL, 301);
     
   }
   // internal
@@ -197,7 +200,7 @@ function login_destination_redirect_to_path_and_query($path, $query) {
     
     //redirect
     $_REQUEST['destination'] = $path .  $add_to_path;
-    drupal_goto($path, urlencode($query), NULL, 301);
+    // drupal_goto($path, urlencode($query), NULL, 301);
   }
 }
 
@@ -208,15 +211,15 @@ function login_destination_calculate_redirection_path_and_query($form) {
     $destination_str = variable_get('ld_url_destination', 'user');
     $url_type        = variable_get('ld_url_type', LOGIN_DEST_STATIC);
     
-    // override all if "preserve" checkbox set
-    if (variable_get('ld_destination', TRUE)) {
+    // override all if "preserve" checkbox set and there is a destination in the URL
+    if (variable_get('ld_destination', TRUE) && $_GET['destination']) {
       $url_type        = LOGIN_DEST_STATIC;
       $destination_str = $_GET['destination'];
     }
     
     // if snippet
     if ($url_type == LOGIN_DEST_SNIPPET) {
-      $url = drupal_eval('<?php ' . $destination_str . ' ?>');
+      $url = eval($destination_str);
       
       // if an array came from the snippet (an array with "path" and "query" keys)
       if (is_array($url) && !empty($url['path'])) {
@@ -263,12 +266,15 @@ function login_destination_calculate_redirection_path_and_query($form) {
  *
  * @return bool TRUE - apply redirect, FALSE - not to apply redirect.
  */
-function login_destination_apply_redirect() {
-  
+function login_destination_apply_redirect($account) {
+  global $user;  
   // don't redirect on registration's password reset
   // not clear if this affects anything. Can't hurt. At least the wrong redirection does not happen currently. Phew!
-  if (arg(0) == 'user' && arg(1) == 'reset') { return FALSE; }
-
+  // Also check for force_password_change
+  if ((arg(0) == 'user' && arg(1) == 'reset')
+    || ($account->force_password_change && $account->uid == $user->uid)) {
+    return FALSE;
+  }
   $mode = variable_get('ld_condition_type', LOGIN_COND_ALWAYS);
   if ($mode == LOGIN_COND_ALWAYS ) {
     return TRUE;

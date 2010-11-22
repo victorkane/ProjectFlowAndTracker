@@ -12,7 +12,8 @@
  *    panels_render_pane() on all contained panes; rendered pane HTML is now
  *    passed in directly.
  *  - Cache plugins are now triggered on rendered HTML, rather than on
- *    unrendered datastructures.
+ *    unrendered datastructures, when acting at the display level. When acting
+ *    at the pane level, they still receive the unrendered datastructure.
  *
  * If your site relies on any of these plugin behaviors, you will need to use
  * this renderer instead of the new panels_renderer_standard() until those
@@ -22,6 +23,20 @@ class panels_renderer_legacy {
   var $display;
   var $plugins = array();
 
+  /**
+   * Include rendered HTML prior to the layout.
+   *
+   * @var string
+   */
+  var $prefix = '';
+
+  /**
+   * Include rendered HTML after the layout.
+   *
+   * @var string
+   */
+  var $suffix = '';
+
   function init($plugin, &$display) {
     $this->plugin = $plugin;
     $this->plugins['layout'] = panels_get_layout($display->layout);
@@ -29,6 +44,45 @@ class panels_renderer_legacy {
       watchdog('panels', "Layout: @layout couldn't been found, maybe the theme is disabled.", array('@layout' => $display->layout));
     }
     $this->display = &$display;
+  }
+
+  /**
+   * Add CSS information to the renderer.
+   *
+   * To facilitate previews over Views, CSS can now be added in a manner
+   * that does not necessarily mean just using drupal_add_css. Therefore,
+   * during the panel rendering process, this method can be used to add
+   * css and make certain that ti gets to the proper location.
+   *
+   * The arguments should exactly match drupal_add_css().
+   *
+   * @see drupal_add_css
+   */
+  function add_css($filename, $type = 'module', $media = 'all', $preprocess = TRUE) {
+    $path = file_create_path($filename);
+    switch ($this->meta_location) {
+      case 'standard':
+        if ($path) {
+          // Use CTools CSS add because it can handle temporary CSS in private
+          // filesystem.
+          ctools_include('css');
+          ctools_css_add_css($filename, $type, $media, $preprocess);
+        }
+        else {
+          drupal_add_css($filename, $type, $media, $preprocess);
+        }
+        break;
+      case 'inline':
+        if ($path) {
+          $url = file_create_url($filename);
+        }
+        else {
+          $url = base_path() . $filename;
+        }
+
+        $this->prefix .= '<link type="text/css" rel="stylesheet" media="' . $media . '" href="' . $url . '" />'."\n";
+        break;
+    }
   }
 
   /**
@@ -69,7 +123,7 @@ class panels_renderer_legacy {
 
     $output = theme($this->plugins['layout']['theme'], check_plain($this->display->css_id), $content, $this->display->layout_settings, $this->display, $this->plugins['layout'], $this);
 
-    return $output;
+    return $this->prefix . $output . $this->suffix;
   }
 
   /**
@@ -85,8 +139,7 @@ class panels_renderer_legacy {
     // First, render all the panes into little boxes. We do this here because
     // some panes request to be rendered after other panes (primarily so they
     // can do the leftovers of forms).
-    $panes = array();
-    $later = array();
+    $panes = $first = $normal = $last = array();
 
     foreach ($this->display->content as $pid => $pane) {
       $pane->shown = !empty($pane->shown); // guarantee this field exists.
@@ -95,18 +148,27 @@ class panels_renderer_legacy {
         continue;
       }
 
-      // If this pane wants to render last, add it to the $later array.
       $content_type = ctools_get_content_type($pane->type);
 
+      // If this pane wants to render last, add it to the $last array. We allow
+      // this because some panes need to be rendered after other panes,
+      // primarily so they can do things like the leftovers of forms.
       if (!empty($content_type['render last'])) {
-        $later[$pid] = $pane;
-        continue;
+        $last[$pid] = $pane;
       }
-
-      $panes[$pid] = $this->render_pane($pane);
+      // If it wants to render first, add it to the $first array. This is used
+      // by panes that need to do some processing before other panes are
+      // rendered.
+      else if (!empty($content_type['render first'])) {
+        $first[$pid] = $pane;
+      }
+      // Otherwise, render it in the normal order.
+      else {
+        $normal[$pid] = $pane;
+      }
     }
 
-    foreach ($later as $pid => $pane) {
+    foreach (($first + $normal + $last) as $pid => $pane) {
       $panes[$pid] = $this->render_pane($pane);
     }
 
@@ -144,7 +206,7 @@ class panels_renderer_legacy {
    * @param stdClass $pane
    *    A Panels pane object, as loaded from the database.
    */
-  function render_pane($pane) {
+  function render_pane(&$pane) {
     ctools_include('context');
     if (!is_array($this->display->context)) {
       $this->display->context = array();

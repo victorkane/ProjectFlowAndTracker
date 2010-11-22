@@ -17,8 +17,8 @@ function pft_manage_prj_and_us_taxonomy_default_vocabularies() {
       'module' => 'features_status',
       'weight' => '0',
       'nodes' => array(
-        'user_story' => 'user_story',
         'issue' => 'issue',
+        'user_story' => 'user_story',
       ),
     ),
     'user_story_type' => array(
