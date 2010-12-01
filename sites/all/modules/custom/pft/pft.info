@@ -1,0 +1,23 @@
+; $Id: $
+name = PFT Core Module
+description = Base package for Project Flow & Tracker
+;
+dependencies[] = content
+dependencies[] = content_copy
+dependencies[] = fieldgroup
+dependencies[] = filefield
+dependencies[] = filefield_sources
+dependencies[] = imagefield
+dependencies[] = nodereference
+dependencies[] = nodereference_url
+dependencies[] = number
+dependencies[] = optionwidgets
+dependencies[] = text
+dependencies[] = userreference
+;
+dependencies[] = views
+dependencies[] = strongarm
+dependencies[] = panels
+dependencies[] = page_manager
+package = pft
+core = 6.x

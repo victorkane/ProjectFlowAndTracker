@@ -1,0 +1,45 @@
+<?php
+// $Id: taxonomy_export.test,v 1.1 2009/06/18 23:36:43 jamesandres Exp $
+
+/**
+ * Test the basic functionality of the taxonomy_export module.
+ */
+class TaxonomyExportTests extends DrupalWebTestCase {
+
+  function __construct() {
+    parent::__construct();
+  }
+
+  /**
+   * Clean out the testing environment.
+   **/
+  function setUp() {
+    parent::setUp();
+  }
+
+  /**
+   * Clean out the testing environment.
+   **/
+  function tearDown() {
+    parent::tearDown();
+  }
+
+  /**
+   * Implementation of the DrupalTestCase "get_info" method.
+   **/
+  function getInfo() {
+    return array(
+      'name' => t('Taxonomy Export Tests'),
+      'description' => t('Test the basic functionality of the taxonomy_export module.'),
+      'group' => 'Taxonomy Export'
+    );
+  }
+
+  /**
+   * Basic tests of the taxonomy_export module.
+   **/
+  function testTaxonomyExport() {
+    // TODO: Write some tests.
+  }
+
+}

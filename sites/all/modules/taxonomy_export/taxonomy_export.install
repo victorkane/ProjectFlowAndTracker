@@ -1,0 +1,23 @@
+<?php
+// $Id: taxonomy_export.install,v 1.1.2.1 2009/06/19 00:04:48 jamesandres Exp $
+
+/**
+ * Implementation of hook_requirements()
+ * 
+ * Ensures taxonomy_xml isn't running to avoid conflicts.
+ **/
+function taxonomy_export_requirements($phase) {
+  $requirements = array();
+  $t = get_t();
+
+  $exists = module_exists('taxonomy_xml');
+
+  $requirements['taxonomy_export'] = array(
+    'title' => $t('Taxonomy Export'),
+    'value' => $exists ? $t('Taxonomy XML conflicts') : $t('Okay'),
+    'severity' => $exists ? REQUIREMENT_ERROR : REQUIREMENT_OK,
+    'description' => $exists ? $t('The Taxonomy Export module conflicts with the Taxonomy XML module.') : NULL,
+  );
+
+  return $requirements;
+}

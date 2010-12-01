@@ -1,0 +1,48 @@
+<?php
+// $Id: taxonomy_export.module,v 1.1.2.1 2010/02/26 14:59:14 jamesandres Exp $
+
+/**
+ * @file taxonomy_export.module
+ *  Simple taxonomy export & import module.
+ */
+
+define('TAXONOMY_EXPORT_VERSION', '0.1');
+
+/**
+ * Implementation of hook_help().
+ */
+function taxonomy_export_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#taxonomy_export':
+      $output = '<p>'. t('Enables taxonomy vocabularies and terms to be exported / imported.') .'</p>';
+      return $output;
+  }
+}
+
+/**
+ * Implementation of hook_menu().
+ */
+function taxonomy_export_menu() {
+  $items = array();
+
+  $items['admin/content/taxonomy/import'] = array(
+    'title' => t('Import'),
+    'description' => t('Import taxonomy definitions.'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('taxonomy_export_import'),
+    'access arguments' => array('administer taxonomy'),
+    'file' => 'taxonomy_export.pages.inc',
+    'type' => MENU_LOCAL_TASK,
+  );
+  $items['admin/content/taxonomy/export'] = array(
+    'title' => t('Export'),
+    'description' => t('Export taxonomy definitions.'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('taxonomy_export_export'),
+    'access arguments' => array('administer taxonomy'),
+    'file' => 'taxonomy_export.pages.inc',
+    'type' => MENU_LOCAL_TASK,
+  );
+
+  return $items;
+}

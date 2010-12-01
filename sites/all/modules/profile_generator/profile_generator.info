@@ -1,0 +1,14 @@
+name = Installation Profile Generator
+description = "Takes the current installation of Drupal, and creates an Installation Profile based on it"
+package = "Installation"
+version = 6.x-dev
+core = 6.x
+
+dependencies[] = 'ctools'
+
+; Information added by drupal.org packaging script on 2010-10-26
+version = "6.x-2.1-rc1"
+core = "6.x"
+project = "profile_generator"
+datestamp = "1288052134"
+
