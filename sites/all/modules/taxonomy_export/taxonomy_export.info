@@ -1,12 +1,14 @@
-; $Id: taxonomy_export.info,v 1.1.2.1 2010/05/20 09:30:49 jamesandres Exp $
+; $Id: taxonomy_export.info,v 1.1.4.1 2010/01/28 15:58:22 jamesandres Exp $
 name = Taxonomy Export
 description = "Simple taxonomy export & import module."
 dependencies[] = taxonomy
+dependencies[] = ctools
+version = VERSION
 core = 6.x
 
-; Information added by drupal.org packaging script on 2010-05-20
-version = "6.x-1.2"
+; Information added by drupal.org packaging script on 2010-08-25
+version = "6.x-2.x-dev"
 core = "6.x"
 project = "taxonomy_export"
-datestamp = "1274348107"
+datestamp = "1282695567"
 

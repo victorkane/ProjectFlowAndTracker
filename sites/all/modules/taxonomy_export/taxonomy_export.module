@@ -1,12 +1,12 @@
 <?php
-// $Id: taxonomy_export.module,v 1.1.2.1 2010/02/26 14:59:14 jamesandres Exp $
+// $Id: taxonomy_export.module,v 1.1.4.2 2010/08/24 14:45:13 jamesandres Exp $
 
 /**
  * @file taxonomy_export.module
  *  Simple taxonomy export & import module.
  */
 
-define('TAXONOMY_EXPORT_VERSION', '0.1');
+define('TAXONOMY_EXPORT_VERSION', '2');
 
 /**
  * Implementation of hook_help().
@@ -14,6 +14,7 @@ define('TAXONOMY_EXPORT_VERSION', '0.1');
 function taxonomy_export_help($path, $arg) {
   switch ($path) {
     case 'admin/help#taxonomy_export':
+      // TODO: Give better help, integrate with advanced help?
       $output = '<p>'. t('Enables taxonomy vocabularies and terms to be exported / imported.') .'</p>';
       return $output;
   }
@@ -23,6 +24,10 @@ function taxonomy_export_help($path, $arg) {
  * Implementation of hook_menu().
  */
 function taxonomy_export_menu() {
+  // TODO: Move taxonomy_export_sync() to a more appropriate place
+  module_load_include('inc', 'taxonomy_export');
+  taxonomy_export_sync();
+
   $items = array();
 
   $items['admin/content/taxonomy/import'] = array(
@@ -32,7 +37,6 @@ function taxonomy_export_menu() {
     'page arguments' => array('taxonomy_export_import'),
     'access arguments' => array('administer taxonomy'),
     'file' => 'taxonomy_export.pages.inc',
-    'type' => MENU_LOCAL_TASK,
   );
   $items['admin/content/taxonomy/export'] = array(
     'title' => t('Export'),
@@ -41,8 +45,125 @@ function taxonomy_export_menu() {
     'page arguments' => array('taxonomy_export_export'),
     'access arguments' => array('administer taxonomy'),
     'file' => 'taxonomy_export.pages.inc',
-    'type' => MENU_LOCAL_TASK,
   );
 
   return $items;
+}
+
+/**
+ * Implementation of hook_features_api().
+ */
+function taxonomy_export_features_api() {
+  if (!defined('CTOOLS_API_VERSION')) {
+    return array();
+  }
+
+  return array(
+    'taxonomy_export' => array(
+      'name' => t('Taxonomy export'),
+      'features_source' => TRUE,
+      'default_hook' => 'default_taxonomy_export',
+      'default_file' => FEATURES_DEFAULTS_INCLUDED,
+      'file' => drupal_get_path('module', 'taxonomy_export') .'/taxonomy_export.features.inc',
+    ),
+  );
+}
+
+/**
+ * Implementation of hook_taxonomy()
+ **/
+function taxonomy_export_taxonomy($op, $type, $array) {
+  module_load_include('inc', 'taxonomy_export');
+
+  taxonomy_export_sync(); // FIXME: It is very brute force to resync all objects at the slightest change.
+
+  // When a vocabulary is deleted manually, immediately remove it from the
+  // taxonomy_export exportables storage.  There will be no opportunity to do
+  // this elegantly in taxonomy_export_sync()
+  if ($op == 'delete' && $type == 'vocabulary') {
+    $vocabulary = (object) $array;
+    $vocabulary->machine_name = db_result(db_query("SELECT machine_name FROM {taxonomy_export_machine_names} WHERE vid = %d", $vocabulary->vid));
+
+    if ($vocabulary->machine_name) {
+      db_query("DELETE FROM {taxonomy_export} WHERE machine_name = '%s'", $vocabulary->machine_name);
+      db_query("DELETE FROM {taxonomy_export_machine_names} WHERE machine_name = '%s'", $vocabulary->machine_name);
+    }
+  }
+}
+
+/**
+ * Loads a taxonomy exportable from machine_name.
+ */
+function taxonomy_export_vocabulary_load($machine_name, $with_terms = FALSE) {
+  ctools_include('export');
+  $objects = ctools_export_load_object('taxonomy_export', 'all', array($machine_name));
+  $taxonomy_export = $objects[$machine_name];
+
+  // TODO: Sort out where and how terms should be loaded.  It is inelegant to
+  // load them after a ctools exportables fetch, but storing them in the DB
+  // means terms need constant syncronization.  Worse still, terms will be
+  // stored in 2 places (term_data + taxonomy_export BLOB field) wasting space.
+  if ($with_terms) {
+    $taxonomy_export->terms = taxonomy_get_tree($taxonomy_export->vocabulary->vid);
+  }
+
+  return $taxonomy_export;
+}
+
+/**
+ * Loads all taxonomy exportables, optionally removing disabled objects.
+ **/
+function taxonomy_export_vocabulary_load_all($remove_disabled = TRUE, $with_terms = FALSE) {
+  ctools_include('export');
+  $objects = ctools_export_load_object('taxonomy_export');
+
+  // TODO: There must be a more graceful way to implement $remove_disabled.
+  if ($remove_disabled || $with_terms) {
+    foreach ($objects as $key => $object) {
+      if ($remove_disabled && $object->disabled == TRUE) {
+        unset($objects[$key]);
+      }
+      else if ($with_terms) {
+        $objects[$key]->terms = taxonomy_get_tree($object->vocabulary->vid);
+      }
+    }
+  }
+
+  return $objects;
+}
+
+/**
+ * Stores a taxonomy export.
+ *
+ * There are two cases when this is necessary:
+ *   (1) The exportable is not "in code" somewhere, likely it is a
+ *       vocabulary created in the Taxonomy admin interface.
+ *   (2) The exportable is "in code" but has been overridden, by making
+ *       changes in the Taxonomy admin interface.
+ *
+ * Hence taxonomy exportables that are stored purely in code and are not
+ * overriden should never exist in the {taxonomy_export} table.
+ **/
+function taxonomy_export_store_exportable($taxonomy_export) {
+  if (!$taxonomy_export->id) {
+    $id = db_result(db_query("SELECT id FROM {taxonomy_export} WHERE machine_name = '%s'", $taxonomy_export->machine_name));
+    if ($id) {
+      $taxonomy_export->id = $id;
+    }
+  }
+  drupal_write_record('taxonomy_export', $taxonomy_export, isset($taxonomy_export->id) ? array('id') : array());
+
+  taxonomy_export_store_machine_name($taxonomy_export);
+}
+
+/**
+ * Stores the machine_name <-> vid relationship.
+ **/
+function taxonomy_export_store_machine_name($taxonomy_export) {
+  $exists = db_result(db_query("SELECT 1 FROM {taxonomy_export_machine_names} WHERE machine_name = '%s'", $taxonomy_export->machine_name));
+  $machine_name_obj = (object) array(
+    'machine_name' => $taxonomy_export->machine_name,
+    'vid' => $taxonomy_export->vocabulary->vid,
+  );
+  drupal_write_record('taxonomy_export_machine_names', $machine_name_obj, ($exists) ? array('machine_name') : array());
 }

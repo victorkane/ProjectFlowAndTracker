@@ -1,5 +1,5 @@
 <?php
-// $Id: taxonomy_export.test,v 1.1 2009/06/18 23:36:43 jamesandres Exp $
+// $Id: taxonomy_export.test,v 1.1.4.1 2010/01/28 15:58:22 jamesandres Exp $
 
 /**
  * Test the basic functionality of the taxonomy_export module.
@@ -42,4 +42,9 @@ class TaxonomyExportTests extends DrupalWebTestCase {
     // TODO: Write some tests.
   }
 
+  // TODO: Test, Creation of new vocabulary, ensure {taxonomy_export} and {taxonomy_export_macine_names} get 1 correct record.
+  // TODO: Test, Update the new vocab. ensure {taxonomy_export} and {taxonomy_export_macine_names} get the correct updates, without any extra junk being created.
+  // TODO: Test, Create feature using new vocab.  Ensure feature is cool.
+  // TODO: Test, Enable feature with new vocab, ensure all records are accounted for.
+  // TODO: Test, Disable feature, ensure dependant vocab + terms can be removed.
 }

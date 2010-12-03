@@ -1,5 +1,5 @@
 <?php
-// $Id: taxonomy_export.install,v 1.1.2.1 2009/06/19 00:04:48 jamesandres Exp $
+// $Id: taxonomy_export.install,v 1.1.2.1.2.1 2010/01/28 15:58:22 jamesandres Exp $
 
 /**
  * Implementation of hook_requirements()
@@ -20,4 +20,105 @@ function taxonomy_export_requirements($phase) {
   );
 
   return $requirements;
+}
+
+/**
+ * Implementation of hook_install().
+ */
+function taxonomy_export_install() {
+  // Install tables
+  drupal_install_schema('taxonomy_export');
+
+  // Pass a message to taxonomy_export_enable(), this is a work around for
+  // core schema issue http://drupal.org/node/620298
+  global $conf;
+  $conf['taxonomy_export_install'] = TRUE;
+}
+
+/**
+ * Implementation of hook_enable()
+ **/
+function taxonomy_export_enable() {
+  global $conf;
+  if (!$conf['taxonomy_export_install']) {
+    return;
+  }
+
+  drupal_get_schema(NULL, TRUE);
+
+  module_load_include('inc', 'taxonomy_export');
+  taxonomy_export_sync();
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function taxonomy_export_uninstall() {
+  // Remove tables
+  drupal_uninstall_schema('taxonomy_export');
+}
+
+/**
+ * Implementation of hook_schema().
+ */
+function taxonomy_export_schema() {
+  $schema['taxonomy_export'] = array(
+    'export' => array(
+      'key' => 'machine_name',
+      'identifier' => 'taxonomy_export',
+      'default hook' => 'default_taxonomy_export',
+      'api' => array(
+        'owner' => 'taxonomy_export',
+        'api' => 'default_taxonomy_exports',
+        'minimum_version' => 1,
+        'current_version' => 1,
+      ),
+    ),
+    'fields' => array(
+      'id' => array(
+        'description' => t('Taxonomy export ID'),
+        'type'        => 'serial',
+        'unsigned'    => TRUE,
+        'not null'    => TRUE,
+        'no export'   => TRUE,
+      ),
+      'machine_name' => array(
+        'description' => t('Vocabulary: machine name'),
+        'type'        => 'varchar',
+        'length'      => '32',
+      ),
+      'vocabulary' => array(
+        'type'        => 'blob',
+        'description' => 'A serialized array of the vocabulary object.',
+        'serialize'   => TRUE,
+        'serialized default' => 'a:0:{}',
+      ),
+      'terms' => array(
+        'type'        => 'blob',
+        'description' => 'A serialized array of exported terms for the vocabulary object.',
+        'serialize'   => TRUE,
+        'serialized default' => 'a:0:{}',
+      ),
+    ),
+    'primary key' => array('id'),
+    'unique keys' => array('machine_name' => array('machine_name')),
+  );
+
+  $schema['taxonomy_export_machine_names'] = array(
+    'fields' => array(
+      'machine_name' => array(
+        'description' => t('Vocabulary: machine name'),
+        'type'        => 'varchar',
+        'length'      => '32',
+      ),
+      'vid' => array(
+        'description' => t('Taxonomy export ID'),
+        'type'        => 'int',
+        'unsigned'    => TRUE,
+      ),
+    ),
+    'primary key' => array('machine_name'),
+    'indexes' => array('vid' => array('vid')),
+  );
+  return $schema;
 }
