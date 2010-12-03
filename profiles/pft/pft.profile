@@ -1,5 +1,5 @@
 <?php
-// $Id: default.profile,v 1.22 2007/12/17 12:43:34 goba Exp $
+// $Id: $
 
 /**
  * Return an array of the modules to be enabled when this profile is installed.
@@ -8,7 +8,8 @@
  *   An array of modules to enable.
  */
 function pft_profile_modules() {
-  return array('color', 'comment', 'help', 'menu', 'taxonomy', 'dblog');
+  $modules = array ('install_profile_api', 'admin_menu', 'adminrole', 'advanced_help', 'block', 'ctools', 'clone', 'color', 'jquery_update', 'comment', 'content', 'content_copy', 'bulk_export', 'ctools_custom_content', 'date_api', 'date_timezone', 'date_popup', 'date', 'dblog', 'diff', 'fieldgroup', 'filefield', 'filefield_sources', 'filter', 'path', 'help', 'imageapi', 'imageapi_imagemagick', 'imagecache', 'imagecache_ui', 'imagefield', 'panels', 'colorbox', 'login_destination', 'menu', 'node', 'optionwidgets', 'text', 'number', 'og', 'og_access', 'og_actions', 'views', 'nodereference', 'page_manager', 'jquery_ui', 'panels_everywhere', 'panels_ipe', 'panels_mini', 'tabs', 'globalredirect', 'token', 'strongarm', 'stylizer', 'system', 'panels_tabs', 'taxonomy', 'nodereference_url', 'pathauto', 'update', 'user', 'userreference', 'vertical_tabs', 'og_views', 'views_attach', 'views_bulk_operations', 'views_content', 'views_export', 'views_ui');
+  return $modules;
 }
 
 /**
@@ -22,7 +23,7 @@ function pft_profile_modules() {
 function pft_profile_details() {
   return array(
     'name' => 'Project Flow & Tracker',
-    'description' => 'Select this profile to enable Project Flow & Tracker, a Drupal based Scrum stack.'
+    'description' => 'Select this profile to enable PFT and the PFT theme.'
   );
 }
 
@@ -90,6 +91,12 @@ function pft_profile_task_list() {
  *   modify the $task, otherwise discarded.
  */
 function pft_profile_tasks(&$task, $url) {
+  // Enable the Install Profile API.
+  install_include(pft_profile_modules());
+  
+  // Configuration for og_access
+  db_query("DELETE FROM {node_access}");
+  node_access_rebuild();
 
   // Insert default user-defined node types into the database. For a complete
   // list of available node type attributes, refer to the node type API
@@ -138,9 +145,10 @@ function pft_profile_tasks(&$task, $url) {
 }
 
 /**
- * Implements hook_form_alter().
- * Set PFT as the default profile.
- * (copied from Atrium & those that copy from Atrium: We use system_form_form_id_alter, otherwise we cannot alter forms.)
+ * Implementation of hook_form_alter().
+ *
+ * Allows the profile to alter the site-configuration form. This is
+ * called through custom invocation, so $form_state is not populated.
  */
 function system_form_install_select_profile_form_alter(&$form, $form_state) {
   foreach ($form['profile'] as $key => $element) {

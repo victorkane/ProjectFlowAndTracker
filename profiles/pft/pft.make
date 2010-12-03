@@ -5,6 +5,9 @@ api = 2
 projects[drupal][version] = "6.19"
 
 ; Modules
+
+projects[install_profile_api] = 2.1
+
 projects[admin_menu][version] = "1.6"
 
 projects[adminrole][version] = "1.3"
