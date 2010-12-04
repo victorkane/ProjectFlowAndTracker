@@ -81,8 +81,7 @@ function pft_basic_imagecache_default_presets() {
       ),
     ),
   );
-  $presets = array();
-    $presets['diagram_thumbnail'] = array (
+  $presets['diagram_thumbnail'] = array (
     'presetname' => 'diagram_thumbnail',
     'actions' => 
     array (
@@ -100,4 +99,5 @@ function pft_basic_imagecache_default_presets() {
       ),
     ),
   );
+  return $presets;
 }
