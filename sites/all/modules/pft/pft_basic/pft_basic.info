@@ -19,5 +19,5 @@ dependencies[] = views
 dependencies[] = strongarm
 dependencies[] = panels
 dependencies[] = page_manager
-package = pft
+package = PFT
 core = 6.x

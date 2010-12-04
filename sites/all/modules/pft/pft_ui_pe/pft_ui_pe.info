@@ -1,0 +1,7 @@
+; $Id: $
+name = PFT Panels Everywhere UI Module
+description = Support for Panels Everywhere UI implementation for Project Flow & Tracker
+;
+dependencies[] = pft_basic
+package = PFT
+core = 6.x

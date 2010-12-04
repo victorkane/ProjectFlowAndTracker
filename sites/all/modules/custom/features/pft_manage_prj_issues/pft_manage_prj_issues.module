@@ -1,3 +1,0 @@
-<?php
-
-include_once('pft_manage_prj_issues.features.inc');
