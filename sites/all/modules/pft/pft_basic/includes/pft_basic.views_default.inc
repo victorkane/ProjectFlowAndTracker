@@ -1,7 +1,9 @@
+<?php
+
 /**
  * Implementation of hook_views_default_views().
  */
-function pft_views_default_views() {
+function pft_basic_views_default_views() {
   /*
    * View 'list_biz_stories'
    */

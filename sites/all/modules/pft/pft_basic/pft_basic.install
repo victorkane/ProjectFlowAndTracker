@@ -1,0 +1,38 @@
+<?php
+// $Id: $
+
+/**
+ * @file
+ * Install file for Project Flow & Tracker basic module.
+ * 
+ * Adds content types.
+ */
+
+/**
+ * Implementation of hook_install().
+ */
+function pft_basic_install() {
+  $path = drupal_get_path('module', 'pft_basic') . '/includes';
+  $project = $path . '/pft.content.project.inc';
+  $biz_story = $path . '/pft.content.biz_story.inc';
+  $role = $path . '/pft.content.role.inc';
+  // depends on biz_story and role content types
+  $user_story = $path . '/pft.content.user_story.inc';
+  // depends on user_story type
+  $issue = $path . '/pft.content.issue.inc';
+  $content_types = array(
+    $project,
+    $biz_story,
+    $role,
+    $user_story,
+    $issue,
+  );
+  install_include(array('content_copy'));
+  foreach ($content_types as $content_type) {
+    install_content_copy_import_from_file($content_type);
+  }
+}
+
+function pft_basic_uninstall() {
+  // TODO find and delete nodes of each type, then delete each pft content type
+}

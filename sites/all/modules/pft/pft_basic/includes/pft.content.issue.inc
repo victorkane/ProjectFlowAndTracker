@@ -1,3 +1,5 @@
+<?php
+
 $content['type']  = array (
   'name' => 'Issue',
   'type' => 'issue',

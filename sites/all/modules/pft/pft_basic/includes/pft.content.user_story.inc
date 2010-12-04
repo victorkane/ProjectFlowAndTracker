@@ -1,3 +1,5 @@
+<?php
+
 $content['type']  = array (
   'name' => 'User story',
   'type' => 'user_story',

@@ -18,19 +18,19 @@
 /**
  * Implementation of hook_views_api().
  */
-function pft_views_api() {
+function pft_basic_views_api() {
   return array(
     'api' => 2,
     //'path' => drupal_get_path('module', 'pft'),
-    'path' => drupal_get_path('module', 'pft') . '/includes',
+    'path' => drupal_get_path('module', 'pft_basic') . '/includes',
   );
 }
 
 /**
  * Implementation of hook_ctools_plugin_api().
  */
-function pft_ctools_plugin_api($module, $api) {
   /***
+function pft_basic_ctools_plugin_api($module, $api) {
   if ($module == 'strongarm' && $api == 'strongarm') {
     return array('version' => 1);
   }
@@ -40,10 +40,10 @@ function pft_ctools_plugin_api($module, $api) {
   if ($module == 'page_manager' && $api == 'pages_default') {
     return array('version' => 1);
   }
-  ***/
 }
+  ***/
 
-pft_imagecache_default_presets() {
+function pft_basic_imagecache_default_presets() {
   $presets = array();
   $presets['diagram_large'] = array (
     'presetname' => 'diagram_large',
