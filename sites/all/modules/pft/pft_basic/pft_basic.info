@@ -17,7 +17,5 @@ dependencies[] = userreference
 ;
 dependencies[] = views
 dependencies[] = strongarm
-dependencies[] = panels
-dependencies[] = page_manager
 package = PFT
 core = 6.x
