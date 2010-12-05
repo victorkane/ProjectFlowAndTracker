@@ -1,5 +1,5 @@
 <?php
-// $Id: colorbox.module,v 1.19.2.6 2010/09/21 13:05:45 frjo Exp $
+// $Id: colorbox.module,v 1.19.2.11 2010/11/23 14:52:45 frjo Exp $
 
 /**
  * @file
@@ -22,6 +22,11 @@ function colorbox_theme() {
   $theme = array(
     'colorbox_imagefield' => array(
       'arguments' => array('namespace' => NULL, 'path' => NULL, 'alt' => NULL, 'title' => NULL, 'gid' => NULL, 'field_name' => NULL, 'attributes' => NULL),
+      'file' => 'colorbox.theme.inc',
+    ),
+    'colorbox_insert_image' => array(
+      'arguments' => array('item' => NULL, 'widget' => NULL),
+      'template' => 'colorbox-insert-image',
       'file' => 'colorbox.theme.inc',
     ),
   );
@@ -214,22 +219,10 @@ function _colorbox_doheader() {
   $path = drupal_get_path('module', 'colorbox');
   $style = variable_get('colorbox_style', 'default');
 
-  // Give other modules the possibility to override Colorbox settings and
-  // style.
+  // Give other modules the possibility to override Colorbox settings and style.
   $data = &$js_settings;
   $data['__drupal_alter_by_ref'] = array(&$style);
   drupal_alter('colorbox_settings', $data);
-
-  // Add CSS based on selected style.
-  switch ($style) {
-    case 'none':
-      break;
-    case 'default':
-      drupal_add_css($path .'/styles/default/colorbox_default_style.css');
-      break;
-    default:
-      drupal_add_css($style .'/colorbox.css');
-  }
 
   drupal_add_js(array('colorbox' => $js_settings), 'setting');
 
@@ -253,15 +246,32 @@ function _colorbox_doheader() {
     }
   }
 
+  // Add and initialise the Colorbox plugin.
   drupal_add_js(colorbox_get_path());
   drupal_add_js($path .'/js/colorbox.js');
 
-  if ($style == 'default') {
-    drupal_add_js($path .'/styles/default/colorbox_default_style.js');
+  // Add JS and CSS based on selected style.
+  switch ($style) {
+    case 'none':
+      break;
+    case 'default':
+      drupal_add_css($path .'/styles/default/colorbox_default_style.css');
+      drupal_add_js($path .'/styles/default/colorbox_default_style.js');
+      break;
+    case 'stockholmsyndrome':
+      drupal_add_css($path .'/styles/stockholmsyndrome/colorbox_stockholmsyndrome.css');
+      drupal_add_js($path .'/styles/stockholmsyndrome/colorbox_stockholmsyndrome.js');
+      break;
+    default:
+      drupal_add_css($style .'/colorbox.css');
   }
 
   if (variable_get('colorbox_load', 0)) {
     drupal_add_js($path .'/js/colorbox_load.js');
+  }
+
+  if (variable_get('colorbox_inline', 0)) {
+    drupal_add_js($path .'/js/colorbox_inline.js');
   }
 
   if ($GLOBALS['user']->uid == 0 && variable_get('colorbox_login', 0)) {
@@ -311,7 +321,8 @@ function colorbox_get_path() {
  */
 function colorbox_form_alter(&$form, $form_state, $form_id) {
   if ($form_id == variable_get('colorbox_login_form', '') && arg(0) == 'user' && arg(1) == 'login' && arg(2) == 'colorbox') {
-    $form['#action'] = url('user/login', array('query' => array('destination' => $_GET['destination'])));
+    $destination = isset($_REQUEST['destination']) ? urlencode($_REQUEST['destination']) : 'user';
+    $form['#action'] = url($_GET['q'], array('query' => array('destination' => $destination)));
     $form['name']['#size'] = 25;
     $form['pass']['#size'] = 25;
   }
@@ -365,26 +376,6 @@ function colorbox_insert_styles() {
  * Implementation of hook_insert_content().
  */
 function colorbox_insert_content($item, $style, $widget) {
-  // If the title is empty use description or alt.
-  if (empty($item['data']['title'])) {
-    if (!empty($item['data']['description'])) {
-      $item['data']['title'] = $item['data']['description'];
-    }
-    elseif (!empty($item['data']['alt'])) {
-      $item['data']['title'] = $item['data']['alt'];
-    }
-  }
-
-  switch (variable_get('colorbox_insert_gallery', 0)) {
-    case 0:
-      $gallery_id = 'insert-all';
-      break;
-    case 3:
-      $gallery_id = 'insert-'. $item['fid'];
-      break;
-  }
-
-  list($namespace, $modulename) = explode('__', $style['name'], 2);
-
-  return theme('colorbox_imagefield', $namespace, $item['filepath'], $item['data']['alt'], $item['data']['title'], $gallery_id, 'insert');
+  list($item['presetname'], $item['modulename']) = explode('__', $style['name'], 2);
+  return theme('colorbox_insert_image', $item, $widget);
 }

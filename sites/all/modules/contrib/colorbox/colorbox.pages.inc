@@ -1,5 +1,5 @@
 <?php
-// $Id: colorbox.pages.inc,v 1.2 2010/04/22 17:37:11 frjo Exp $
+// $Id: colorbox.pages.inc,v 1.2.2.1 2010/11/26 08:26:36 frjo Exp $
 
 /**
  * @file
@@ -25,6 +25,8 @@ function colorbox_form_page($form_id) {
       module_load_include('inc', 'contact', 'contact.pages');
       print contact_site_page();
       break;
+    case 'user_pass':
+      module_load_include('inc', 'user', 'user.pages');
     default:
       $form = drupal_get_form($form_id);
       if (!empty($form)) {

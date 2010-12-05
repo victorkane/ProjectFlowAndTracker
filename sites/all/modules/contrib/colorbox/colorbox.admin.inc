@@ -1,5 +1,5 @@
 <?php
-// $Id: colorbox.admin.inc,v 1.16.2.2 2010/09/07 10:55:40 frjo Exp $
+// $Id: colorbox.admin.inc,v 1.16.2.4 2010/10/28 18:52:41 frjo Exp $
 
 /**
  * @file
@@ -125,17 +125,21 @@ function colorbox_admin_settings() {
     '#description' => t('Select which form to use for login.'),
   );
 
-  $form['colorbox_load_settings'] = array(
+  $form['colorbox_extra_settings'] = array(
     '#type' => 'fieldset',
-    '#title' => t('Load in Colorbox'),
-    '#collapsible' => TRUE,
-    '#collapsed' => TRUE
+    '#title' => t('Extra settings'),
   );
-  $form['colorbox_load_settings']['colorbox_load'] = array(
+  $form['colorbox_extra_settings']['colorbox_load'] = array(
     '#type' => 'checkbox',
     '#title' => t('Enable Colorbox load'),
     '#default_value' => variable_get('colorbox_load', 0),
     '#description' => t('This enables custom links that can open forms and paths in a Colorbox. Add the class "colorbox-load" to the link and build the url like this for forms "/colorbox/form/[form_id]?width=500&height=500" and like this for paths "[path]?width=500&height=500&iframe=true". If you do not want the box to persist set iframe to false. Other modules may activate this for easy Colorbox integration.'),
+  );
+  $form['colorbox_extra_settings']['colorbox_inline'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Enable Colorbox inline'),
+    '#default_value' => variable_get('colorbox_inline', 0),
+    '#description' => t('This enables custom links that can open inline content in a Colorbox. Add the class "colorbox-inline" to the link and build the url like this "?width=500&height=500&inline=true#id-of-content". Other modules may activate this for easy Colorbox integration.'),
   );
 
   $form['colorbox_custom_settings'] = array(
@@ -146,6 +150,7 @@ function colorbox_admin_settings() {
   );
   $colorbox_styles = array(
     'default' => t('Default'),
+    'stockholmsyndrome' => t('Stockholm Syndrome'),
     $colorbox_path .'/example1' => t('Example 1'),
     $colorbox_path .'/example2' => t('Example 2'),
     $colorbox_path .'/example3' => t('Example 3'),

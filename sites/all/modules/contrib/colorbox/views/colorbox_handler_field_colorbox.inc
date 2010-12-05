@@ -1,5 +1,5 @@
 <?php
-// $Id: colorbox_handler_field_colorbox.inc,v 1.1.2.2 2010/09/21 12:43:29 frjo Exp $
+// $Id: colorbox_handler_field_colorbox.inc,v 1.1.2.4 2010/10/28 18:44:34 frjo Exp $
 
 /**
  * @file
@@ -88,7 +88,7 @@ class colorbox_handler_field_colorbox extends views_handler_field {
     $form['height'] = array(
       '#type' => 'textfield',
       '#title' => t('Height'),
-      '#description' => t('Specify the height of the Colorbox popup window.  Because the content is dynamic, we cannot detect this value automatically.'),
+      '#description' => t('Specify the height of the Colorbox popup window. Because the content is dynamic, we cannot detect this value automatically. Example: "100%", 500, "500px".'),
       '#default_value' => $this->options['height'],
       '#weight' => -7,
     );
@@ -96,7 +96,7 @@ class colorbox_handler_field_colorbox extends views_handler_field {
     $form['width'] = array(
       '#type' => 'textfield',
       '#title' => t('Width'),
-      '#description' => t('Specify the width of the Colorbox popup window.  Because the content is dynamic, we cannot detect this value automatically.'),
+      '#description' => t('Specify the width of the Colorbox popup window. Because the content is dynamic, we cannot detect this value automatically. Example: "100%", 500, "500px".'),
       '#default_value' => $this->options['width'],
       '#weight' => -6,
     );
@@ -120,7 +120,7 @@ class colorbox_handler_field_colorbox extends views_handler_field {
    */
   function render($values) {
     // Load the necessary js file for Colorbox activation.
-    if (_colorbox_active()) {
+    if (_colorbox_active() && !variable_get('colorbox_inline', 0)) {
       drupal_add_js(drupal_get_path('module', 'colorbox') .'/js/colorbox_inline.js');
     }
 

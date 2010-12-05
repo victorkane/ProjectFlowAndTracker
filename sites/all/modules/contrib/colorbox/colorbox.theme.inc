@@ -1,5 +1,5 @@
 <?php
-// $Id: colorbox.theme.inc,v 1.4.2.1 2010/06/28 17:30:26 frjo Exp $
+// $Id: colorbox.theme.inc,v 1.4.2.2 2010/11/10 06:51:37 frjo Exp $
 
 /**
  * @file
@@ -67,9 +67,9 @@ function theme_colorbox_formatter_imagefield($element) {
         break;
     }
 
-    list($namespace, $modulename) = explode('__', $element['#formatter'], 2);
-    if ($preset = imagecache_preset_by_name($namespace)) {
-      return theme('colorbox_imagefield', $namespace, $item['filepath'], $item['data']['alt'], $item['data']['title'], $gallery_id, $element['#field_name']);
+    list($presetname, $modulename) = explode('__', $element['#formatter'], 2);
+    if ($preset = imagecache_preset_by_name($presetname)) {
+      return theme('colorbox_imagefield', $presetname, $item['filepath'], $item['data']['alt'], $item['data']['title'], $gallery_id, $element['#field_name']);
     }
   }
 }
@@ -77,7 +77,7 @@ function theme_colorbox_formatter_imagefield($element) {
 /**
  * Implementation of theme_colorbox_imagefield().
  *
- * @param $namespace
+ * @param $presetname
  *   presetname of the derivative you wish to generate a tag for.
  * @param $path
  *   path to the original image you wish to create a derivative image tag for.
@@ -91,11 +91,11 @@ function theme_colorbox_formatter_imagefield($element) {
  *   optional drupal attributes array. If attributes is set, the default imagecache classes
  *   will not be set automatically, you must do this manually.
  */
-function theme_colorbox_imagefield($namespace, $path, $alt = '', $title = '', $gid = '', $field_name = '', $attributes = NULL) {
+function theme_colorbox_imagefield($presetname, $path, $alt = '', $title = '', $gid = '', $field_name = '', $attributes = NULL) {
   if (!empty($path)) {
-    $image = theme('imagecache', $namespace, $path, $alt, $title, $attributes);
-    if ($presetname = variable_get('colorbox_imagecache_preset', 0)) {
-      $link_path = imagecache_create_url($presetname, $path);
+    $image = theme('imagecache', $presetname, $path, $alt, $title, $attributes);
+    if ($colorbox_presetname = variable_get('colorbox_imagecache_preset', 0)) {
+      $link_path = imagecache_create_url($colorbox_presetname, $path);
     }
     else {
       $link_path = file_create_url($path);
@@ -103,5 +103,32 @@ function theme_colorbox_imagefield($namespace, $path, $alt = '', $title = '', $g
     $class = 'colorbox imagefield imagefield-imagelink imagefield-'. $field_name;
 
     return l($image, $link_path, array('html' => TRUE, 'attributes' => array('title' => $title, 'class' => $class, 'rel' => 'gallery-'. $gid)));
+  }
+}
+
+/**
+ * Preprocess variables for the colorbox-insert-image.tpl.php file.
+ */
+function template_preprocess_colorbox_insert_image(&$vars) {
+  $vars['presetname'] = $vars['item']['presetname'];
+  $vars['image_path'] = imagecache_create_url($vars['presetname'], $vars['item']['filepath']);
+
+  if ($colorbox_presetname = variable_get('colorbox_imagecache_preset', 0)) {
+    $vars['link_path'] = imagecache_create_url($colorbox_presetname, $vars['item']['filepath']);
+  }
+  else {
+    $vars['link_path'] = file_create_url($vars['item']['filepath']);
+  }
+
+  $vars['gallery_id'] = '';
+  switch (variable_get('colorbox_insert_gallery', 0)) {
+    case 0:
+    case 1:
+    case 2:
+      $vars['gallery_id'] = 'insert-all';
+      break;
+    case 3:
+      $vars['gallery_id'] = 'insert-'. $vars['item']['fid'];
+      break;
   }
 }
