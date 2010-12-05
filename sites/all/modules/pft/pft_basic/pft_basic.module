@@ -46,7 +46,7 @@ function pft_basic_ctools_plugin_api($module, $api) {
 function pft_basic_default_taxonomy_export() {
   $taxonomy_exports = array();
 
-  // Exported vocabulary: Status Vocabulary
+  // Exported vocabulary: Status
   $taxonomy_export = new stdClass;
   $taxonomy_export->disabled = FALSE; /* Edit this to true to make a default taxonomy_export disabled initially */
   $taxonomy_export->api_version = 1;
@@ -54,7 +54,7 @@ function pft_basic_default_taxonomy_export() {
   $taxonomy_export->vocabulary = (object) (array(
      'vid' => '1',
      'name' => 'Status',
-     'description' => 'The process status of a user story or issue.',
+     'description' => 'The status of a user story or issue.',
      'help' => '',
      'relations' => '1',
      'hierarchy' => '0',
@@ -126,7 +126,7 @@ function pft_basic_default_taxonomy_export() {
   );
   $taxonomy_exports[$taxonomy_export->machine_name] = $taxonomy_export;
 
-        // Exported vocabulary: Test Vocabulary
+        // Exported vocabulary: User Story Type
       $taxonomy_export = new stdClass;
       $taxonomy_export->disabled = FALSE; /* Edit this to true to make a default taxonomy_export disabled initially */
       $taxonomy_export->api_version = 1;
@@ -149,10 +149,198 @@ function pft_basic_default_taxonomy_export() {
         ),
          'machine_name' => 'user_story_type',
       ));
-      $taxonomy_export->terms = array();
+      $taxonomy_export->terms = array(
+            0 => 
+    (object) (array(
+       'tid' => '5',
+       'vid' => '2',
+       'name' => 'user story',
+       'description' => '',
+       'weight' => '0',
+       'depth' => 0,
+       'parents' => 
+      array (
+        0 => '0',
+      ),
+    )),
+    1 => 
+    (object) (array(
+       'tid' => '6',
+       'vid' => '2',
+       'name' => 'feature',
+       'description' => '',
+       'weight' => '1',
+       'depth' => 0,
+       'parents' => 
+      array (
+        0 => '0',
+      ),
+    )),
+    2 => 
+    (object) (array(
+       'tid' => '8',
+       'vid' => '2',
+       'name' => 'constraint',
+       'description' => '',
+       'weight' => '2',
+       'depth' => 0,
+       'parents' => 
+      array (
+        0 => '0',
+      ),
+    )),
+    3 => 
+    (object) (array(
+       'tid' => '7',
+       'vid' => '2',
+       'name' => 'epic',
+       'description' => '',
+       'weight' => '3',
+       'depth' => 0,
+       'parents' => 
+      array (
+        0 => '0',
+      ),
+    )),
+
+      );
 
       $taxonomy_exports[$taxonomy_export->machine_name] = $taxonomy_export;
 
+
+        // Exported vocabulary: Issue Type
+      $taxonomy_export = new stdClass;
+      $taxonomy_export->disabled = FALSE; /* Edit this to true to make a default taxonomy_export disabled initially */
+      $taxonomy_export->api_version = 1;
+      $taxonomy_export->machine_name = 'issue_type';
+      $taxonomy_export->vocabulary = (object) (array(
+         'vid' => '3',
+         'name' => 'Issue Type',
+         'description' => 'Issue types',
+         'help' => '',
+         'relations' => '1',
+         'hierarchy' => '0',
+         'multiple' => '0',
+         'required' => '0',
+         'tags' => '0',
+         'module' => 'taxonomy',
+         'weight' => '0',
+         'nodes' => 
+        array (
+          'issue' => 'issue',
+        ),
+         'machine_name' => 'issue_type',
+      ));
+      $taxonomy_export->terms = array(
+            0 => 
+    (object) (array(
+       'tid' => '11',
+       'vid' => '3',
+       'name' => 'Change request',
+       'description' => 'Change request',
+       'weight' => '0',
+       'depth' => 0,
+       'parents' => 
+      array (
+        0 => '0',
+      ),
+    )),
+    1 => 
+    (object) (array(
+       'tid' => '10',
+       'vid' => '3',
+       'name' => 'defect',
+       'description' => 'Defect',
+       'weight' => '0',
+       'depth' => 0,
+       'parents' => 
+      array (
+        0 => '0',
+      ),
+    )),
+    2 => 
+    (object) (array(
+       'tid' => '9',
+       'vid' => '3',
+       'name' => 'task',
+       'description' => 'Task',
+       'weight' => '0',
+       'depth' => 0,
+       'parents' => 
+      array (
+        0 => '0',
+      ),
+    )),
+      );
+
+      $taxonomy_exports[$taxonomy_export->machine_name] = $taxonomy_export;
+      
+        // Exported vocabulary: Biz Story Type
+      $taxonomy_export = new stdClass;
+      $taxonomy_export->disabled = FALSE; /* Edit this to true to make a default taxonomy_export disabled initially */
+      $taxonomy_export->api_version = 1;
+      $taxonomy_export->machine_name = 'biz_story_type';
+      $taxonomy_export->vocabulary = (object) (array(
+         'vid' => '2',
+         'name' => 'Biz Story Type',
+         'description' => 'Biz story types',
+         'help' => '',
+         'relations' => '1',
+         'hierarchy' => '0',
+         'multiple' => '0',
+         'required' => '0',
+         'tags' => '0',
+         'module' => 'taxonomy',
+         'weight' => '0',
+         'nodes' => 
+        array (
+          'biz_story' => 'biz_story',
+        ),
+         'machine_name' => 'biz_story_type',
+      ));
+      $taxonomy_export->terms = array(
+            0 => 
+    (object) (array(
+       'tid' => '12',
+       'vid' => '4',
+       'name' => 'problem',
+       'description' => 'An item in the problem domain requiring solution domain functionality in the form of features.',
+       'weight' => '0',
+       'depth' => 0,
+       'parents' => 
+      array (
+        0 => '0',
+      ),
+    )),
+    1 => 
+    (object) (array(
+       'tid' => '13',
+       'vid' => '4',
+       'name' => 'value',
+       'description' => '',
+       'weight' => '1',
+       'depth' => 0,
+       'parents' => 
+      array (
+        0 => '0',
+      ),
+    )),
+    2 => 
+    (object) (array(
+       'tid' => '14',
+       'vid' => '4',
+       'name' => 'feature',
+       'description' => 'The functionality in the solution domain to solve an item in the problem domain.',
+       'weight' => '2',
+       'depth' => 0,
+       'parents' => 
+      array (
+        0 => '0',
+      ),
+    )),
+      );
+
+      $taxonomy_exports[$taxonomy_export->machine_name] = $taxonomy_export;
 
   return $taxonomy_exports;
 }
