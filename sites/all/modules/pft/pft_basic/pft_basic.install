@@ -13,6 +13,7 @@
  */
 function pft_basic_install() {
   $path = drupal_get_path('module', 'pft_basic') . '/includes';
+  // Content types
   $project = $path . '/pft.content.project.inc';
   $biz_story = $path . '/pft.content.biz_story.inc';
   $role = $path . '/pft.content.role.inc';
@@ -30,6 +31,23 @@ function pft_basic_install() {
   install_include(array('content_copy'));
   foreach ($content_types as $content_type) {
     install_content_copy_import_from_file($content_type);
+  }
+  // Roles and Permissions
+  install_include(array('user'));
+  $team_member_rid = install_add_role('team member');
+  $project_owner_rid = install_add_role('project owner');
+  $project_leader_rid = install_add_role('project leader');
+
+  $tm_perms = array('access comments, post comments without approval, access content, create biz_story content, create issue content, create role content, create user_story content, edit own biz_story content, edit own issue content, edit own role content, edit own user_story content, revert revisions, view revisions,');
+  $po_perms = array_merge($tm_perms, array('create project content', 'edit own project content',));
+  $pl_perms = array_merge($tm_perms, array('create project content', 'edit own project content',));
+  install_add_permissions(1, array('access comments', 'post comments', 'access content', 'view revisions',)); // Anon
+  install_add_permissions($team_member_rid, $tm_perms);
+  install_add_permissions($project_owner_rid, $po_perms);
+  install_add_permissions($project_leader_rid, $pl_perms);
+  // make sure administrator has all perms
+  if (module_exists('adminrole')) {
+    adminrole_update_permissions();
   }
 }
 
