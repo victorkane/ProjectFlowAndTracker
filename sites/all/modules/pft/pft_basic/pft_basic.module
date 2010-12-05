@@ -29,19 +29,133 @@ function pft_basic_views_api() {
 /**
  * Implementation of hook_ctools_plugin_api().
  */
-  /***
 function pft_basic_ctools_plugin_api($module, $api) {
+  if ($module == 'taxonomy_export' && $api == 'default_taxonomy_exports') {
+    return array('version' => 1);
+  }
+  /***
   if ($module == 'strongarm' && $api == 'strongarm') {
     return array('version' => 1);
   }
-  if ($module == 'panels' && $api == 'pipelines') {
-    return array('version' => 1);
-  }
-  if ($module == 'page_manager' && $api == 'pages_default') {
-    return array('version' => 1);
-  }
-}
   ***/
+}
+
+/**
+ * Implementation of hook_default_taxonomy_export()
+ */
+function pft_basic_default_taxonomy_export() {
+  $taxonomy_exports = array();
+
+  // Exported vocabulary: Status Vocabulary
+  $taxonomy_export = new stdClass;
+  $taxonomy_export->disabled = FALSE; /* Edit this to true to make a default taxonomy_export disabled initially */
+  $taxonomy_export->api_version = 1;
+  $taxonomy_export->machine_name = 'status';
+  $taxonomy_export->vocabulary = (object) (array(
+     'vid' => '1',
+     'name' => 'Status',
+     'description' => 'The process status of a user story or issue.',
+     'help' => '',
+     'relations' => '1',
+     'hierarchy' => '0',
+     'multiple' => '0',
+     'required' => '1',
+     'tags' => '0',
+     'module' => 'taxonomy',
+     'weight' => '0',
+     'nodes' => 
+    array (
+      'issue' => 'issue',
+      'user_story' => 'user_story',
+    ),
+   'machine_name' => 'status',
+  ));
+  $taxonomy_export->terms = array(
+    0 => 
+    (object) array(
+       'tid' => '1',
+       'vid' => '1',
+       'name' => 'New',
+       'description' => 'Entered into scope',
+       'weight' => '0',
+       'depth' => 0,
+       'parents' => 
+      array (
+        0 => '0',
+      ),
+    ),
+    1 => 
+    (object) array(
+       'tid' => '2',
+       'vid' => '1',
+       'name' => 'Ready',
+       'description' => 'Having sufficient definition so that it can be prioritized by the Project Owner and can be placed into a Sprint backlog.',
+       'weight' => '1',
+       'depth' => 0,
+       'parents' => 
+      array (
+        0 => '0',
+      ),
+    ),
+    2 => 
+    (object) array(
+       'tid' => '3',
+       'vid' => '1',
+       'name' => 'In progress',
+       'description' => 'In the current sprint. Acceptance tests are being written, Analysis and Design is being done, Implementation is being done, Acceptance tests are being executed. Not healthy to separate these activities into separate states.',
+       'weight' => '2',
+       'depth' => 0,
+       'parents' => 
+      array (
+        0 => '0',
+      ),
+    ),
+    3 => 
+    (object) array(
+       'tid' => '4',
+       'vid' => '1',
+       'name' => 'Accepted',
+       'description' => 'Has passed acceptance tests',
+       'weight' => '3',
+       'depth' => 0,
+       'parents' => 
+      array (
+        0 => '0',
+      ),
+    ),
+  );
+  $taxonomy_exports[$taxonomy_export->machine_name] = $taxonomy_export;
+
+        // Exported vocabulary: Test Vocabulary
+      $taxonomy_export = new stdClass;
+      $taxonomy_export->disabled = FALSE; /* Edit this to true to make a default taxonomy_export disabled initially */
+      $taxonomy_export->api_version = 1;
+      $taxonomy_export->machine_name = 'user_story_type';
+      $taxonomy_export->vocabulary = (object) (array(
+         'vid' => '2',
+         'name' => 'User Story Type',
+         'description' => 'User Story Type description tbd',
+         'help' => '',
+         'relations' => '1',
+         'hierarchy' => '0',
+         'multiple' => '0',
+         'required' => '0',
+         'tags' => '0',
+         'module' => 'taxonomy',
+         'weight' => '0',
+         'nodes' => 
+        array (
+          'user_story' => 'user_story',
+        ),
+         'machine_name' => 'user_story_type',
+      ));
+      $taxonomy_export->terms = array();
+
+      $taxonomy_exports[$taxonomy_export->machine_name] = $taxonomy_export;
+
+
+  return $taxonomy_exports;
+}
 
 function pft_basic_imagecache_default_presets() {
   $presets = array();
