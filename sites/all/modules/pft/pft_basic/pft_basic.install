@@ -49,8 +49,12 @@ function pft_basic_install() {
   if (module_exists('adminrole')) {
     adminrole_update_permissions();
   }
+  // make sure certain strongarm values are not overriden
+  variable_del('pathauto_node_pattern');
+  strongarm_flush_caches();
 }
 
 function pft_basic_uninstall() {
+  // TODO uninstall tasks
   // TODO find and delete nodes of each type, then delete each pft content type
 }
