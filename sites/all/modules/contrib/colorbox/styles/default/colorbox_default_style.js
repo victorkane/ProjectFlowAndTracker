@@ -1,20 +1,20 @@
-// $Id: colorbox_default_style.js,v 1.2 2010/04/18 14:36:29 frjo Exp $
+// $Id: colorbox_default_style.js,v 1.2.2.1 2010/12/02 09:15:13 frjo Exp $
 (function ($) {
 
 Drupal.behaviors.initColorboxDefaultStyle = function (context) {
-  $(document).bind('cbox_complete', function(){
+  $(document).bind('cbox_complete', function () {
     // Only run if there is a title.
-    if ($('#cboxTitle:empty').length == false) {
-      setTimeout(function(){ $('#cboxTitle').slideUp() }, 1500);
-      $('#cboxLoadedContent').bind('mouseover', function(){
-        $('#cboxTitle').slideDown();
+    if ($('#cboxTitle:empty', context).length == false) {
+      setTimeout(function () { $('#cboxTitle', context).slideUp() }, 1500);
+      $('#cboxLoadedContent', context).bind('mouseover', function () {
+        $('#cboxTitle', context).slideDown();
       });
-      $('#cboxOverlay').bind('mouseover', function(){
-        $('#cboxTitle').slideUp();
+      $('#cboxOverlay', context).bind('mouseover', function () {
+        $('#cboxTitle', context).slideUp();
       });
     }
     else {
-      $('#cboxTitle').hide();
+      $('#cboxTitle', context).hide();
     }
   });
 };

@@ -1,4 +1,4 @@
-/* $Id: colorbox_stockholmsyndrome.css,v 1.1.2.1 2010/10/28 18:52:41 frjo Exp $  */
+/* $Id: colorbox_stockholmsyndrome.css,v 1.1.2.2 2010/12/02 09:10:37 frjo Exp $  */
 
 /*
     ColorBox Core Style
@@ -81,15 +81,15 @@
     -webkit-border-bottom-right-radius: 9px;
   }
     #cboxTopLeft {
-      width: 0px;
-      height: 0px;
+      width: 0;
+      height: 0;
     }
     #cboxTopCenter {
-      height: 0px;
+      height: 0;
     }
     #cboxTopRight {
-      width: 0px;
-      height: 0px;
+      width: 0;
+      height: 0;
     }
     #cboxBottomLeft {
       width: 15px;
@@ -103,15 +103,15 @@
       height: 10px;
     }
     #cboxMiddleLeft {
-      width: 0px;
+      width: 0;
     }
     #cboxMiddleRight {
-      width: 0px;
+      width: 0;
     }
     #cboxContent {
       background: #fff;
       font: 11px Arial, sans-serif;
-        margin-bottom: 28px;
+      margin-bottom: 28px;
     }
       #cboxLoadedContent {
       }
@@ -128,8 +128,8 @@
         bottom: -26px;
         right: 80px;
         color: #313131;
-        border-left:1px solid #313131;
-        padding:0 0 0 15px;
+        border-left: 1px solid #313131;
+        padding: 0 0 0 15px;
       }
       /* Slideshow not implemented. */
       .cboxSlideshow_on #cboxSlideshow {
@@ -167,16 +167,15 @@
         background-position: 0 -92px;
       }
       #cboxLoadingOverlay {
-        background: #E6E6E6;
+        background: #e6e6e6;
       }
       #cboxLoadingGraphic {
         background: url(images/loading_animation.gif) center center no-repeat;
       }
       #cboxClose {
         position: absolute;
-        bottom: 0;
-        right: -10px;
         top: -10px;
+        right: -10px;
         background: url(images/controls.png) 0px 0px no-repeat;
         width: 25px;
         height: 25px;

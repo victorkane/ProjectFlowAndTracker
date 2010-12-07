@@ -1,5 +1,6 @@
-; $Id: colorbox.make,v 1.1.2.1 2010/06/29 05:35:07 frjo Exp $
+; $Id: colorbox.make,v 1.1.2.2 2010/11/29 18:47:26 frjo Exp $
 
+api = 2
 core = 6.x
 
 libraries[colorbox][download][type] = "get"
