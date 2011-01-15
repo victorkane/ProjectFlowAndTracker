@@ -242,27 +242,6 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $pane->pid = 'new-1';
     $pane->panel = 'aside_beta';
     $pane->type = 'block';
-    $pane->subtype = 'og-0';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'style' => 'rounded_corners',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $display->content['new-1'] = $pane;
-    $display->panels['aside_beta'][0] = 'new-1';
-    $pane = new stdClass;
-    $pane->pid = 'new-2';
-    $pane->panel = 'aside_beta';
-    $pane->type = 'block';
     $pane->subtype = 'og_views-1';
     $pane->shown = TRUE;
     $pane->access = array();
@@ -274,6 +253,27 @@ function pft_manage_prj_and_us_default_page_manager_handlers() {
     $pane->style = array(
       'settings' => NULL,
       'style' => 'default',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-1'] = $pane;
+    $display->panels['aside_beta'][0] = 'new-1';
+    $pane = new stdClass;
+    $pane->pid = 'new-2';
+    $pane->panel = 'aside_beta';
+    $pane->type = 'block';
+    $pane->subtype = 'og-0';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'rounded_corners',
+      'settings' => NULL,
     );
     $pane->css = array();
     $pane->extras = array();
