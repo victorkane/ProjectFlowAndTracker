@@ -147,6 +147,18 @@ function pft_profile_tasks(&$task, $url) {
   install_enable_theme('rootcandy');
   install_enable_theme('rootcandy_dark');
   install_admin_theme('rootcandy_dark');
+  install_enable_theme('precision');
+  install_default_theme('pft');
+
+  // Panels everywhere
+  variable_set('page_manager_node_view_disabled', 0);
+  variable_set('panels_everywhere_site_template_enabled', 1);
+  variable_set('panels_everywhere_override_page_tpl', 1);
+  variable_set('panels_everywhere_head_title_include_name', 1);
+  variable_set('panels_everywhere_head_title_include_slogan', 1);
+  variable_set('panels_everywhere_head_title_separator', ' | ');
+
+  drupal_flush_all_caches();
 
   // Update the menu router information.
   menu_rebuild();
