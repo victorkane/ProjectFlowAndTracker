@@ -1,0 +1,314 @@
+# $Id: hu.po,v 1.1.2.1 2009/04/16 05:52:41 sign Exp $
+#
+# Hungarian translation of Drupal (general)
+# Copyright 2009 Ernő Zsemlye <zserno a-t gmail dot com>
+# Generated from files:
+#  template.php,v 1.36.2.19 2009/03/31 13:06:15 sign
+#  theme-settings.php,v 1.6.2.9 2009/02/18 15:31:19 sign
+#  theme-settings.php,v 1.1.2.3 2009/03/09 00:00:43 sign
+#  theme-settings.php,v 1.1.2.2 2009/03/09 00:40:19 sign
+#  rootcandy.info,v 1.9.2.4 2009/01/07 08:03:47 sign
+#  rootcandy_dark.info,v 1.1.2.1 2008/10/25 18:00:50 sign
+#  rootcandy_fixed.info,v 1.1.2.1 2008/10/11 10:28:44 sign
+#  color.inc,v 1.7.2.4 2009/03/07 23:23:39 sign
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2009-04-09 20:34+0200\n"
+"PO-Revision-Date: 2009-04-09 21:09+0100\n"
+"Last-Translator: Ernő Zsemlye <zserno a-t gmail dot com>\n"
+"Language-Team: Drupal.hu Fordítói Csapat <forditas [at] drupal.hu>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: template.php:8
+msgid "Logout"
+msgstr "Kilépés"
+
+#: template.php:64
+msgid "User login"
+msgstr "Bejelentkezés"
+
+#: template.php:69;326;386
+#: theme-settings.php:39
+#: rootcandy_dark/theme-settings.php:39
+#: rootcandy_fixed/theme-settings.php:39
+msgid "Dashboard"
+msgstr "Műszerfal"
+
+#: template.php:70
+#: theme-settings.php:51;57
+#: rootcandy.info:0
+#: rootcandy_dark/theme-settings.php:51;57
+#: rootcandy_dark/rootcandy_dark.info:0
+#: rootcandy_fixed/theme-settings.php:51;57
+#: rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Content"
+msgstr "Tartalom"
+
+#: template.php:72
+msgid "Create content"
+msgstr "Tartalom beküldése"
+
+#: template.php:74
+msgid "Building"
+msgstr "Webhely építés"
+
+#: template.php:75
+msgid "Configuration"
+msgstr "Webhely beállítása"
+
+#: template.php:76
+msgid "Users"
+msgstr "Felhasználók"
+
+#: template.php:77
+msgid "Reports"
+msgstr "Jelentések"
+
+#: template.php:78
+msgid "Help"
+msgstr "Segítség"
+
+#: template.php:154
+msgid "Go Back to Homepage"
+msgstr "Vissza a főoldalra"
+
+#: template.php:326
+msgid "Administer"
+msgstr "Adminisztráció"
+
+#: theme-settings.php:27
+#: rootcandy.info:0
+#: rootcandy_dark/theme-settings.php:27
+#: rootcandy_dark/rootcandy_dark.info:0
+#: rootcandy_fixed/theme-settings.php:27
+#: rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Header"
+msgstr "Fejléc"
+
+#: theme-settings.php:34
+#: rootcandy_dark/theme-settings.php:34
+#: rootcandy_fixed/theme-settings.php:34
+msgid "Disable header"
+msgstr "Fejléc letiltása"
+
+#: theme-settings.php:46
+#: rootcandy_dark/theme-settings.php:46
+#: rootcandy_fixed/theme-settings.php:46
+msgid "Disable dashboard"
+msgstr "Műszerfal letiltása"
+
+#: theme-settings.php:51;57
+#: rootcandy_dark/theme-settings.php:51;57
+#: rootcandy_fixed/theme-settings.php:51;57
+msgid "Left"
+msgstr "Bal"
+
+#: theme-settings.php:51;57
+#: rootcandy_dark/theme-settings.php:51;57
+#: rootcandy_fixed/theme-settings.php:51;57
+msgid "Right"
+msgstr "Jobb"
+
+#: theme-settings.php:52
+#: rootcandy_dark/theme-settings.php:52
+#: rootcandy_fixed/theme-settings.php:52
+msgid "Help box position"
+msgstr "Súgó doboz helyzete"
+
+#: theme-settings.php:58
+#: rootcandy_dark/theme-settings.php:58
+#: rootcandy_fixed/theme-settings.php:58
+msgid "Messages box position"
+msgstr "Üzenetek doboz helyzete"
+
+#: theme-settings.php:63
+#: rootcandy_dark/theme-settings.php:63
+#: rootcandy_fixed/theme-settings.php:63
+msgid "Disable content on a dashboard"
+msgstr "Műszerfal tartalmának letiltása"
+
+#: theme-settings.php:69
+#: rootcandy_dark/theme-settings.php:69
+#: rootcandy_fixed/theme-settings.php:69
+msgid "Navigation"
+msgstr "Navigáció"
+
+#: theme-settings.php:77
+#: rootcandy_dark/theme-settings.php:77
+#: rootcandy_fixed/theme-settings.php:77
+msgid "Disable icons for main navigation"
+msgstr "Ikonok letiltása a fő navigációban"
+
+#: theme-settings.php:85
+#: rootcandy_dark/theme-settings.php:85
+#: rootcandy_fixed/theme-settings.php:85
+msgid "Set icons size for main navigation"
+msgstr "Ikonok mérete a fő navigációban"
+
+#: theme-settings.php:91
+#: rootcandy_dark/theme-settings.php:91
+#: rootcandy_fixed/theme-settings.php:91
+msgid "Menu source by role"
+msgstr "Menü beállítása a felhasználói csoportok számára"
+
+#: theme-settings.php:98
+#: rootcandy_dark/theme-settings.php:98
+#: rootcandy_fixed/theme-settings.php:98
+msgid "None"
+msgstr "Nincs"
+
+#: theme-settings.php:99
+#: rootcandy_dark/theme-settings.php:99
+#: rootcandy_fixed/theme-settings.php:99
+msgid "default navigation"
+msgstr "alapértelmezett navigáció"
+
+#: theme-settings.php:106
+#: rootcandy_dark/theme-settings.php:106
+#: rootcandy_fixed/theme-settings.php:106
+msgid "@role navigation"
+msgstr "@role navigáció"
+
+#: theme-settings.php:110
+#: rootcandy_dark/theme-settings.php:110
+#: rootcandy_fixed/theme-settings.php:110
+msgid "Select what should be displayed as the navigation menu for role @role."
+msgstr "@role csoport számára megjelenő navigációs menü kiválasztása."
+
+#: theme-settings.php:116
+#: rootcandy_dark/theme-settings.php:116
+#: rootcandy_fixed/theme-settings.php:116
+msgid "Role weight"
+msgstr "Csoportok súlya"
+
+#: theme-settings.php:134;142
+#: rootcandy_dark/theme-settings.php:134;142
+#: rootcandy_fixed/theme-settings.php:134;142
+msgid "Custom icons"
+msgstr "Saját ikonok"
+
+#: theme-settings.php:144
+#: rootcandy_dark/theme-settings.php:144
+#: rootcandy_fixed/theme-settings.php:144
+msgid "Format: menu href|icon path (relative to drupal root) - one item per row. eg. admin/build|files/myicons/admin-build.png"
+msgstr "Formátum: menü href|ikon elérési útvonala (a Drupal gyökeréhez képest relatív) - soronként egy elem. Pl. admin/build|files/myicons/admin-build.png"
+
+#: rootcandy.info:0
+msgid "RootCandy"
+msgstr ""
+
+#: rootcandy.info:0
+msgid "Administration theme"
+msgstr "Adminisztrációs smink"
+
+#: rootcandy.info:0
+#: rootcandy_dark/rootcandy_dark.info:0
+#: rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Left sidebar"
+msgstr "Bal oldalsáv"
+
+#: rootcandy.info:0
+#: rootcandy_dark/rootcandy_dark.info:0
+#: rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Right sidebar"
+msgstr "Jobb oldalsáv"
+
+#: rootcandy.info:0
+#: rootcandy_dark/rootcandy_dark.info:0
+#: rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Footer"
+msgstr "Lábléc"
+
+#: rootcandy.info:0
+#: rootcandy_dark/rootcandy_dark.info:0
+#: rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Dashboard Left"
+msgstr "Műszerfal bal oldala"
+
+#: rootcandy.info:0
+#: rootcandy_dark/rootcandy_dark.info:0
+#: rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Dashboard Right"
+msgstr "Műszerfal jobb oldala"
+
+#: color/color.inc:9
+msgid "Glass (Default)"
+msgstr ""
+
+#: color/color.inc:10
+msgid "Ash"
+msgstr ""
+
+#: color/color.inc:11
+msgid "Aquamarine"
+msgstr ""
+
+#: color/color.inc:12
+msgid "Belgian Chocolate"
+msgstr ""
+
+#: color/color.inc:13
+msgid "Bluemarine"
+msgstr ""
+
+#: color/color.inc:14
+msgid "Citrus Blast"
+msgstr ""
+
+#: color/color.inc:15
+msgid "Cold Day"
+msgstr ""
+
+#: color/color.inc:16
+msgid "Greenbeam"
+msgstr ""
+
+#: color/color.inc:17
+msgid "Mediterrano"
+msgstr ""
+
+#: color/color.inc:18
+msgid "Mercury"
+msgstr ""
+
+#: color/color.inc:19
+msgid "Nocturnal"
+msgstr ""
+
+#: color/color.inc:20
+msgid "Olivia"
+msgstr ""
+
+#: color/color.inc:21
+msgid "Pink Plastic"
+msgstr ""
+
+#: color/color.inc:22
+msgid "Shiny Tomato"
+msgstr ""
+
+#: color/color.inc:23
+msgid "Teal Top"
+msgstr ""
+
+#: rootcandy_dark/rootcandy_dark.info:0
+msgid "RootCandy Dark"
+msgstr ""
+
+#: rootcandy_dark/rootcandy_dark.info:0
+msgid "Administration theme - dark"
+msgstr "Adminisztrációs menü - sötét"
+
+#: rootcandy_fixed/rootcandy_fixed.info:0
+msgid "RootCandy Fixed"
+msgstr ""
+
+#: rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Administration theme - fixed width"
+msgstr "Adminisztrációs menü - rögzített szélességű"
+

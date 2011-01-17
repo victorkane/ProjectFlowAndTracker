@@ -1,0 +1,394 @@
+/* $Id: icons-rtl.css,v 1.1.2.2 2010/01/01 14:56:01 sign Exp $
+ * based on Joakim Stai's css from icon module
+ */
+
+/**
+ * Messages
+ */
+div.messages, .help {
+  background-repeat: no-repeat !important;
+  background-position: 10px 13px !important;
+  padding-right: 44px !important;
+  padding-top: 10px !important;
+  min-height: 37px !important;
+
+}
+
+div.messages.status {
+  background-image: url(icons/i24/status/status-info.png) !important;
+}
+
+div.messages.error {
+  background-image: url(icons/i24/status/status-error.png) !important;
+}
+
+div.messages.warning {
+  background-image: url(icons/i24/status/status-warning.png) !important;
+}
+
+/**
+ * Admin pages
+ */
+body.admin #title {
+  background: url(icons/i24/admin/admin.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-content #title {
+  background: url(icons/i24/admin/admin-content.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-content-book #title {
+  background: url(icons/i24/admin/admin-content-book.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-content-comment #title {
+  background: url(icons/i24/admin/admin-content-comment.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-content-node_settings #title {
+  background: url(icons/i24/admin/admin-content-node-settings.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-content-taxonomy #title {
+  background: url(icons/i24/admin/admin-content-taxonomy.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-content-types #title {
+  background: url(icons/i24/admin/admin-content-types.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-content-rss_publishing #title {
+  background: url(icons/i24/admin/admin-content-rss-publishing.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-user #title {
+  background: url(icons/i24/admin/admin-user.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-user-rules #title {
+  background: url(icons/i24/admin/admin-user-rules.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-user-permissions #title {
+  background: url(icons/i24/admin/admin-user-permissions.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-user-roles #title {
+  background: url(icons/i24/admin/admin-user-roles.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-user-settings #title {
+  background: url(icons/i24/admin/admin-user-settings.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-user-user #title {
+  background: url(icons/i24/admin/admin-user.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-reports #title {
+  background: url(icons/i24/admin/admin-reports.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-reports-dblog #title {
+  background: url(icons/i24/admin/admin-settings-logging.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-reports-access_denied #title {
+  background: url(icons/i24/admin/admin-reports-access-denied.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-reports-page_not_found #title {
+  background: url(icons/i24/admin/admin-reports-page-not-found.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-reports-status #title {
+  background: url(icons/i24/admin/admin-reports-status.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-reports-updates #title {
+  background: url(icons/i24/admin/admin-reports-updates.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-build #title {
+  background: url(icons/i24/admin/admin-build.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-build-block #title {
+  background: url(icons/i24/admin/admin-build-block.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-build-menu #title {
+  background: url(icons/i24/admin/admin-build-menu.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-build-modules #title {
+  background: url(icons/i24/admin/admin-build-modules.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-build-themes #title {
+  background: url(icons/i24/admin/admin-build-themes.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-settings #title {
+  background: url(icons/i24/admin/admin-settings.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-settings-actions #title {
+  background: url(icons/i24/admin/admin-settings-actions.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-settings-admin #title {
+  background: url(icons/i24/admin/admin-build-themes.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-settings-clean_urls #title {
+  background: url(icons/i24/admin/admin-settings-clean-urls.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-settings-date_time #title {
+  background: url(icons/i24/admin/admin-settings-date-time.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-settings-error_reporting #title {
+  background: url(icons/i24/admin/admin-settings-error-reporting.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-settings-file_system #title {
+  background: url(icons/i24/admin/admin-settings-file-system.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-settings-image_toolkit #title {
+  background: url(icons/i24/admin/admin-settings-image-toolkit.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-settings-filters #title {
+  background: url(icons/i24/admin/admin-settings-filters.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-settings-logging #title {
+  background: url(icons/i24/admin/admin-settings-logging.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-settings-performance #title {
+  background: url(icons/i24/admin/admin-settings-performance.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-settings-site_information #title {
+  background: url(icons/i24/admin/admin-settings-site-information.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-settings-site_maintenance #title {
+  background: url(icons/i24/admin/admin-settings-site-maintenance.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.admin-help #title {
+  background: url(icons/i24/admin/admin-help.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.node-add #title {
+  background: url(icons/i24/admin/node-add.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.node-add-book #title {
+  background: url(icons/i24/admin/admin-content-book.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.node-add-story #title {
+  background: url(icons/i24/admin/node-add-story.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+body.user #title {
+  background: url(icons/i24/admin/user.png) right no-repeat;
+  padding-left: 32px;
+  min-height: 24px;
+  padding: 0 32px 0 10px;
+  padding-right: 32px;
+}
+
+/**
+ * Admin panel
+ */
+.admin-panel h3 {
+  background: url(icons/i24/admin/admin.png) right no-repeat;
+  margin-bottom: 0.3em;
+  padding-right: 32px;
+  min-height: 24px;
+}
+
+/**
+ * Misc.
+ */
+.help {
+  background: url(icons/i24/misc/help.png) no-repeat 0 3px !important;
+  padding-left: 34px;
+  min-height: 30px;
+}
+

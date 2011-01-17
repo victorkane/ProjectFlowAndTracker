@@ -1,0 +1,228 @@
+# translation of rootcandy.po to
+# $Id: nl.po,v 1.1.2.2 2009/05/10 19:46:44 sign Exp $
+# LANGUAGE translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  template.php,v 1.36.2.10 2008/10/20 10:01:57 sign
+#  theme-settings.php,v 1.6.2.7 2008/10/19 10:42:05 sign
+#  rootcandy.info,v 1.9.2.3 2008/10/11 09:40:58 sign
+#  rootcandy_fixed.info,v 1.1.2.1 2008/10/11 10:28:44 sign
+#  color.inc,v 1.7.2.1 2008/10/11 10:28:45 sign
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: nl\n"
+"POT-Creation-Date: 2008-10-20 11:05+0100\n"
+"PO-Revision-Date: 2008-10-21 21:19+0200\n"
+"Last-Translator: alexanderpas\n"
+"Language-Team: s\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: template.php:8
+msgid "Logout"
+msgstr "Uitloggen"
+
+#: template.php:58 theme-settings.php:39
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: template.php:59 theme-settings.php:51;57 rootcandy.info:0 rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Content"
+msgstr "Inhoud"
+
+#: template.php:61
+msgid "Create content"
+msgstr "Inhoud aanmaken"
+
+#: template.php:63
+msgid "Building"
+msgstr "Bouwen"
+
+#: template.php:64
+msgid "Configuration"
+msgstr "Instellingen"
+
+#: template.php:65
+msgid "Users"
+msgstr "Gebruikers"
+
+#: template.php:66
+msgid "Reports"
+msgstr "Rapporten"
+
+#: template.php:67
+msgid "Help"
+msgstr "Help"
+
+#: template.php:132
+msgid "Go Back to Homepage"
+msgstr "Terug naar de Voorpagina"
+
+#: theme-settings.php:27 rootcandy.info:0 rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Header"
+msgstr "Kop"
+
+#: theme-settings.php:34
+msgid "Disable header"
+msgstr "Kop uitschakelen"
+
+#: theme-settings.php:46
+msgid "Disable dashboard"
+msgstr "Dashboard uitschakelen"
+
+#: theme-settings.php:51;57
+msgid "Left"
+msgstr "Links"
+
+#: theme-settings.php:51;57
+msgid "Right"
+msgstr "Rechts"
+
+#: theme-settings.php:52
+msgid "Help box position"
+msgstr "Locatie Helpvak"
+
+#: theme-settings.php:58
+msgid "Messages box position"
+msgstr "Locatie Berichtenvak"
+
+#: theme-settings.php:63
+msgid "Disable content on a dashboard"
+msgstr "Inhoud niet op het Dashboard weergeven"
+
+#: theme-settings.php:69
+msgid "Navigation"
+msgstr "Navigatie"
+
+#: theme-settings.php:77
+msgid "Disable icons for main navigation"
+msgstr "Icoonen voor Hoofd-navigatie uitzetten"
+
+#: theme-settings.php:85
+msgid "Set icons size for main navigation"
+msgstr "Icoonen voor Hoofd-navigatie instellen"
+
+#: theme-settings.php:91
+msgid "Menu source by role"
+msgstr "Menu locatie per rol"
+
+#: theme-settings.php:98
+msgid "default navigation"
+msgstr "standaardnavigatie"
+
+#: theme-settings.php:103
+msgid "@role navigation"
+msgstr "@role navigatie"
+
+#: theme-settings.php:107
+msgid "Select what should be displayed as the navigation menu for role @role."
+msgstr "selecteer welke navigatie er voor de rol @role moet worden weergegeven"
+
+#: theme-settings.php:113;121
+msgid "Custom icons"
+msgstr "Aangepaste icoonen"
+
+#: theme-settings.php:123
+msgid "Format: menu href|icon path (relative to drupal root) - one item per row. eg. admin/build|files/myicons/admin-build.png"
+msgstr "Formaat: menu href|icoon pad (relatief ten opzichte van de drupal installatie) - een item per regel bijv. admin/build|files/myicons/admin-build.png"
+
+#: rootcandy.info:0
+msgid "RootCandy"
+msgstr "RootCandy"
+
+#: rootcandy.info:0
+msgid "Administration theme"
+msgstr "Beheerders Thema"
+
+#: rootcandy.info:0 rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Left sidebar"
+msgstr "Linker zijbalk"
+
+#: rootcandy.info:0 rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Right sidebar"
+msgstr "Rechter zijbalk"
+
+#: rootcandy.info:0 rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Footer"
+msgstr "Afsluiting"
+
+#: rootcandy.info:0 rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Dashboard Left"
+msgstr "Linker Dashboard"
+
+#: rootcandy.info:0 rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Dashboard Right"
+msgstr "Rechter Dashboard"
+
+#: color/color.inc:9 rootcandy_fixed/color/color.inc:9
+msgid "Glass (Default)"
+msgstr "Glas (standaard)"
+
+#: color/color.inc:10 rootcandy_fixed/color/color.inc:10
+msgid "Ash"
+msgstr "As"
+
+#: color/color.inc:11 rootcandy_fixed/color/color.inc:11
+msgid "Aquamarine"
+msgstr "Aquamarijn"
+
+#: color/color.inc:12 rootcandy_fixed/color/color.inc:12
+msgid "Belgian Chocolate"
+msgstr "Belgische Chocolade"
+
+#: color/color.inc:13 rootcandy_fixed/color/color.inc:13
+msgid "Bluemarine"
+msgstr "Bluemarine"
+
+#: color/color.inc:14 rootcandy_fixed/color/color.inc:14
+msgid "Citrus Blast"
+msgstr "Citrus Feest"
+
+#: color/color.inc:15 rootcandy_fixed/color/color.inc:15
+msgid "Cold Day"
+msgstr "Koude Dag"
+
+#: color/color.inc:16 rootcandy_fixed/color/color.inc:16
+msgid "Greenbeam"
+msgstr "Groenstraal"
+
+#: color/color.inc:17 rootcandy_fixed/color/color.inc:17
+msgid "Mediterrano"
+msgstr "Mediterraans"
+
+#: color/color.inc:18 rootcandy_fixed/color/color.inc:18
+msgid "Mercury"
+msgstr "Kwik"
+
+#: color/color.inc:19 rootcandy_fixed/color/color.inc:19
+msgid "Nocturnal"
+msgstr "Nocturnal"
+
+#: color/color.inc:20 rootcandy_fixed/color/color.inc:20
+msgid "Olivia"
+msgstr "Olivia"
+
+#: color/color.inc:21 rootcandy_fixed/color/color.inc:21
+msgid "Pink Plastic"
+msgstr "Roze Plastic"
+
+#: color/color.inc:22 rootcandy_fixed/color/color.inc:22
+msgid "Shiny Tomato"
+msgstr "Schijnende Tomaat"
+
+#: color/color.inc:23 rootcandy_fixed/color/color.inc:23
+msgid "Teal Top"
+msgstr "Kastanje boven"
+
+#: rootcandy_fixed/rootcandy_fixed.info:0
+msgid "RootCandy Fixed"
+msgstr "Rootcandy Vaste Breedte"
+
+#: rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Administration theme - fixed width"
+msgstr "Beheers Thema - vaste breedte"
+

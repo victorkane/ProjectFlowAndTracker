@@ -1,0 +1,233 @@
+/* $Id: dark.css,v 1.1.2.13 2010/04/24 00:14:59 sign Exp $ */
+
+body {
+  background: #f4f4f4;
+}
+
+a, a:active {
+  color: #000;
+  text-decoration: underline;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #f27b00;
+}
+
+#toppanel-head {
+  background: #313332 url(images/header_bg.png) repeat-x bottom;
+}
+
+#go-home {
+  float: left;
+  padding: 4px 0 0 32px;
+  background: url(images/gohome.png) no-repeat 6px 6px;
+}
+
+#navigation {
+  float: left;
+  width: 100%;
+  background: url(images/navigation_bg.png) repeat-x bottom;
+  background-color: #b2c8d3;
+  color: #f27b00;
+  font-size: 94%;
+  line-height: normal;
+}
+
+#navigation a {
+  color: #c0c0c0;
+}
+
+#navigation a:hover {
+  color: #f27b00;
+}
+
+#navigation #current {
+  background: url(images/tabs/tableft.gif) no-repeat left top;
+}
+
+#navigation #current a {
+  background: url(images/tabs/tabright.gif) no-repeat right top;
+  color: #fff;
+  padding-bottom: 2px;
+}
+
+
+#navigation #current-32 {
+  background: url(images/tabs/tableft_32.gif) no-repeat left top;
+  position: relative;
+  top: 1px;
+}
+
+#navigation #current-32 a {
+  background: url(images/tabs/tabright_32.gif) no-repeat right top;
+  color: #fff;
+  padding-bottom: 2px;
+}
+
+#navigation #current-24 {
+  background: url(images/tabs/tableft_24.gif) no-repeat left top;
+  position: relative;
+  top: 0px;
+}
+
+#navigation #current-24 a {
+  background: url(images/tabs/tabright_24.gif) no-repeat right top;
+  color: #fff;
+  padding-bottom: 3px;
+}
+
+#navigation #current-16 {
+  background: url(images/tabs/tableft_16.gif) no-repeat left top;
+  position: relative;
+  top: 0px;
+}
+
+#navigation #current-16 a {
+  background: url(images/tabs/tabright_16.gif) no-repeat right top;
+  color: #fff;
+  padding-bottom: 3px;
+}
+
+div#breadcrumb {
+  clear: both;
+  background: url(images/breadcrumb_bg.png) repeat-x;
+  padding-top: 15px;
+}
+
+* html div#breadcrumb {
+  padding-top: 8px;
+}
+
+#content {
+  background: #f4f4f4 none repeat scroll 0 0;
+}
+
+.t {background: #fff url(images/window/t.gif) 0 0 repeat-x;}
+.b {background: url(images/window/b.gif) 0 100% repeat-x}
+.l {background: url(images/window/l.gif) 0 0 repeat-y}
+.r {background: url(images/window/r.gif) 100% 0 repeat-y}
+.bl {background: url(images/window/bl.gif) 0 100% no-repeat}
+.br {background: url(images/window/br.gif) 100% 100% no-repeat}
+.tl {background: url(images/window/tl.gif) 0 0 no-repeat}
+.tr {background: url(images/window/tr.gif) 100% 0 no-repeat; padding: 10px}
+
+.content-in {
+  background: #fff;
+  background-image: none;
+}
+
+#content-wrap {
+  background: #f4f4f4;
+}
+
+.block h2 {
+  color: #f27b00;
+}
+
+#breadcrumb h2 {
+  color: #000;
+}
+
+.level-1 h2 {
+  color: #000;
+}
+
+#tabs-primary a {
+  color: #000;
+}
+
+#tabs-secondary a {
+  color: #000;
+}
+
+#rootcandy-menu li.active {
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+
+input.form-submit,
+input.teaser-button,
+.pager li.pager-current,
+.pager li a,
+.pager a:hover,
+.pager li.pager-current {
+  background: transparent url(images/buttons/orange-button.png) no-repeat top;
+}
+
+thead {
+  background: #333;
+  color: #fff;
+  text-shadow: none;
+  border: 1px solid #999;
+}
+
+thead tr.highlight {
+  background: #a0a0a0;
+}
+
+th a:link, th a:visited {
+  color: #fff;
+  text-decoration: none;
+}
+
+tr.odd, tr.info {
+  border: 1px solid #999;
+  background-color: #e0e0e0;
+}
+
+tr.even {
+  border: 1px solid #999;
+}
+
+tr.drag {
+  background-color: #fdfcf4;
+}
+
+tr.drag-previous {
+  background-color: #faf9e5;
+}
+
+
+td.description, .theme-info .description, td .description, table.description {
+  color:#000;
+}
+
+tr.highlight {
+  background: #fffcc8;
+}
+
+label.label-help {
+  background: #ececec;
+}
+
+#panel {
+  background: #2f333c url(images/panel/panel_content_bg.png);
+}
+
+#panel a {
+  color: #c0c0c0;
+}
+
+#toggle li {
+  background: url(images/panel/panel_left.png) no-repeat left top;
+}
+
+#toggle li a {
+  background: url(images/panel/panel_bg.png) no-repeat right top;
+}
+
+/* Vertical tabs */
+.vertical-tabs-list li {
+  background: #ececec;
+}
+
+.vertical-tabs-list li.selected {
+  background-color: #fff;
+  background-image: none;
+}
+
+.vertical-tabs-list .summary {
+  color: #898989;
+}

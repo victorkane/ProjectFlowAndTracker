@@ -1,0 +1,15 @@
+/* $Id: fixed.css,v 1.1.2.4 2009/05/23 09:11:41 sign Exp $ */
+
+body {
+  background: url(images/page_wrapper.png) top center repeat-y;
+}
+
+#page-wrapper {
+  width: 979px;
+  margin: 0 auto;
+  padding: 0 0 0 10px;
+}
+
+#page-wrapper-content {
+  width: 969px;
+}

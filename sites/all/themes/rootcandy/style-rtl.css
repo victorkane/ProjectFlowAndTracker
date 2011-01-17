@@ -1,0 +1,79 @@
+/* $Id: style-rtl.css,v 1.1.2.2 2009/02/12 10:55:27 sign Exp $ */
+
+body {
+  direction: rtl;
+}
+
+#go-home {
+  float: right;
+  padding: 2px 10px 0 32px;
+}
+
+#admin-links {
+  float: left;
+  padding: 2px 0 0 10px;
+}
+
+#navigation li {
+  float: right;
+  padding:0 5px 0 5px;
+}
+
+#navigation #current {
+  background:transparent url(images/tabs/tableft.png) no-repeat scroll left top;
+}
+
+#navigation #logo {
+  float: left;
+  margin-left: 20px;
+}
+
+.breadcrumb {
+  float: right;
+  padding-right: 20px;
+}
+
+#breadcrumb h2 {
+  float: left;
+  padding-left: 20px;
+}
+
+#sidebar-left, #sidebar-right {
+  text-align: right;
+}
+
+#rootcandy-menu {
+  text-align: left;
+}
+
+#rootcandy-menu li {
+  list-style-image: none;
+  list-style-position: outside;
+  list-style-type: none;
+  padding: 2px 8px 2px 10px;
+  text-align: left;
+}
+
+#rootcandy-menu li.active {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #DCF0F6;
+  border-top: 1px solid #DCF0F6;
+  padding: 2px 8px 2px 3px;
+}
+
+.content-in {
+  text-align: right;
+}
+
+#tabs-primary li, #tabs-secondary li {
+  float: right;
+}
+
+#tabs-primary ul li a, #tabs-secondary ul li a {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+table.system-status-report th {
+  background-position: 99% 50%;
+}

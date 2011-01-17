@@ -1,0 +1,19 @@
+/ $Id: INSTALL.txt,v 1.3.2.1 2008/10/08 19:07:33 sign Exp $
+
+INSTALL.txt
+===
+
+RootCandy admin theme
+--
+
+Installation
+--
+
+1) Place this theme into your themes directory.
+
+3) Go to admin/settings/admin and set rootcandy as an admin theme
+
+You can eventually check 'Use administration theme for content editing' checkbox
+
+
+RootCandy should work now when you access /admin/% sites and node/add/edit if you checked the checkbox mentioned above

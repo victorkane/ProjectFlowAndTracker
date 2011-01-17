@@ -1,0 +1,252 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: rootcandy (6.x-1.x-dev)\n"
+"POT-Creation-Date: 2009-02-01 17:00+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Noor Dawod <noor@comrax.com>\n"
+"Language-Team: Noor Dawod <noor@comrax.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Poedit-Language: Hebrew\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: template.php:8
+msgid "Logout"
+msgstr "התנתקות"
+
+#: template.php:60
+#: theme-settings.php:39
+msgid "Dashboard"
+msgstr "לוח הבקרה"
+
+#: template.php:61
+#: theme-settings.php:51;57
+#: rootcandy.info:0
+#: rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Content"
+msgstr "תוכן"
+
+#: template.php:63
+msgid "Create content"
+msgstr "יצירת תוכן"
+
+#: template.php:65
+msgid "Building"
+msgstr "בניית האתר"
+
+#: template.php:66
+msgid "Configuration"
+msgstr "הגדרות"
+
+#: template.php:67
+msgid "Users"
+msgstr "משתמשים"
+
+#: template.php:68
+msgid "Reports"
+msgstr "דוחות"
+
+#: template.php:69
+msgid "Help"
+msgstr "עזרה"
+
+#: template.php:134
+msgid "Go Back to Homepage"
+msgstr "גלישה אל דף הבית"
+
+#: theme-settings.php:27
+#: rootcandy.info:0
+#: rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Header"
+msgstr "כותרת עליונה"
+
+#: theme-settings.php:34
+msgid "Disable header"
+msgstr "ניטרול כותרת עליונה"
+
+#: theme-settings.php:46
+msgid "Disable dashboard"
+msgstr "נטרול לוח הבקרה"
+
+#: theme-settings.php:51;57
+msgid "Left"
+msgstr "שמאל"
+
+#: theme-settings.php:51;57
+msgid "Right"
+msgstr "ימין"
+
+#: theme-settings.php:52
+msgid "Help box position"
+msgstr "מיקום תיבת העזרה"
+
+#: theme-settings.php:58
+msgid "Messages box position"
+msgstr "מיקום תיבת ההודעות"
+
+#: theme-settings.php:63
+msgid "Disable content on a dashboard"
+msgstr "ניטרול התוכן בלוח הבקרה"
+
+#: theme-settings.php:69
+msgid "Navigation"
+msgstr "ניווט"
+
+#: theme-settings.php:77
+msgid "Disable icons for main navigation"
+msgstr "ניטרול הצלמיות בניווט הראשי"
+
+#: theme-settings.php:85
+msgid "Set icons size for main navigation"
+msgstr "קביעת גודל הצלמיות בניווט הראשי"
+
+#: theme-settings.php:91
+msgid "Menu source by role"
+msgstr "מקור תפריט לפי תפקיד"
+
+#: theme-settings.php:98
+msgid "default navigation"
+msgstr "ניווט ברירת המחדל"
+
+#: theme-settings.php:103
+msgid "@role navigation"
+msgstr "ניווט של @role"
+
+#: theme-settings.php:107
+msgid "Select what should be displayed as the navigation menu for role @role."
+msgstr "קביעת תצורת הניווט הראשי עבור התפקיד @role."
+
+#: theme-settings.php:113;121
+msgid "Custom icons"
+msgstr "צלמיות מותאמות אישית"
+
+#: theme-settings.php:123
+msgid "Format: menu href|icon path (relative to drupal root) - one item per row. eg. admin/build|files/myicons/admin-build.png"
+msgstr "תבנית: קישור תפריט|מיקום קובץ הצלמית (יחסית לספריית drupal הראשית) - רשומה אחת בכל שורה, למשל: admin/build|files/myicons/admin-build.png"
+
+#: rootcandy.info:0
+msgid "RootCandy"
+msgstr "RootCandy"
+
+#: rootcandy.info:0
+msgid "Administration theme"
+msgstr "עיצוב מסכי הניהול"
+
+#: rootcandy.info:0
+#: rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Left sidebar"
+msgstr "עמודה שמאלית"
+
+#: rootcandy.info:0
+#: rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Right sidebar"
+msgstr "עמודה ימנית"
+
+#: rootcandy.info:0
+#: rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Footer"
+msgstr "כותרת תחתונה"
+
+#: rootcandy.info:0
+#: rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Dashboard Left"
+msgstr "לוח הבקרה מצד שמאל"
+
+#: rootcandy.info:0
+#: rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Dashboard Right"
+msgstr "לוח הבקרה מצד ימין"
+
+#: color/color.inc:9
+#: rootcandy_fixed/color/color.inc:9
+msgid "Glass (Default)"
+msgstr "זכוכית (ברירת מחדל)"
+
+#: color/color.inc:10
+#: rootcandy_fixed/color/color.inc:10
+msgid "Cendra"
+msgstr "אפר"
+
+#: color/color.inc:11
+#: rootcandy_fixed/color/color.inc:11
+msgid "Aquamarine"
+msgstr "ירוק כחלחל"
+
+#: color/color.inc:12
+#: rootcandy_fixed/color/color.inc:12
+msgid "Belgian Chocolate"
+msgstr "שוקולד בלגי"
+
+#: color/color.inc:13
+#: rootcandy_fixed/color/color.inc:13
+msgid "Bluemarine"
+msgstr "כחול ים"
+
+#: color/color.inc:14
+#: rootcandy_fixed/color/color.inc:14
+msgid "Citrus Blast"
+msgstr "פרי הדר"
+
+#: color/color.inc:15
+#: rootcandy_fixed/color/color.inc:15
+msgid "Cold Day"
+msgstr "יום קר"
+
+#: color/color.inc:16
+#: rootcandy_fixed/color/color.inc:16
+msgid "Greenbeam"
+msgstr "קרן אור ירוקה"
+
+#: color/color.inc:17
+#: rootcandy_fixed/color/color.inc:17
+msgid "Mediterrano"
+msgstr "ים תיכוני"
+
+#: color/color.inc:18
+#: rootcandy_fixed/color/color.inc:18
+msgid "Mercury"
+msgstr "כספית"
+
+#: color/color.inc:19
+#: rootcandy_fixed/color/color.inc:19
+msgid "Nocturnal"
+msgstr "לילה"
+
+#: color/color.inc:20
+#: rootcandy_fixed/color/color.inc:20
+msgid "Olivia"
+msgstr "זית"
+
+#: color/color.inc:21
+#: rootcandy_fixed/color/color.inc:21
+msgid "Pink Plastic"
+msgstr "פלסטיק וורוד"
+
+#: color/color.inc:22
+#: rootcandy_fixed/color/color.inc:22
+msgid "Shiny Tomato"
+msgstr "עגבנייה נוצצת"
+
+#: color/color.inc:23
+#: rootcandy_fixed/color/color.inc:23
+msgid "Teal Top"
+msgstr "טורקיז"
+
+#: rootcandy_fixed/rootcandy_fixed.info:0
+msgid "RootCandy Fixed"
+msgstr "עיצוב קבוע"
+
+#: rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Administration theme - fixed width"
+msgstr "עיצוב מסכי הניהול - אורך קבוע"
+
+#~ msgid "Settings"
+#~ msgstr "הגדרות"
+#~ msgid "rootcandy"
+#~ msgstr "rootcandy"
+#~ msgid "Help module for rootcandy theme"
+#~ msgstr "רכיב עזרה עבור תבנית rootcandy"
+#~ msgid "Other"
+#~ msgstr "אחר"

@@ -1,0 +1,253 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: rootcandy (6.x-1.x-dev)\n"
+"POT-Creation-Date: 2008-10-20 11:05+0100\n"
+"PO-Revision-Date: 2010-04-24 16:02-0300\n"
+"Last-Translator: Giovanni Teixeira Oliveira <giovanni.oliveira@gmail.com>\n"
+"Language-Team: Giovanni Teixeira Oliveira <giovanni.oliveira@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Poedit-Language: Portuguese, Brazil\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: template.php:8
+msgid "Logout"
+msgstr "Sair"
+
+#: template.php:60
+#: theme-settings.php:39
+msgid "Dashboard"
+msgstr "Painel"
+
+#: template.php:61
+#: theme-settings.php:51;57
+#: rootcandy.info:0
+#: rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Content"
+msgstr "Conteúdo"
+
+#: template.php:63
+msgid "Create content"
+msgstr "Criar conteúdo"
+
+#: template.php:65
+msgid "Building"
+msgstr "Construção"
+
+#: template.php:66
+msgid "Configuration"
+msgstr "Configuração"
+
+#: template.php:67
+msgid "Users"
+msgstr "Usuários"
+
+#: template.php:68
+msgid "Reports"
+msgstr "Relatórios"
+
+#: template.php:69
+msgid "Help"
+msgstr "Ajuda"
+
+#: template.php:134
+msgid "Go Back to Homepage"
+msgstr "Voltar à Página Inicial"
+
+#: theme-settings.php:27
+#: rootcandy.info:0
+#: rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Header"
+msgstr "Cabeçalho"
+
+#: theme-settings.php:34
+msgid "Disable header"
+msgstr "Desabilitar cabeçalho"
+
+#: theme-settings.php:46
+msgid "Disable dashboard"
+msgstr "Desabilitar painel"
+
+#: theme-settings.php:51;57
+msgid "Left"
+msgstr "Esquerda"
+
+#: theme-settings.php:51;57
+msgid "Right"
+msgstr "Direita"
+
+#: theme-settings.php:52
+msgid "Help box position"
+msgstr "Posição da caixa de ajuda"
+
+#: theme-settings.php:58
+msgid "Messages box position"
+msgstr "Posição da caixa de mensagens"
+
+#: theme-settings.php:63
+msgid "Disable content on a dashboard"
+msgstr "Desabilitar conteúdo em um painel"
+
+#: theme-settings.php:69
+msgid "Navigation"
+msgstr "Navegação"
+
+#: theme-settings.php:77
+msgid "Disable icons for main navigation"
+msgstr "Desabilitar os ícones para a navegação principal"
+
+#: theme-settings.php:85
+msgid "Set icons size for main navigation"
+msgstr "Configurar tamanho dos ícones para a navegação principal"
+
+#: theme-settings.php:91
+msgid "Menu source by role"
+msgstr "Origem do menu por papel"
+
+#: theme-settings.php:98
+msgid "default navigation"
+msgstr "navegação padrão"
+
+#: theme-settings.php:103
+msgid "@role navigation"
+msgstr "navegação para @role"
+
+#: theme-settings.php:107
+msgid "Select what should be displayed as the navigation menu for role @role."
+msgstr "Selecione o que deverá ser mostrado como menu de navegação para o papel @role."
+
+#: theme-settings.php:113;121
+msgid "Custom icons"
+msgstr "Ícones personalizados"
+
+#: theme-settings.php:123
+msgid "Format: menu href|icon path (relative to drupal root) - one item per row. eg. admin/build|files/myicons/admin-build.png"
+msgstr "Formato: menu href|icon path (relativo à pasta raíz do drupal) - um ítem por linha, por ex: admin/build|files/myicons/admin-build.png"
+
+#: rootcandy.info:0
+msgid "RootCandy"
+msgstr "RootCandy"
+
+#: rootcandy.info:0
+msgid "Administration theme"
+msgstr "Tema da administração"
+
+#: rootcandy.info:0
+#: rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Left sidebar"
+msgstr "Barra lateral esquerda"
+
+#: rootcandy.info:0
+#: rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Right sidebar"
+msgstr "Barra lateral direita"
+
+#: rootcandy.info:0
+#: rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Footer"
+msgstr "Rodapé"
+
+#: rootcandy.info:0
+#: rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Dashboard Left"
+msgstr "Painel esquerdo"
+
+#: rootcandy.info:0
+#: rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Dashboard Right"
+msgstr "Painel Direito"
+
+#: color/color.inc:9
+#: rootcandy_fixed/color/color.inc:9
+msgid "Glass (Default)"
+msgstr "Vidro (Padrão)"
+
+#: color/color.inc:10
+#: rootcandy_fixed/color/color.inc:10
+msgid "Ash"
+msgstr "Cinzas"
+
+#: color/color.inc:11
+#: rootcandy_fixed/color/color.inc:11
+msgid "Aquamarine"
+msgstr "Água marinha"
+
+#: color/color.inc:12
+#: rootcandy_fixed/color/color.inc:12
+msgid "Belgian Chocolate"
+msgstr "Chocolate belga"
+
+#: color/color.inc:13
+#: rootcandy_fixed/color/color.inc:13
+msgid "Bluemarine"
+msgstr "Azul marinho"
+
+#: color/color.inc:14
+#: rootcandy_fixed/color/color.inc:14
+msgid "Citrus Blast"
+msgstr "Explosão cítrica"
+
+#: color/color.inc:15
+#: rootcandy_fixed/color/color.inc:15
+msgid "Cold Day"
+msgstr "Dia frio"
+
+#: color/color.inc:16
+#: rootcandy_fixed/color/color.inc:16
+msgid "Greenbeam"
+msgstr "Viga verde"
+
+#: color/color.inc:17
+#: rootcandy_fixed/color/color.inc:17
+msgid "Mediterrano"
+msgstr "Mediterrano"
+
+#: color/color.inc:18
+#: rootcandy_fixed/color/color.inc:18
+msgid "Mercury"
+msgstr "Mercúrio"
+
+#: color/color.inc:19
+#: rootcandy_fixed/color/color.inc:19
+msgid "Nocturnal"
+msgstr "Noturno"
+
+#: color/color.inc:20
+#: rootcandy_fixed/color/color.inc:20
+msgid "Olivia"
+msgstr "Olivia"
+
+#: color/color.inc:21
+#: rootcandy_fixed/color/color.inc:21
+msgid "Pink Plastic"
+msgstr "Plástoco rosa"
+
+#: color/color.inc:22
+#: rootcandy_fixed/color/color.inc:22
+msgid "Shiny Tomato"
+msgstr "Tomate brilhante"
+
+#: color/color.inc:23
+#: rootcandy_fixed/color/color.inc:23
+msgid "Teal Top"
+msgstr "Teal Top"
+
+#: rootcandy_fixed/rootcandy_fixed.info:0
+msgid "RootCandy Fixed"
+msgstr "RootCandy Fixo"
+
+#: rootcandy_fixed/rootcandy_fixed.info:0
+msgid "Administration theme - fixed width"
+msgstr "Tema da administração - comprimento fixo"
+
+#~ msgid "Settings"
+#~ msgstr "Opções"
+#~ msgid "rootcandy"
+#~ msgstr "rootcandy"
+#~ msgid "Help module for rootcandy theme"
+#~ msgstr "Módulo de ajuda para o tema RootCandy"
+#~ msgid "Other"
+#~ msgstr "Outro"
+
