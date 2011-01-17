@@ -8,7 +8,7 @@
  *   An array of modules to enable.
  */
 function pft_profile_modules() {
-  $modules = array ('install_profile_api','admin_menu', 'adminrole', 'advanced_help', 'block', 'ctools', 'clone', 'color', 'jquery_update', 'comment', 'content', 'content_copy', 'bulk_export', 'ctools_custom_content', 'date_api', 'date_timezone', 'date_popup', 'date', 'dblog', 'diff', 'fieldgroup', 'filefield', 'filefield_sources', 'filter', 'path', 'help', 'imageapi', 'imageapi_imagemagick', 'imagecache', 'imagecache_ui', 'imagefield', /* issue 989590 Colorbox included in hook_profile_modules function of installation profile breaks javascript behavior of Configure site page 'colorbox', */ 'login_destination', 'menu', 'node', 'optionwidgets', 'text', 'number', 'og', 'og_access', 'og_actions', 'views', 'nodereference', 'jquery_ui','globalredirect', 'token', 'strongarm', 'system', 'taxonomy', 'nodereference_url', 'pathauto', 'update', 'user', 'userreference', 'vertical_tabs', 'og_views', 'views_attach', 'views_bulk_operations', 'views_content', 'views_export', 'views_ui', 'taxonomy_export', 'pft_basic', 'panels', 'page_manager', 'panels_everywhere');
+  $modules = array ('install_profile_api','admin_menu', 'adminrole', 'advanced_help', 'block', 'ctools', 'clone', 'color', 'jquery_update', 'comment', 'content', 'content_copy', 'bulk_export', 'ctools_custom_content', 'date_api', 'date_timezone', 'date_popup', 'date', 'dblog', 'diff', 'fieldgroup', 'filefield', 'filefield_sources', 'filter', 'path', 'help', 'imageapi', 'imageapi_imagemagick', 'imagecache', 'imagecache_ui', 'imagefield', /* issue 989590 Colorbox included in hook_profile_modules function of installation profile breaks javascript behavior of Configure site page 'colorbox', */ 'login_destination', 'menu', 'node', 'optionwidgets', 'text', 'number', 'og', 'og_access', 'og_actions', 'views', 'nodereference', 'jquery_ui','globalredirect', 'token', 'strongarm', 'system', 'taxonomy', 'nodereference_url', 'pathauto', 'update', 'user', 'userreference', 'vertical_tabs', 'og_views', 'views_attach', 'views_bulk_operations', 'views_content', 'views_export', 'views_ui', 'taxonomy_export', 'pft_basic', 'panels', 'page_manager', 'panels_everywhere', 'pft_uipe');
   return $modules;
 }
 
@@ -142,23 +142,6 @@ function pft_profile_tasks(&$task, $url) {
   $theme_settings = variable_get('theme_settings', array());
   $theme_settings['toggle_node_info_page'] = FALSE;
   variable_set('theme_settings', $theme_settings);
-
-  // Set admin theme
-  install_enable_theme('rootcandy');
-  install_enable_theme('rootcandy_dark');
-  install_admin_theme('rootcandy_dark');
-  install_enable_theme('precision');
-  install_default_theme('pft');
-
-  // Panels everywhere
-  variable_set('page_manager_node_view_disabled', 0);
-  variable_set('panels_everywhere_site_template_enabled', 1);
-  variable_set('panels_everywhere_override_page_tpl', 1);
-  variable_set('panels_everywhere_head_title_include_name', 1);
-  variable_set('panels_everywhere_head_title_include_slogan', 1);
-  variable_set('panels_everywhere_head_title_separator', ' | ');
-
-  drupal_flush_all_caches();
 
   // Update the menu router information.
   menu_rebuild();
