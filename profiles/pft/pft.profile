@@ -143,6 +143,11 @@ function pft_profile_tasks(&$task, $url) {
   $theme_settings['toggle_node_info_page'] = FALSE;
   variable_set('theme_settings', $theme_settings);
 
+  // Set admin theme
+  install_enable_theme('rootcandy');
+  install_enable_theme('rootcandy_dark');
+  install_admin_theme('rootcandy_dark');
+
   // Update the menu router information.
   menu_rebuild();
 }
