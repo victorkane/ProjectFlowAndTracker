@@ -109,6 +109,7 @@ projects[views_bulk_operations][version] = "1.10"
 
 ; Themes
 projects[rootcandy][version] = "1.8"
-
 projects[precision][version] = "1.0-alpha1"
-
+projects[pft][type] = "theme"
+projects[pft][download][type] = "get"
+projects[pft][download][url] = http://code.projectflowandtracker.com/pft_theme.tgz
