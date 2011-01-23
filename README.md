@@ -13,15 +13,13 @@ $ drush make pft_build.make my_pft
 
 pft_build.make:
 
-<code><pre>
-core = 6.x
+    core = 6.x
 
-api = 2
-projects[drupal][version] = "6.20"
+    api = 2
+    projects[drupal][version] = "6.20"
 
-; PFT Installation Profile
-projects[pft][type] = "profile"
-projects[pft][download][type] = "get"
-projects[pft][download][url] = http://code.projectflowandtracker.com/pft_profile.tgz
-projects[pft][version] = 1.0-alpha1
-</pre></code>
+    ; PFT Installation Profile
+    projects[pft][type] = "profile"
+    projects[pft][download][type] = "get"
+    projects[pft][download][url] = http://code.projectflowandtracker.com/pft_profile.tgz
+    projects[pft][version] = 1.0-alpha1
