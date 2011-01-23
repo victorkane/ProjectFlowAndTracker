@@ -13,6 +13,7 @@ $ drush make pft_build.make my_pft
 
 pft_build.make:
 
+<code>
 core = 6.x
 
 api = 2
@@ -23,3 +24,4 @@ projects[pft][type] = "profile"
 projects[pft][download][type] = "get"
 projects[pft][download][url] = http://code.projectflowandtracker.com/pft_profile.tgz
 projects[pft][version] = 1.0-alpha1
+</code>
