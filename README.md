@@ -10,3 +10,16 @@ To build Project Flow & Tracker:
 $ drush make pft_build.make my_pft
 
 4. Install Drupal as usual, selecting the Project Flow & Tracker install profile.
+
+pft_build.make:
+
+core = 6.x
+
+api = 2
+projects[drupal][version] = "6.20"
+
+; PFT Installation Profile
+projects[pft][type] = "profile"
+projects[pft][download][type] = "get"
+projects[pft][download][url] = http://code.projectflowandtracker.com/pft_profile.tgz
+projects[pft][version] = 1.0-alpha1
