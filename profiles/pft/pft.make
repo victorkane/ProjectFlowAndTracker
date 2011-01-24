@@ -35,6 +35,9 @@ projects[advanced_help][version] = "1.2"
 projects[ctools][subdir] = "contrib"
 projects[ctools][version] = "1.8"
 
+projects[cck][subdir] = "contrib/date"
+projects[cck][version] = "2.9"
+
 projects[date][subdir] = "contrib/date"
 projects[date][version] = "2.7"
 
@@ -71,6 +74,9 @@ projects[jquery_update][version] = "2.0-alpha1"
 projects[login_destination][subdir] = "contrib"
 projects[login_destination][version] = "2.12"
 
+projects[node_clone][subdir] = "contrib"
+projects[node_clone][version] = "1.2"
+
 projects[nodereference_url][subdir] = "contrib"
 projects[nodereference_url][version] = "1.6"
 
@@ -83,11 +89,17 @@ projects[panels][version] = "3.8"
 projects[panels_everywhere][subdir] = "contrib"
 projects[panels_everywhere][version] = "1.1"
 
+projects[panels_tabs][subdir] = "contrib"
+projects[panels_tabs][version] = "1.0-rc6"
+
 projects[pathauto][subdir] = "contrib"
 projects[pathauto][version] = "1.5"
 
 projects[strongarm][subdir] = "contrib"
 projects[strongarm][version] = "2.0"
+
+projects[tabs][subdir] = "contrib"
+projects[tabs][version] = "1.x-dev"
 
 projects[taxonomy_export][subdir] = "contrib"
 projects[taxonomy_export][version] = "2.x-dev"
@@ -106,6 +118,17 @@ projects[views_attach][version] = "2.2"
 
 projects[views_bulk_operations][subdir] = "contrib"
 projects[views_bulk_operations][version] = "1.10"
+
+; Custom Modules
+projects[pft_basic][type] = "module"
+projects[pft_basic][subdir] = "pft"
+projects[pft_basic][download][type] = "get"
+projects[pft_basic][download][url] = http://code.projectflowandtracker.com/pft_basic.tgz
+
+projects[pft_uipe][type] = "module"
+projects[pft_uipe][subdir] = "pft"
+projects[pft_uipe][download][type] = "get"
+projects[pft_uipe][download][url] = http://code.projectflowandtracker.com/pft_uipe.tgz
 
 ; Libraries
 libraries[jquery_ui][download][type] = "get"
