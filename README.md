@@ -1,4 +1,10 @@
-To build Project Flow & Tracker:
+To download the bundled "everything included" installation profile:
+
+* Make sure you are in the 6.x-1.0-alpha1 branch
+* Click on Download .tar.gz or Download .zip
+* Install Drupal as usual, selecting the Project Flow & Tracker install profile.
+
+To build Project Flow & Tracker from scratch:
 
 1. Install drush and drush_make
 
