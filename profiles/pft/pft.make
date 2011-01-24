@@ -84,7 +84,7 @@ projects[og][subdir] = "contrib"
 projects[og][version] = "2.1"
 
 projects[panels][subdir] = "contrib"
-projects[panels][version] = "3.8"
+projects[panels][version] = "3.9"
 
 projects[panels_everywhere][subdir] = "contrib"
 projects[panels_everywhere][version] = "1.1"
