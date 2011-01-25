@@ -145,6 +145,17 @@ function pft_profile_tasks(&$task, $url) {
 
   // Update the menu router information.
   menu_rebuild();
+
+  // Install Welcome page
+  $welcome_body = '<p>&nbsp;</p><a href="/node/add/project">Click here to create a project</a><p>&nbsp;</p><p>&nbsp;</p><a href="http://staging.projectflowandtracker.com/">Click here to go to demo site</a><p>&nbsp;</p>';
+  $options = array(
+    'uid' => 1,
+    'type' => 'page',
+    'teaser' => strtr($welcome_body, 0, 350),
+    'comment' => 0,
+    'promote' => 1,
+  );
+  $node = install_create_node('Welcome to Project Flow & Tracker', $welcome_body, $options);
 }
 
 /**
