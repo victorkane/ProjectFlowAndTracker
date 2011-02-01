@@ -28,6 +28,9 @@ function pft_uipe_install() {
   variable_set('panels_everywhere_head_title_include_slogan', 1);
   variable_set('panels_everywhere_head_title_separator', ' | ');
 
+  // Turn off default Organic Groups home page view
+  variable_set('og_home_page_view', '');
+
   drupal_flush_all_caches();
 }
 
