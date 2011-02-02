@@ -221,3 +221,8 @@ div.panels-ipe-display-container .panel-pane .pane-title {
 td {
   padding-right:2px;
 }
+
+/******** User login *********/
+div.pane-content form#user-login-form li {
+  list-style: none outside none;
+}
