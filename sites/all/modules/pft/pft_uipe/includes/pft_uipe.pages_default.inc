@@ -19,11 +19,11 @@ function pft_uipe_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -27;
+  $handler->weight = -24;
   $handler->conf = array(
     'title' => 'Basic node variant',
     'no_blocks' => 0,
-    'pipeline' => 'ipe',
+    'pipeline' => 'standard',
     'css_id' => '',
     'css' => '',
     'contexts' => array(
@@ -41,7 +41,6 @@ function pft_uipe_default_page_manager_handlers() {
     'relationships' => array(),
   );
   $display = new panels_display;
-  $display->api_version = 1;
   $display->layout = 'threecol_33_34_33';
   $display->layout_settings = array();
   $display->panel_settings = array(
@@ -60,7 +59,6 @@ function pft_uipe_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-1';
     $pane->panel = 'left';
     $pane->type = 'node_title';
@@ -83,7 +81,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-1'] = $pane;
     $display->panels['left'][0] = 'new-1';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-2';
     $pane->panel = 'left';
     $pane->type = 'node_body';
@@ -105,7 +102,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-2'] = $pane;
     $display->panels['left'][1] = 'new-2';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-3';
     $pane->panel = 'left';
     $pane->type = 'content_fieldgroup';
@@ -130,7 +126,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-3'] = $pane;
     $display->panels['left'][2] = 'new-3';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-4';
     $pane->panel = 'middle';
     $pane->type = 'content_fieldgroup';
@@ -155,7 +150,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-4'] = $pane;
     $display->panels['middle'][0] = 'new-4';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-5';
     $pane->panel = 'right';
     $pane->type = 'node_author';
@@ -178,7 +172,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-5'] = $pane;
     $display->panels['right'][0] = 'new-5';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-6';
     $pane->panel = 'right';
     $pane->type = 'node_created';
@@ -201,7 +194,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-6'] = $pane;
     $display->panels['right'][1] = 'new-6';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-7';
     $pane->panel = 'right';
     $pane->type = 'node_updated';
@@ -224,7 +216,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-7'] = $pane;
     $display->panels['right'][2] = 'new-7';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-8';
     $pane->panel = 'right';
     $pane->type = 'node_links';
@@ -249,7 +240,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-8'] = $pane;
     $display->panels['right'][3] = 'new-8';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-9';
     $pane->panel = 'right';
     $pane->type = 'node_terms';
@@ -286,7 +276,7 @@ function pft_uipe_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -30;
+  $handler->weight = -25;
   $handler->conf = array(
     'title' => 'Page variant',
     'no_blocks' => 0,
@@ -312,7 +302,6 @@ function pft_uipe_default_page_manager_handlers() {
     ),
   );
   $display = new panels_display;
-  $display->api_version = 1;
   $display->layout = 'precision_column_one';
   $display->layout_settings = array();
   $display->panel_settings = array(
@@ -328,7 +317,6 @@ function pft_uipe_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-1';
     $pane->panel = 'main';
     $pane->type = 'node_content';
@@ -451,7 +439,6 @@ function pft_uipe_default_page_manager_handlers() {
     ),
   );
   $display = new panels_display;
-  $display->api_version = 1;
   $display->layout = 'pft_column_two';
   $display->layout_settings = array(
     'items' => array(
@@ -558,14 +545,16 @@ function pft_uipe_default_page_manager_handlers() {
         'corner_location' => 'pane',
       ),
       'main1' => array(
-        'title' => '',
-        'filling_tabs' => 'disabled',
+        'corner_location' => 'pane',
       ),
       'main2' => array(
         'title' => 'User Stories',
         'filling_tabs' => 'disabled',
       ),
-      'main3' => NULL,
+      'main3' => array(
+        'title' => 'Issues',
+        'filling_tabs' => 'disabled',
+      ),
     ),
     'main' => array(
       'style' => 'tabs',
@@ -580,9 +569,12 @@ function pft_uipe_default_page_manager_handlers() {
       'style' => 'tabs',
     ),
     'main1' => array(
-      'style' => 'tabs',
+      'style' => 'rounded_corners',
     ),
     'main2' => array(
+      'style' => 'tabs',
+    ),
+    'main3' => array(
       'style' => 'tabs',
     ),
   );
@@ -591,7 +583,6 @@ function pft_uipe_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-1';
     $pane->panel = 'aside_beta';
     $pane->type = 'block';
@@ -613,7 +604,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-1'] = $pane;
     $display->panels['aside_beta'][0] = 'new-1';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-2';
     $pane->panel = 'aside_beta';
     $pane->type = 'block';
@@ -635,7 +625,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-2'] = $pane;
     $display->panels['aside_beta'][1] = 'new-2';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-3';
     $pane->panel = 'header_alpha';
     $pane->type = 'node_content';
@@ -664,8 +653,28 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-3'] = $pane;
     $display->panels['header_alpha'][0] = 'new-3';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-4';
+    $pane->panel = 'main1';
+    $pane->type = 'block';
+    $pane->subtype = 'views-list_biz_stories-block_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+      'style' => 'default',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-4'] = $pane;
+    $display->panels['main1'][0] = 'new-4';
+    $pane = new stdClass;
+    $pane->pid = 'new-5';
     $pane->panel = 'main1';
     $pane->type = 'views';
     $pane->subtype = 'list_roles';
@@ -693,33 +702,10 @@ function pft_uipe_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
-    $display->content['new-4'] = $pane;
-    $display->panels['main1'][0] = 'new-4';
-    $pane = new stdClass;
-    $pane->api_version = 1;
-    $pane->pid = 'new-5';
-    $pane->panel = 'main1';
-    $pane->type = 'block';
-    $pane->subtype = 'views-list_biz_stories-block_1';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-      'style' => 'default',
-    );
-    $pane->css = array();
-    $pane->extras = array();
     $pane->position = 1;
     $display->content['new-5'] = $pane;
     $display->panels['main1'][1] = 'new-5';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-6';
     $pane->panel = 'main2';
     $pane->type = 'views';
@@ -752,7 +738,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-6'] = $pane;
     $display->panels['main2'][0] = 'new-6';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-7';
     $pane->panel = 'main2';
     $pane->type = 'views';
@@ -792,7 +777,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-7'] = $pane;
     $display->panels['main2'][1] = 'new-7';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-8';
     $pane->panel = 'main2';
     $pane->type = 'views';
@@ -831,7 +815,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-8'] = $pane;
     $display->panels['main2'][2] = 'new-8';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-9';
     $pane->panel = 'main2';
     $pane->type = 'views';
@@ -870,7 +853,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-9'] = $pane;
     $display->panels['main2'][3] = 'new-9';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-10';
     $pane->panel = 'main2';
     $pane->type = 'views';
@@ -909,7 +891,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-10'] = $pane;
     $display->panels['main2'][4] = 'new-10';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-11';
     $pane->panel = 'main2';
     $pane->type = 'block';
@@ -929,6 +910,134 @@ function pft_uipe_default_page_manager_handlers() {
     $pane->position = 5;
     $display->content['new-11'] = $pane;
     $display->panels['main2'][5] = 'new-11';
+    $pane = new stdClass;
+    $pane->pid = 'new-12';
+    $pane->panel = 'main3';
+    $pane->type = 'views';
+    $pane->subtype = 'list_issues_by_project';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '0',
+      'pager_id' => '',
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '',
+      'url' => '',
+      'display' => 'default',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-12'] = $pane;
+    $display->panels['main3'][0] = 'new-12';
+    $pane = new stdClass;
+    $pane->pid = 'new-13';
+    $pane->panel = 'main3';
+    $pane->type = 'views';
+    $pane->subtype = 'list_issues_by_project';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '0',
+      'pager_id' => '',
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '',
+      'url' => '',
+      'display' => 'block_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $display->content['new-13'] = $pane;
+    $display->panels['main3'][1] = 'new-13';
+    $pane = new stdClass;
+    $pane->pid = 'new-14';
+    $pane->panel = 'main3';
+    $pane->type = 'views';
+    $pane->subtype = 'list_issues_by_project';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '0',
+      'pager_id' => '',
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '',
+      'url' => '',
+      'display' => 'block_2',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $display->content['new-14'] = $pane;
+    $display->panels['main3'][2] = 'new-14';
+    $pane = new stdClass;
+    $pane->pid = 'new-15';
+    $pane->panel = 'main3';
+    $pane->type = 'views';
+    $pane->subtype = 'list_issues_by_project';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '0',
+      'pager_id' => '',
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '',
+      'url' => '',
+      'display' => 'block_3',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $display->content['new-15'] = $pane;
+    $display->panels['main3'][3] = 'new-15';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-3';
   $handler->conf['display'] = $display;
@@ -941,11 +1050,11 @@ function pft_uipe_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -29;
+  $handler->weight = -28;
   $handler->conf = array(
     'title' => 'User Story variant',
     'no_blocks' => 0,
-    'pipeline' => 'ipe',
+    'pipeline' => 'standard',
     'css_id' => '',
     'css' => '',
     'contexts' => array(
@@ -978,7 +1087,6 @@ function pft_uipe_default_page_manager_handlers() {
     ),
   );
   $display = new panels_display;
-  $display->api_version = 1;
   $display->layout = 'pft_column_two';
   $display->layout_settings = array();
   $display->panel_settings = array(
@@ -1020,11 +1128,10 @@ function pft_uipe_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-1';
     $pane->panel = 'aside_beta';
     $pane->type = 'content_field';
-    $pane->subtype = 'field_us_role';
+    $pane->subtype = 'field_us_biz_story';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -1044,8 +1151,30 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-1'] = $pane;
     $display->panels['aside_beta'][0] = 'new-1';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-2';
+    $pane->panel = 'aside_beta';
+    $pane->type = 'content_field';
+    $pane->subtype = 'field_us_role';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'normal',
+      'formatter' => 'default',
+      'context' => 'argument_nid_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $display->content['new-2'] = $pane;
+    $display->panels['aside_beta'][1] = 'new-2';
+    $pane = new stdClass;
+    $pane->pid = 'new-3';
     $pane->panel = 'aside_beta';
     $pane->type = 'block';
     $pane->subtype = 'og-0';
@@ -1061,12 +1190,11 @@ function pft_uipe_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
-    $display->content['new-2'] = $pane;
-    $display->panels['aside_beta'][1] = 'new-2';
+    $pane->position = 2;
+    $display->content['new-3'] = $pane;
+    $display->panels['aside_beta'][2] = 'new-3';
     $pane = new stdClass;
-    $pane->api_version = 1;
-    $pane->pid = 'new-3';
+    $pane->pid = 'new-4';
     $pane->panel = 'aside_beta';
     $pane->type = 'node_author';
     $pane->subtype = 'node_author';
@@ -1084,12 +1212,11 @@ function pft_uipe_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
-    $display->content['new-3'] = $pane;
-    $display->panels['aside_beta'][2] = 'new-3';
+    $pane->position = 3;
+    $display->content['new-4'] = $pane;
+    $display->panels['aside_beta'][3] = 'new-4';
     $pane = new stdClass;
-    $pane->api_version = 1;
-    $pane->pid = 'new-4';
+    $pane->pid = 'new-5';
     $pane->panel = 'header_alpha';
     $pane->type = 'node_title';
     $pane->subtype = 'node_title';
@@ -1123,11 +1250,10 @@ function pft_uipe_default_page_manager_handlers() {
     );
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-4'] = $pane;
-    $display->panels['header_alpha'][0] = 'new-4';
+    $display->content['new-5'] = $pane;
+    $display->panels['header_alpha'][0] = 'new-5';
     $pane = new stdClass;
-    $pane->api_version = 1;
-    $pane->pid = 'new-5';
+    $pane->pid = 'new-6';
     $pane->panel = 'header_alpha';
     $pane->type = 'node_terms';
     $pane->subtype = 'node_terms';
@@ -1161,11 +1287,10 @@ function pft_uipe_default_page_manager_handlers() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 1;
-    $display->content['new-5'] = $pane;
-    $display->panels['header_alpha'][1] = 'new-5';
+    $display->content['new-6'] = $pane;
+    $display->panels['header_alpha'][1] = 'new-6';
     $pane = new stdClass;
-    $pane->api_version = 1;
-    $pane->pid = 'new-6';
+    $pane->pid = 'new-7';
     $pane->panel = 'main1';
     $pane->type = 'node_body';
     $pane->subtype = 'node_body';
@@ -1183,11 +1308,10 @@ function pft_uipe_default_page_manager_handlers() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-6'] = $pane;
-    $display->panels['main1'][0] = 'new-6';
+    $display->content['new-7'] = $pane;
+    $display->panels['main1'][0] = 'new-7';
     $pane = new stdClass;
-    $pane->api_version = 1;
-    $pane->pid = 'new-7';
+    $pane->pid = 'new-8';
     $pane->panel = 'main1';
     $pane->type = 'content_fieldgroup';
     $pane->subtype = 'user_story:group_us_conversation';
@@ -1209,11 +1333,10 @@ function pft_uipe_default_page_manager_handlers() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 1;
-    $display->content['new-7'] = $pane;
-    $display->panels['main1'][1] = 'new-7';
+    $display->content['new-8'] = $pane;
+    $display->panels['main1'][1] = 'new-8';
     $pane = new stdClass;
-    $pane->api_version = 1;
-    $pane->pid = 'new-8';
+    $pane->pid = 'new-9';
     $pane->panel = 'main1';
     $pane->type = 'content_fieldgroup';
     $pane->subtype = 'user_story:group_us_confirmation';
@@ -1235,11 +1358,10 @@ function pft_uipe_default_page_manager_handlers() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 2;
-    $display->content['new-8'] = $pane;
-    $display->panels['main1'][2] = 'new-8';
+    $display->content['new-9'] = $pane;
+    $display->panels['main1'][2] = 'new-9';
     $pane = new stdClass;
-    $pane->api_version = 1;
-    $pane->pid = 'new-9';
+    $pane->pid = 'new-10';
     $pane->panel = 'main1';
     $pane->type = 'content_fieldgroup';
     $pane->subtype = 'user_story:group_us_metrics';
@@ -1260,11 +1382,10 @@ function pft_uipe_default_page_manager_handlers() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 3;
-    $display->content['new-9'] = $pane;
-    $display->panels['main1'][3] = 'new-9';
+    $display->content['new-10'] = $pane;
+    $display->panels['main1'][3] = 'new-10';
     $pane = new stdClass;
-    $pane->api_version = 1;
-    $pane->pid = 'new-10';
+    $pane->pid = 'new-11';
     $pane->panel = 'main2';
     $pane->type = 'node_links';
     $pane->subtype = 'node_links';
@@ -1285,11 +1406,10 @@ function pft_uipe_default_page_manager_handlers() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-10'] = $pane;
-    $display->panels['main2'][0] = 'new-10';
+    $display->content['new-11'] = $pane;
+    $display->panels['main2'][0] = 'new-11';
     $pane = new stdClass;
-    $pane->api_version = 1;
-    $pane->pid = 'new-11';
+    $pane->pid = 'new-12';
     $pane->panel = 'main2';
     $pane->type = 'views';
     $pane->subtype = 'list_issues';
@@ -1321,11 +1441,10 @@ function pft_uipe_default_page_manager_handlers() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 1;
-    $display->content['new-11'] = $pane;
-    $display->panels['main2'][1] = 'new-11';
+    $display->content['new-12'] = $pane;
+    $display->panels['main2'][1] = 'new-12';
     $pane = new stdClass;
-    $pane->api_version = 1;
-    $pane->pid = 'new-12';
+    $pane->pid = 'new-13';
     $pane->panel = 'main3';
     $pane->type = 'node_created';
     $pane->subtype = 'node_created';
@@ -1344,11 +1463,10 @@ function pft_uipe_default_page_manager_handlers() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-12'] = $pane;
-    $display->panels['main3'][0] = 'new-12';
+    $display->content['new-13'] = $pane;
+    $display->panels['main3'][0] = 'new-13';
     $pane = new stdClass;
-    $pane->api_version = 1;
-    $pane->pid = 'new-13';
+    $pane->pid = 'new-14';
     $pane->panel = 'main3';
     $pane->type = 'node_updated';
     $pane->subtype = 'node_updated';
@@ -1367,8 +1485,8 @@ function pft_uipe_default_page_manager_handlers() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 1;
-    $display->content['new-13'] = $pane;
-    $display->panels['main3'][1] = 'new-13';
+    $display->content['new-14'] = $pane;
+    $display->panels['main3'][1] = 'new-14';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -1381,11 +1499,11 @@ function pft_uipe_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -28;
+  $handler->weight = -27;
   $handler->conf = array(
     'title' => 'Issue variant',
     'no_blocks' => 0,
-    'pipeline' => 'ipe',
+    'pipeline' => 'standard',
     'css_id' => '',
     'css' => '',
     'contexts' => array(
@@ -1429,7 +1547,6 @@ function pft_uipe_default_page_manager_handlers() {
     ),
   );
   $display = new panels_display;
-  $display->api_version = 1;
   $display->layout = 'pft_column_two';
   $display->layout_settings = array();
   $display->panel_settings = array(
@@ -1471,7 +1588,6 @@ function pft_uipe_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-1';
     $pane->panel = 'aside_beta';
     $pane->type = 'content_field';
@@ -1495,7 +1611,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-1'] = $pane;
     $display->panels['aside_beta'][0] = 'new-1';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-2';
     $pane->panel = 'aside_beta';
     $pane->type = 'views';
@@ -1531,7 +1646,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-2'] = $pane;
     $display->panels['aside_beta'][1] = 'new-2';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-3';
     $pane->panel = 'aside_beta';
     $pane->type = 'block';
@@ -1552,7 +1666,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-3'] = $pane;
     $display->panels['aside_beta'][2] = 'new-3';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-4';
     $pane->panel = 'aside_beta';
     $pane->type = 'node_author';
@@ -1575,7 +1688,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-4'] = $pane;
     $display->panels['aside_beta'][3] = 'new-4';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-5';
     $pane->panel = 'header_alpha';
     $pane->type = 'node_title';
@@ -1613,7 +1725,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-5'] = $pane;
     $display->panels['header_alpha'][0] = 'new-5';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-6';
     $pane->panel = 'header_alpha';
     $pane->type = 'node_terms';
@@ -1651,7 +1762,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-6'] = $pane;
     $display->panels['header_alpha'][1] = 'new-6';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-7';
     $pane->panel = 'main1';
     $pane->type = 'node_body';
@@ -1673,7 +1783,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-7'] = $pane;
     $display->panels['main1'][0] = 'new-7';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-8';
     $pane->panel = 'main1';
     $pane->type = 'content_fieldgroup';
@@ -1698,7 +1807,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-8'] = $pane;
     $display->panels['main1'][1] = 'new-8';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-9';
     $pane->panel = 'main2';
     $pane->type = 'node_created';
@@ -1721,7 +1829,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-9'] = $pane;
     $display->panels['main2'][0] = 'new-9';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-10';
     $pane->panel = 'main2';
     $pane->type = 'node_updated';
@@ -1744,7 +1851,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-10'] = $pane;
     $display->panels['main2'][1] = 'new-10';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-11';
     $pane->panel = 'main2';
     $pane->type = 'node_links';
@@ -1780,11 +1886,11 @@ function pft_uipe_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -27;
+  $handler->weight = -26;
   $handler->conf = array(
     'title' => 'Role variant',
     'no_blocks' => 0,
-    'pipeline' => 'ipe',
+    'pipeline' => 'standard',
     'css_id' => '',
     'css' => '',
     'contexts' => array(
@@ -1828,7 +1934,6 @@ function pft_uipe_default_page_manager_handlers() {
     ),
   );
   $display = new panels_display;
-  $display->api_version = 1;
   $display->layout = 'pft_column_two';
   $display->layout_settings = array();
   $display->panel_settings = array(
@@ -1870,7 +1975,6 @@ function pft_uipe_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-1';
     $pane->panel = 'aside_beta';
     $pane->type = 'block';
@@ -1891,7 +1995,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-1'] = $pane;
     $display->panels['aside_beta'][0] = 'new-1';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-2';
     $pane->panel = 'aside_beta';
     $pane->type = 'block';
@@ -1912,7 +2015,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-2'] = $pane;
     $display->panels['aside_beta'][1] = 'new-2';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-3';
     $pane->panel = 'aside_beta';
     $pane->type = 'node_author';
@@ -1935,7 +2037,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-3'] = $pane;
     $display->panels['aside_beta'][2] = 'new-3';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-4';
     $pane->panel = 'header_alpha';
     $pane->type = 'node_title';
@@ -1973,7 +2074,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-4'] = $pane;
     $display->panels['header_alpha'][0] = 'new-4';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-5';
     $pane->panel = 'header_alpha';
     $pane->type = 'node_terms';
@@ -2011,7 +2111,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-5'] = $pane;
     $display->panels['header_alpha'][1] = 'new-5';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-6';
     $pane->panel = 'main1';
     $pane->type = 'node_body';
@@ -2033,7 +2132,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-6'] = $pane;
     $display->panels['main1'][0] = 'new-6';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-7';
     $pane->panel = 'main1';
     $pane->type = 'content_fieldgroup';
@@ -2058,7 +2156,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-7'] = $pane;
     $display->panels['main1'][1] = 'new-7';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-8';
     $pane->panel = 'main2';
     $pane->type = 'node_links';
@@ -2086,7 +2183,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-8'] = $pane;
     $display->panels['main2'][0] = 'new-8';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-9';
     $pane->panel = 'main2';
     $pane->type = 'block';
@@ -2107,7 +2203,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-9'] = $pane;
     $display->panels['main2'][1] = 'new-9';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-10';
     $pane->panel = 'main3';
     $pane->type = 'node_created';
@@ -2130,7 +2225,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-10'] = $pane;
     $display->panels['main3'][0] = 'new-10';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-11';
     $pane->panel = 'main3';
     $pane->type = 'node_updated';
@@ -2194,6 +2288,16 @@ function pft_uipe_default_page_manager_handlers() {
           'field_name' => 'field_issue_user_story',
         ),
       ),
+      1 => array(
+        'context' => 'argument_nid_1',
+        'name' => 'node_from_noderef',
+        'id' => 2,
+        'identifier' => 'Biz story from reference in user story',
+        'keyword' => 'biz-story-referenced-in-user-story',
+        'relationship_settings' => array(
+          'field_name' => 'field_us_biz_story',
+        ),
+      ),
     ),
     'access' => array(
       'plugins' => array(
@@ -2212,7 +2316,6 @@ function pft_uipe_default_page_manager_handlers() {
     ),
   );
   $display = new panels_display;
-  $display->api_version = 1;
   $display->layout = 'pft_column_two';
   $display->layout_settings = array();
   $display->panel_settings = array(
@@ -2254,7 +2357,6 @@ function pft_uipe_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-1';
     $pane->panel = 'aside_beta';
     $pane->type = 'block';
@@ -2275,7 +2377,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-1'] = $pane;
     $display->panels['aside_beta'][0] = 'new-1';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-2';
     $pane->panel = 'aside_beta';
     $pane->type = 'node_author';
@@ -2298,7 +2399,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-2'] = $pane;
     $display->panels['aside_beta'][1] = 'new-2';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-3';
     $pane->panel = 'header_alpha';
     $pane->type = 'node_title';
@@ -2336,7 +2436,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-3'] = $pane;
     $display->panels['header_alpha'][0] = 'new-3';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-4';
     $pane->panel = 'header_alpha';
     $pane->type = 'node_terms';
@@ -2374,7 +2473,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-4'] = $pane;
     $display->panels['header_alpha'][1] = 'new-4';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-5';
     $pane->panel = 'main1';
     $pane->type = 'node_body';
@@ -2396,9 +2494,43 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-5'] = $pane;
     $display->panels['main1'][0] = 'new-5';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-6';
     $pane->panel = 'main2';
+    $pane->type = 'views';
+    $pane->subtype = 'list_user_stories';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '0',
+      'pager_id' => '',
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '%1',
+      'url' => '',
+      'display' => 'block_5',
+      'context' => array(
+        0 => '',
+      ),
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-6'] = $pane;
+    $display->panels['main2'][0] = 'new-6';
+    $pane = new stdClass;
+    $pane->pid = 'new-7';
+    $pane->panel = 'main3';
     $pane->type = 'node_links';
     $pane->subtype = 'node_links';
     $pane->shown = TRUE;
@@ -2418,12 +2550,11 @@ function pft_uipe_default_page_manager_handlers() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-6'] = $pane;
-    $display->panels['main2'][0] = 'new-6';
+    $display->content['new-7'] = $pane;
+    $display->panels['main3'][0] = 'new-7';
     $pane = new stdClass;
-    $pane->api_version = 1;
-    $pane->pid = 'new-7';
-    $pane->panel = 'main2';
+    $pane->pid = 'new-8';
+    $pane->panel = 'main3';
     $pane->type = 'node_created';
     $pane->subtype = 'node_created';
     $pane->shown = TRUE;
@@ -2441,12 +2572,11 @@ function pft_uipe_default_page_manager_handlers() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 1;
-    $display->content['new-7'] = $pane;
-    $display->panels['main2'][1] = 'new-7';
+    $display->content['new-8'] = $pane;
+    $display->panels['main3'][1] = 'new-8';
     $pane = new stdClass;
-    $pane->api_version = 1;
-    $pane->pid = 'new-8';
-    $pane->panel = 'main2';
+    $pane->pid = 'new-9';
+    $pane->panel = 'main3';
     $pane->type = 'node_updated';
     $pane->subtype = 'node_updated';
     $pane->shown = TRUE;
@@ -2464,8 +2594,8 @@ function pft_uipe_default_page_manager_handlers() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 2;
-    $display->content['new-8'] = $pane;
-    $display->panels['main2'][2] = 'new-8';
+    $display->content['new-9'] = $pane;
+    $display->panels['main3'][2] = 'new-9';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -2493,7 +2623,6 @@ function pft_uipe_default_page_manager_handlers() {
     'pipeline' => 'standard',
   );
   $display = new panels_display;
-  $display->api_version = 1;
   $display->layout = 'precision_site_template';
   $display->layout_settings = array(
     'items' => array(
@@ -2564,7 +2693,6 @@ function pft_uipe_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-1';
     $pane->panel = 'branding';
     $pane->type = 'pane_header';
@@ -2582,7 +2710,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-1'] = $pane;
     $display->panels['branding'][0] = 'new-1';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-2';
     $pane->panel = 'branding';
     $pane->type = 'pane_navigation';
@@ -2600,7 +2727,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-2'] = $pane;
     $display->panels['branding'][1] = 'new-2';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-3';
     $pane->panel = 'footer';
     $pane->type = 'block';
@@ -2621,7 +2747,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-3'] = $pane;
     $display->panels['footer'][0] = 'new-3';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-4';
     $pane->panel = 'footer';
     $pane->type = 'block';
@@ -2642,7 +2767,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-4'] = $pane;
     $display->panels['footer'][1] = 'new-4';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-5';
     $pane->panel = 'main';
     $pane->type = 'pane_messages';
@@ -2660,7 +2784,6 @@ function pft_uipe_default_page_manager_handlers() {
     $display->content['new-5'] = $pane;
     $display->panels['main'][0] = 'new-5';
     $pane = new stdClass;
-    $pane->api_version = 1;
     $pane->pid = 'new-6';
     $pane->panel = 'main';
     $pane->type = 'page_content';

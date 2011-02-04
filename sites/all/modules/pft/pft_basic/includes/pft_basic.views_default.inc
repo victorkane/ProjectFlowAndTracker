@@ -2441,13 +2441,6 @@ function pft_basic_views_default_views() {
     'default' => 'field_us_priority_value',
   ));
   $handler->override_option('path', 'view/list/user-stories');
-  $handler->override_option('menu', array(
-    'type' => 'normal',
-    'title' => 'WIP',
-    'description' => 'Work in progress',
-    'weight' => '0',
-    'name' => 'primary-links',
-  ));
   $handler->override_option('tab_options', array(
     'type' => 'none',
     'title' => '',
