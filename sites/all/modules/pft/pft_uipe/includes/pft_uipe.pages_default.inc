@@ -2601,7 +2601,7 @@ function pft_uipe_default_page_manager_handlers() {
   $handler->conf['display'] = $display;
   $handlers['node_view_panel_context_7'] = $handler;
 
-  $handler = new stdClass;
+    $handler = new stdClass;
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
   $handler->name = 'site_template_panel_context';
@@ -2685,7 +2685,13 @@ function pft_uipe_default_page_manager_handlers() {
       'header' => NULL,
       'branding' => NULL,
       'main' => NULL,
-      'footer' => NULL,
+      'footer' => array(
+        'title' => '',
+        'filling_tabs' => 'disabled',
+      ),
+    ),
+    'footer' => array(
+      'style' => 'tabs',
     ),
   );
   $display->cache = array();
@@ -2749,6 +2755,32 @@ function pft_uipe_default_page_manager_handlers() {
     $pane = new stdClass;
     $pane->pid = 'new-4';
     $pane->panel = 'footer';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'what-next',
+      'title' => 'What next?',
+      'body' => '<ul>
+  <li><a href="/user">Dashboard</a></li>
+  <li><a href="/node/add/project">Create new project</a></li>
+</ul>',
+      'format' => '1',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $display->content['new-4'] = $pane;
+    $display->panels['footer'][1] = 'new-4';
+    $pane = new stdClass;
+    $pane->pid = 'new-5';
+    $pane->panel = 'footer';
     $pane->type = 'block';
     $pane->subtype = 'user-1';
     $pane->shown = TRUE;
@@ -2763,11 +2795,11 @@ function pft_uipe_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
-    $display->content['new-4'] = $pane;
-    $display->panels['footer'][1] = 'new-4';
+    $pane->position = 2;
+    $display->content['new-5'] = $pane;
+    $display->panels['footer'][2] = 'new-5';
     $pane = new stdClass;
-    $pane->pid = 'new-5';
+    $pane->pid = 'new-6';
     $pane->panel = 'main';
     $pane->type = 'pane_messages';
     $pane->subtype = 'pane_messages';
@@ -2781,10 +2813,10 @@ function pft_uipe_default_page_manager_handlers() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-5'] = $pane;
-    $display->panels['main'][0] = 'new-5';
+    $display->content['new-6'] = $pane;
+    $display->panels['main'][0] = 'new-6';
     $pane = new stdClass;
-    $pane->pid = 'new-6';
+    $pane->pid = 'new-7';
     $pane->panel = 'main';
     $pane->type = 'page_content';
     $pane->subtype = 'page_content';
@@ -2802,10 +2834,10 @@ function pft_uipe_default_page_manager_handlers() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 1;
-    $display->content['new-6'] = $pane;
-    $display->panels['main'][1] = 'new-6';
+    $display->content['new-7'] = $pane;
+    $display->panels['main'][1] = 'new-7';
   $display->hide_title = PANELS_TITLE_PANE;
-  $display->title_pane = 'new-6';
+  $display->title_pane = 'new-7';
   $handler->conf['display'] = $display;
   $handlers['site_template_panel_context'] = $handler;
 
