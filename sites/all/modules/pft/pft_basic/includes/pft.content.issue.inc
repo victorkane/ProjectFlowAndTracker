@@ -11,7 +11,7 @@ $content['type']  = array (
   'node_options' => 
   array (
     'status' => true,
-    'promote' => true,
+    'promote' => false,
     'sticky' => false,
     'revision' => false,
   ),
