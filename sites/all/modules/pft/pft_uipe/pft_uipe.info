@@ -6,5 +6,6 @@ dependencies[] = ctools
 dependencies[] = panels
 dependencies[] = page_manager
 dependencies[] = panels_everywhere
+dependencies[] = login_destination
 package = PFT
 core = 6.x

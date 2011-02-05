@@ -11,14 +11,12 @@
  * Implementation of hook_ctools_plugin_api().
  */
 function pft_uipe_ctools_plugin_api($module, $api) {
-  /****
   if ($module == 'strongarm' && $api == 'strongarm') {
     return array(
       'version' => 1, 
       'path' => drupal_get_path('module', 'pft_uipe') . '/includes'
     );
   }
-  ****/
   if ($module == 'panels' && $api == 'pipelines') {
     return array(
       'version' => 1, 
