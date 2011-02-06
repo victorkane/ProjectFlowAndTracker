@@ -31,6 +31,25 @@ function pft_uipe_install() {
   // Turn off default Organic Groups home page view
   variable_set('og_home_page_view', '');
 
+  // Add markdown input format, configure and make it default
+  install_include(array('filter'));
+  $markdown_format_id = install_add_format('Markdown', 1);
+  // all roles may use it except anonymous
+  install_format_set_roles(user_roles(TRUE), $markdown_format_id);
+  // add Markdown filter with weight -10
+  install_set_filter($markdown_format_id, "markdown", 0, -10);
+  // add URL filter with weight -9
+  install_set_filter($markdown_format_id, "filter", 2, -9);
+  // add HTML filter with weight -8
+  install_set_filter($markdown_format_id, "filter", 0, -8);
+  // add HTML corrector filter with weight -6
+  install_set_filter($markdown_format_id, "filter", 3, -6);
+  // set allowed
+
+  variable_set('allowed_html_' . $markdown_format_id, 
+    '<div> <span> <br> <a> <em> <strong> <cite> <code> <strike> <ul> <ol> <li> <dl> <dt> <dd> <img> <blockquote> <p> <pre> <h1> <h2> <h3> <h4> <h5> <h6> <table> <caption> <thead> <th> <td> <tr> <sup> <sub>');
+  variable_set('filter_default_format', $markdown_format_id);
+
   drupal_flush_all_caches();
 }
 

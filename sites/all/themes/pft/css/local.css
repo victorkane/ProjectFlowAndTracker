@@ -4,6 +4,23 @@ body {
  //background-color:#d2ba82;
 }
 
+ul, ol, dd {
+  margin-bottom: 1.5em;
+  margin-left: 2em; /* LTR */
+}
+
+li ul, li ol {
+  margin-bottom: 0;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
 #page-body,
 #page-footer {
   background-color: #fff;

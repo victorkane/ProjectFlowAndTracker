@@ -3,6 +3,7 @@ name = PFT Panels Everywhere UI Module
 description = Base package for Project Flow & Tracker
 ;
 dependencies[] = ctools
+dependencies[] = markdown
 dependencies[] = panels
 dependencies[] = page_manager
 dependencies[] = panels_everywhere

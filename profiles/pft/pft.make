@@ -74,6 +74,9 @@ projects[jquery_update][version] = "2.0-alpha1"
 projects[login_destination][subdir] = "contrib"
 projects[login_destination][version] = "2.12"
 
+projects[markdown][subdir] = "contrib"
+projects[markdown][version] = "1.2"
+
 projects[node_clone][subdir] = "contrib"
 projects[node_clone][version] = "1.2"
 
